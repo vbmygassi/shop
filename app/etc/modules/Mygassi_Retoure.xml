@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Mygassi_Retoure>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Mygassi_Retoure>
+	</modules>
+</config>      

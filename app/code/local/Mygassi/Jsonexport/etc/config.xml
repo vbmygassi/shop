@@ -1,0 +1,43 @@
+<config>
+	<modules>
+		<Mygassi_Jsonexport>
+			<version>0.1.0</version>
+		</Mygassi_Jsonexport>
+	</modules>
+	<frontend>
+		<routers>
+			<jsonexport>
+				<use>standard</use>
+				<args>
+					<module>Mygassi_Jsonexport</module>
+					<frontName>jsonexport</frontName>
+				</args>
+			</jsonexport>
+		</routers>
+	</frontend>
+	<global>
+		<models>
+			<jsonexport>
+				<class>Mygassi_Jsonexport_Model</class>
+				<resourceModel>jsonexport_resource</resourceModel>
+			</jsonexport>
+			<jsonexport_resource>
+				<class>Mygassi_Jsonexport_Model_Resource</class>
+			</jsonexport_resource>
+		</models>
+	</global>
+	<!--
+	<crontab>
+		<jobs>
+			<jsonexport>
+				<schedule>
+					<cron_expr>* * * * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>jsonexport/catalog::writeProductCatalog</model>
+				</run>
+			 </jsonexport>
+		</jobs>
+	</crontab>
+	-->
+</config>

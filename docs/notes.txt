@@ -1,0 +1,83 @@
+Magento Installation 1.7+
+	http://www.magentocommerce.com/download
+	
+	Erweiterungen Magento PAYONE 
+		http://www.magentocommerce.com/magento-connect/payone-extension.html
+		http://connect20.magentocommerce.com/community/Mage_Payone
+	
+	Language Packs
+		http://www.magentocommerce.com/magento-connect/german-shop-3384.html
+		http://connect20.magentocommerce.com/community/TechDivision_Germany
+
+
+Es gibt einen Ordner voll PHP Shell Scripte "shell"
+	Die Scripte liegen ausserhalb des Webroots 
+	Die Scripte sind werden von Hand oder von einem Cron Job angeworfen	
+
+	[mygassi-config.php]
+		Zum Justieren der Pfade
+	
+	[mygassi-salesexport.php]
+		>php mygassi-salesexport.php
+		Versendet die "payed" geflaggten Bestellungen aus der MyGassiDB
+		Erstellt die "invoice" (PDF) Dokumente der versendeten Bestellungen im Verzeichnis "shell/pdf/"
+		Setzt die "Flags" der versendeten Bestellungen auf "Zu Karlie versandt"
+
+	[mygassi-categoryimport.php]
+		Importiert die Karlie Kategorien in die MyGassiDB
+
+	[mygassi-productimport.php]
+		>php mygassi-productimport.php
+		Importiert Produkte aus der KarlieDB in die MyGassiDB
+		Lädt die Produktbilder von Karlie zu MyGassi
+			(vorgesehen ist hier ein Rsync Dienst; der Download erübrigt sich...)
+		Importiert die Produktbilder aus dem Folder /media/import in den Folder /media/catalog/product/
+	
+	[mygassi-check-parcels.php]
+		>php mygassi-check-parcels.php
+		Fragt Karlie nach der Paketnummer der versendeten Bestellungen (Flag: "referred_to_karlie")
+		So eine Paketnummer vorhanden 
+			wird die Paketnummer in die Bestellung geschrieben
+			wird der Lieferschein erstellt
+			wird der Flag der Bestellung auf "sent" "Versandt von Karlie" gesetzt
+
+	[mygassi-parcelid.php]	
+		>php mygassi-parcelid Kundennummer_Bestellnummer	
+		Fragt Karlie nach der Paketnummer einer Bestellung
+
+	[mygassi-deleteorders.php]
+		>php mygassi-deleteorders.php
+		Löscht die Bestellungen aus der MyGassi DB
+		Nur zum Testen
+
+	[mygassi-export-all-invoices.php]
+		>php mygassi-export-all-invoices.php
+		Exportiert alle Rechnungen (PDF) in das Verzeichnis "shell/pdf"
+		So eine Bestellung nicht bezahlt ist, gibt es auch keine Rechnung
+
+	[mygassi-export-invoice.php]
+		>php mygassi-export-invoice.php Kundennummer_Bestellnummer
+		Exportiert eine Invoice aus der MygassiDB (so die Bestellung bezahlt worden ist)
+
+	[mygassi-export-productcatalog.php]
+		>php export-productcatalog.php
+		Exportiert den Produktkatalog als json in das Verzeichnis "/media/json/productcatalog.json"
+		Wenn das nicht klappt liegt es an der Erstellung der gecachten Bilder
+
+	[mygassi-install.php]
+		>php mygassi-install.php
+		Schreibt die zur Laufzeit notwendigen MygassiDB Felder (Zustände der Bestellungen...
+
+	[mygassi-logger.php]
+		Erstellt die "Logs" der Scripte.	
+
+	[mygassi-retoure.php]	
+		>php mygassi-retoure.php
+		Fragt Karlie nach den Retouren der Bestellungen, die "sent" "Versandt von Karlie" geflagged sind
+		So eine Bestellung zurückgesandt ist wird der Zustand in die MygassiDB geschrieben "retoure"
+
+Zum Bezahlgateway PAYONE:
+	Die Einstellungen der Zahlungen sind auf "Authorized" zu stellen: 
+		Sonst wird das Gezedere unnötig kompliziert
+
+

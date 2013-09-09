@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Codex_Productattributes>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <AvS_FastSimpleImport />
+                <FireGento_GermanSetup />
+            </depends>
+        </Codex_Productattributes>
+	</modules>
+</config>

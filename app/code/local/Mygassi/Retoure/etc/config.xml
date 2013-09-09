@@ -1,0 +1,18 @@
+<config>
+	<modules>
+		<Mygassi_Retoure>
+			<version>0.1.0</version>
+		</Mygassi_Retoure>
+	</modules>
+	<frontend>
+		<routers>
+			<retoure>
+				<use>standard</use>
+				<args>
+					<module>Mygassi_Retoure</module>
+					<frontName>retoure</frontName>
+				</args>
+			</retoure>
+		</routers>
+	</frontend>
+</config>

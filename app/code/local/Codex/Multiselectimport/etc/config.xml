@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Codex_Multiselectimport>
+            <version>0.1.0</version>
+        </Codex_Multiselectimport>
+    </modules>
+
+    <global>
+        <helpers>
+            <codex_multiselectimport>
+                <class>Codex_Multiselectimport_Helper</class>
+            </codex_multiselectimport>
+        </helpers>
+
+        <models>
+            <codex_multiselectimport>
+                <class>Codex_Multiselectimport_Model</class>
+            </codex_multiselectimport>
+        </models>
+    </global>
+</config>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Codex_Productattributes>
+            <version>0.5.0</version>
+        </Codex_Productattributes>
+    </modules>
+    <global>
+        <resources>
+            <productattributes_setup>
+                <setup>
+                    <module>Codex_Productattributes</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </productattributes_setup>
+            <productattributes_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </productattributes_write>
+            <productattributes_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </productattributes_read>
+        </resources>
+        <helpers>
+            <productattributes>
+                <class>Codex_Productattributes_Helper</class>
+            </productattributes>
+        </helpers>
+    </global>
+</config>

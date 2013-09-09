@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Codex_Api>
+            <version>0.1.0</version>
+        </Codex_Api>
+    </modules>
+
+    <global>
+        <models>
+            <codex_api>
+                <class>Codex_Api_Model</class>
+            </codex_api>
+        </models>
+        <helpers>
+            <codex_api>
+                <class>Codex_Api_Helper</class>
+            </codex_api>
+        </helpers>
+    </global>
+
+    <codex>
+        <api>
+	<!--
+            <client_url>http://csdaten.karlie.de/Git_backup/magento-project-karlie/webservice/public/index.php/v1/</client_url>
+        -->    
+		<client_url>http://10.14.10.20/Git_backup/magento-project-karlie/webservice/public/index.php/v1/</client_url>
+	</api>
+        <catalog>
+            <product>
+                <threshold>5</threshold>
+            </product>
+        </catalog>
+    </codex>
+</config>

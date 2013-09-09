@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /shop/
+Disallow: /save/
+Disallow: /adhoc/
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/
+Disallow: /bak/

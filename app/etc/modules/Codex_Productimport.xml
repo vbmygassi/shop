@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Codex_Productimport>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <AvS_FastSimpleImport />
+                <Codex_Multiselectimport />
+                <Codex_Productattributes />
+            </depends>
+        </Codex_Productimport>
+    </modules>
+</config>

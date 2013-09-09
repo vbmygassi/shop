@@ -1,0 +1,34 @@
+<config>
+	<modules>
+		<Mygassi_Status>
+			<version>0.1.0</version>
+		</Mygassi_Status>
+	</modules>
+	<frontend>
+		<routers>
+			<status>
+				<use>standard</use>
+				<args>
+					<module>Mygassi_Status</module>
+					<frontName>trstatus</frontName>
+				</args>
+			</status>
+		</routers>
+	</frontend>
+	<!--
+	<crontab>
+		<jobs>
+			<status>
+				<schedule>
+					<cron_expr>* * * * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>status/status::exportSales</model>
+					<model>status/status::checkParcels</model>
+					<model>status/status::checkRetoure</model>
+				</run>
+			 </status>
+		</jobs>
+	</crontab>
+	-->
+</config>

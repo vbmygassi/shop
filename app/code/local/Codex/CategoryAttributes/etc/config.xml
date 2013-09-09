@@ -1,0 +1,20 @@
+<config>
+    <modules>
+        <Codex_CategoryAttributes>
+            <version>0.2.0</version>
+        </Codex_CategoryAttributes>
+    </modules>
+
+    <global>
+       <resources>
+            <categoryattributes_setup>
+                <setup>
+                    <module>Codex_CategoryAttributes</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </categoryattributes_setup>
+        </resources>
+    </global>
+</config>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Codex_CategoryAttributes>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Codex_CategoryAttributes>
+    </modules>
+</config>

@@ -1,0 +1,68 @@
+mygassi-config.php
+	Die Pfadfinderei der MyGassi Shellscripte
+
+mygassi-install.php
+	Schreibt die möglichen "Zustände" einer Bestellung in die Datenbank
+	Bezahlt, Gemahnt, etc.. (Mapping der PAYONE Bezahlzustände)
+	Wird man einmal ausführen.
+
+mygassi-categoryimport.php
+	Importiert die Kategorien von Karlie zu MyGassi
+	Wird womöglich als CRON Job laufen
+
+mygassi-productimport.php
+	Importiert die Produkte von Karlie zu MyGassi
+	Voraussetzung dafür ist das Einrichten einer "Store View" im Magento Admin mit dem Kürzel "en"
+	Wird womöglich als CRON Job laufen
+
+mygassi-productmodel.php
+	Wird von "mygassi-productimport.php" benötigt (manchmal)
+	Ist ein serialisiertes Produkt zum in die DB schreiben
+	Ein Template quasi
+
+mygassi-check-parcels.php
+	Wrapper für "mygassi-parcelid.php"
+	Ermittelt von Karlie vergebene Paketnummer einer Bestellung und schreibt diese in die Mygassi Datenbank
+	Voraussetzung dafür ist eine Rechnung und ein Lieferschein einer Bestellung
+	Die Rechnung wird erstellt beim übermitteln der PAYONE Zahlungsauftrages
+	Der Lieferschein wird erstellt wenn es eine Paketnummer gibt
+	Wird als CRON Job laufen
+
+mygassi-deleteorders.php
+	Script zum Löschen angelegter Bestellungen.
+	Nur zum Testen!
+	Obacht: Werden Bestellungen gelöscht kann es mitunter passieren, 
+	dass PAYONE neue Bestellungen der bereits gespeicherten OrderID wegen nicht verarbeitet
+
+mygassi-export-all-invoices.php
+	Generiert soweit dies möglich ist die Rechnungen der Bestellungen
+
+mygassi-jsonexport.php
+	Exportiert und speichert den Warenkatalog als JSON
+	( um Inkosistenzen zu vermeiden )
+
+mygassi-salesexport.php
+	Persistiert die "captured" "geflagten" (durch PAYONE als bezahlt bestätigten) 
+	Bestellungen als PDF auf die Festplatte und 
+	übermittelt diese an die von Karlie zur Verfügung gestellten Services
+	Wird wohl als CRON Job laufen
+
+mygassi-sqldump.php
+	Erstellt SQL-Dumps der DB 
+	(vor dem Import des Warenkatalogs zum Beispiel, 
+	falsche Datensätze können ganz schlimme Indexierungsfehler zu Folge haben,
+	ein falscher Impot kann die DB schrotten)
+	Script wird "included" hie und da
+
+mygassi-test-categories.php
+	Testet die Kategorie IDs der importierten Produkte "gegen" die importierten Kategorien, 
+	um ein Fehlen einer Kategorie ausschliessen zu können
+
+mygassi-payone-cron.php
+	Triggert die PAYONE Magento API Services um 
+	1. Zahlungen und Debitkonten anhand von vorhandenen Bestellungen anzulegen
+	2. Die Zustände der angelegten Debitkonten zu erfahren
+	Wird wohl als CRON Job laufen
+
+tcpdf
+	Ich fand den ZendPDF zum PDF generieren ultra nervig

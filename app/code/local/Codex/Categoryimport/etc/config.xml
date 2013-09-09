@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Codex_Categoryimport>
+            <version>0.1.0</version>
+        </Codex_Categoryimport>
+    </modules>
+
+    <global>
+        <models>
+            <codex_categoryimport>
+                <class>Codex_Categoryimport_Model</class>
+            </codex_categoryimport>
+        </models>
+    </global>
+</config>

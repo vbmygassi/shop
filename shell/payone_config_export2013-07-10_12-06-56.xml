@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <shop>
+    <code>default</code>
+    <name><![CDATA[Default Store View]]></name>
+    <system>
+      <name>Magento</name>
+      <version>1.7.0.2</version>
+      <edition>CE</edition>
+      <modules>
+        <AvS_FastSimpleImport>0.1.0</AvS_FastSimpleImport>
+        <Codex_Api>0.1.0</Codex_Api>
+        <Codex_CategoryAttributes>0.2.0</Codex_CategoryAttributes>
+        <Codex_Categoryimport>0.1.0</Codex_Categoryimport>
+        <Codex_Multiselectimport>0.1.0</Codex_Multiselectimport>
+        <FireGento_GermanSetup>1.1.4</FireGento_GermanSetup>
+        <Codex_Productattributes>0.5.0</Codex_Productattributes>
+        <Codex_Productimport>0.1.0</Codex_Productimport>
+        <German_LocalePackDe>1.7.0.2.4</German_LocalePackDe>
+        <Mygassi_Jsonexport>0.1.0</Mygassi_Jsonexport>
+        <Mygassi_Order>0.1.0</Mygassi_Order>
+        <Mygassi_Pdfwriter>0.1.0</Mygassi_Pdfwriter>
+        <Mygassi_Status></Mygassi_Status>
+        <Payone_Core>3.1.2</Payone_Core>
+        <Payone_Migrator>3.1.2</Payone_Migrator>
+        <Phoenix_Moneybookers>1.6.0.0</Phoenix_Moneybookers>
+      </modules>
+    </system>
+    <global>
+      <mid>21909</mid>
+      <aid>22401</aid>
+      <portalid>2015633</portalid>
+      <request_type>preauthorization</request_type>
+      <parameter_invoice>
+        <invoice_appendix><![CDATA[]]></invoice_appendix>
+        <invoice_appendix_refund><![CDATA[]]></invoice_appendix_refund>
+        <pdf_download_enabled>1</pdf_download_enabled>
+        <transmit_enabled>1</transmit_enabled>
+      </parameter_invoice>
+      <status_mapping>
+        <vor>
+          <map from="appointed" to="new|pending"/>
+          <map from="paid" to="processing|processing"/>
+        </vor>
+        <cod>
+          <map from="appointed" to="processing|processing"/>
+        </cod>
+        <cc>
+          <map from="appointed" to="processing|processing"/>
+        </cc>
+        <elv>
+          <map from="appointed" to="processing|processing"/>
+        </elv>
+        <fnc>
+          <map from="appointed" to="processing|processing"/>
+        </fnc>
+        <rec>
+          <map from="appointed" to="processing|processing"/>
+        </rec>
+        <sb>
+          <map from="appointed" to="processing|processing"/>
+        </sb>
+        <wlt>
+          <map from="appointed" to="processing|appointed"/>
+          <map from="capture" to="processing|capture"/>
+          <map from="paid" to="processing|payed"/>
+          <map from="underpaid" to="processing|underpayed"/>
+          <map from="refund" to="processing|refund"/>
+          <map from="reminder" to="processing|processing"/>
+          <map from="vauthorization" to="processing|vauthorization"/>
+          <map from="vsettlement" to="processing|vsettlement"/>
+          <map from="transfer" to="processing|transfer"/>
+          <map from="invoice" to="processing|invoice"/>
+        </wlt>
+      </status_mapping>
+      <payment_creditcard>
+        <min_validity_period></min_validity_period>
+      </payment_creditcard>
+    </global>
+    <clearingtypes>
+      <wlt>
+        <title><![CDATA[Paypal Express (PAYONE Test)]]></title>
+        <id>3</id>
+        <mid>21909</mid>
+        <aid>22401</aid>
+        <portalid>2015633</portalid>
+        <min_order_total>0</min_order_total>
+        <max_order_total>1000</max_order_total>
+        <types>PPE</types>
+        <active>1</active>
+        <countries>DE</countries>
+        <authorization>preauthorization</authorization>
+        <mode>test</mode>
+      </wlt>
+      <sb>
+        <title><![CDATA[Sofort-Überweisung (PAYONE Test)]]></title>
+        <id>7</id>
+        <mid>21909</mid>
+        <aid>22401</aid>
+        <portalid>2015633</portalid>
+        <min_order_total>1</min_order_total>
+        <max_order_total>1000</max_order_total>
+        <types>PNT,GPY,EPS,PFF,PFC,IDL</types>
+        <active>1</active>
+        <countries>DE</countries>
+        <authorization>preauthorization</authorization>
+        <mode>test</mode>
+      </sb>
+      <cc>
+        <title><![CDATA[Kreditkarte (PAYONE Test)]]></title>
+        <id>11</id>
+        <mid>21909</mid>
+        <aid>22401</aid>
+        <portalid>2015633</portalid>
+        <cvc2>0</cvc2>
+        <types>V,M,A,D,J,O,U,C,B</types>
+        <active>1</active>
+        <countries>DE</countries>
+        <authorization>preauthorization</authorization>
+        <mode>test</mode>
+      </cc>
+    </clearingtypes>
+    <protect>
+      <consumerscore>
+        <active>1</active>
+        <mode>test</mode>
+        <min_order_total></min_order_total>
+        <max_order_total></max_order_total>
+        <addresscheck></addresscheck>
+        <yellow>payflow_link</yellow>
+        <duetime>0</duetime>
+      </consumerscore>
+      <addresscheck>
+        <active>0</active>
+        <mode>test</mode>
+        <min_order_total></min_order_total>
+        <max_order_total></max_order_total>
+        <checkbilling>NO</checkbilling>
+        <checkshipping>NO</checkshipping>
+        <personstatusmapping/>
+      </addresscheck>
+    </protect>
+    <misc>
+      <transactionstatus_forwarding/>
+      <shipping_costs>
+        <sku></sku>
+      </shipping_costs>
+    </misc>
+  </shop>
+  <shop>
+    <code>en</code>
+    <name><![CDATA[English]]></name>
+    <system>
+      <name>Magento</name>
+      <version>1.7.0.2</version>
+      <edition>CE</edition>
+      <modules>
+        <AvS_FastSimpleImport>0.1.0</AvS_FastSimpleImport>
+        <Codex_Api>0.1.0</Codex_Api>
+        <Codex_CategoryAttributes>0.2.0</Codex_CategoryAttributes>
+        <Codex_Categoryimport>0.1.0</Codex_Categoryimport>
+        <Codex_Multiselectimport>0.1.0</Codex_Multiselectimport>
+        <FireGento_GermanSetup>1.1.4</FireGento_GermanSetup>
+        <Codex_Productattributes>0.5.0</Codex_Productattributes>
+        <Codex_Productimport>0.1.0</Codex_Productimport>
+        <German_LocalePackDe>1.7.0.2.4</German_LocalePackDe>
+        <Mygassi_Jsonexport>0.1.0</Mygassi_Jsonexport>
+        <Mygassi_Order>0.1.0</Mygassi_Order>
+        <Mygassi_Pdfwriter>0.1.0</Mygassi_Pdfwriter>
+        <Mygassi_Status></Mygassi_Status>
+        <Payone_Core>3.1.2</Payone_Core>
+        <Payone_Migrator>3.1.2</Payone_Migrator>
+        <Phoenix_Moneybookers>1.6.0.0</Phoenix_Moneybookers>
+      </modules>
+    </system>
+    <global>
+      <mid>21909</mid>
+      <aid>22401</aid>
+      <portalid>2015633</portalid>
+      <request_type>preauthorization</request_type>
+      <parameter_invoice>
+        <invoice_appendix><![CDATA[]]></invoice_appendix>
+        <invoice_appendix_refund><![CDATA[]]></invoice_appendix_refund>
+        <pdf_download_enabled>1</pdf_download_enabled>
+        <transmit_enabled>1</transmit_enabled>
+      </parameter_invoice>
+      <status_mapping>
+        <vor>
+          <map from="appointed" to="new|pending"/>
+          <map from="paid" to="processing|processing"/>
+        </vor>
+        <cod>
+          <map from="appointed" to="processing|processing"/>
+        </cod>
+        <cc>
+          <map from="appointed" to="processing|processing"/>
+        </cc>
+        <elv>
+          <map from="appointed" to="processing|processing"/>
+        </elv>
+        <fnc>
+          <map from="appointed" to="processing|processing"/>
+        </fnc>
+        <rec>
+          <map from="appointed" to="processing|processing"/>
+        </rec>
+        <sb>
+          <map from="appointed" to="processing|processing"/>
+        </sb>
+        <wlt>
+          <map from="appointed" to="processing|appointed"/>
+          <map from="capture" to="processing|capture"/>
+          <map from="paid" to="processing|payed"/>
+          <map from="underpaid" to="processing|underpayed"/>
+          <map from="refund" to="processing|refund"/>
+          <map from="reminder" to="processing|processing"/>
+          <map from="vauthorization" to="processing|vauthorization"/>
+          <map from="vsettlement" to="processing|vsettlement"/>
+          <map from="transfer" to="processing|transfer"/>
+          <map from="invoice" to="processing|invoice"/>
+        </wlt>
+      </status_mapping>
+      <payment_creditcard>
+        <min_validity_period></min_validity_period>
+      </payment_creditcard>
+    </global>
+    <clearingtypes>
+      <wlt>
+        <title><![CDATA[Paypal Express (PAYONE Test)]]></title>
+        <id>4</id>
+        <mid>21909</mid>
+        <aid>22401</aid>
+        <portalid>2015633</portalid>
+        <min_order_total>0</min_order_total>
+        <max_order_total>1000</max_order_total>
+        <types>PPE</types>
+        <active>1</active>
+        <countries>DE</countries>
+        <authorization>preauthorization</authorization>
+        <mode>test</mode>
+      </wlt>
+      <sb>
+        <title><![CDATA[Sofort-Überweisung (PAYONE Test)]]></title>
+        <id>8</id>
+        <mid>21909</mid>
+        <aid>22401</aid>
+        <portalid>2015633</portalid>
+        <min_order_total>1</min_order_total>
+        <max_order_total>1000</max_order_total>
+        <types>PNT,GPY,EPS,PFF,PFC,IDL</types>
+        <active>1</active>
+        <countries>DE</countries>
+        <authorization>preauthorization</authorization>
+        <mode>test</mode>
+      </sb>
+      <cc>
+        <title><![CDATA[Kreditkarte (PAYONE Test)]]></title>
+        <id>12</id>
+        <mid>21909</mid>
+        <aid>22401</aid>
+        <portalid>2015633</portalid>
+        <cvc2>0</cvc2>
+        <types>V,M,A,D,J,O,U,C,B</types>
+        <active>1</active>
+        <countries>DE</countries>
+        <authorization>preauthorization</authorization>
+        <mode>test</mode>
+      </cc>
+    </clearingtypes>
+    <protect>
+      <consumerscore>
+        <active>1</active>
+        <mode>test</mode>
+        <min_order_total></min_order_total>
+        <max_order_total></max_order_total>
+        <addresscheck></addresscheck>
+        <yellow>payflow_link</yellow>
+        <duetime>0</duetime>
+      </consumerscore>
+      <addresscheck>
+        <active>0</active>
+        <mode>test</mode>
+        <min_order_total></min_order_total>
+        <max_order_total></max_order_total>
+        <checkbilling>NO</checkbilling>
+        <checkshipping>NO</checkshipping>
+        <personstatusmapping/>
+      </addresscheck>
+    </protect>
+    <misc>
+      <transactionstatus_forwarding/>
+      <shipping_costs>
+        <sku></sku>
+      </shipping_costs>
+    </misc>
+  </shop>
+</config>

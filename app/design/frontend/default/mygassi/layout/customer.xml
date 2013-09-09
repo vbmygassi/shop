@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+-->
+<layout version="0.1.0">
+	<default translate="label" module="page">
+		<label>All Pages</label>
+		<block type="page/html" name="root" output="toHtml" template="page/1column.phtml">
+			<block type="page/html_head" name="head" as="head">
+                		<action method="addJs"><script>prototype/prototype.js</script></action>
+				<action method="addJs"><script>lib/ccard.js</script></action>
+				<action method="addJs"><script>prototype/validation.js</script></action>
+				<action method="addJs"><script>scriptaculous/builder.js</script></action>
+				<action method="addJs"><script>scriptaculous/effects.js</script></action>
+				<action method="addJs"><script>scriptaculous/dragdrop.js</script></action>
+				<action method="addJs"><script>scriptaculous/controls.js</script></action>
+				<action method="addJs"><script>scriptaculous/slider.js</script></action>
+				<action method="addJs"><script>jquery/jquery-2.0.0.min.js</script></action>
+				<action method="addJs"><script>jquery/noconflict.js</script></action>
+				<action method="addJs"><script>varien/js.js</script></action>
+				<action method="addJs"><script>varien/form.js</script></action>
+				<action method="addJs"><script>mage/translate.js</script></action>
+				<action method="addJs"><script>mage/cookies.js</script></action>
+				<block type="page/js_cookie" name="js_cookies" template="page/js/cookie.phtml"/>
+				<action method="addItem"><type>skin_js</type><name>js/modernizr.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/iphone.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/dnd.js</name></action>
+				<action method="addCss"><stylesheet>css/iphone.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
+			</block>
+			<block type="core/text_list" name="content" as="content" translate="label">
+				<label>Main</label>
+			</block>
+		</block>
+	</default>
+
+	<customer_account_forgotpassword translate="label">
+		<reference name="content">
+			<block type="customer/account_forgotpassword" name="forgotPassword" template="customer/form/forgotpassword.phtml"/>
+		</reference>
+	</customer_account_forgotpassword>
+	
+	<customer_account_resetpassword translate="label">
+		<reference name="content">
+			<block type="customer/account_resetpassword" name="resetPassword" template="customer/form/resetforgottenpassword.phtml"/>
+		</reference>
+	</customer_account_resetpassword>
+
+	<customer_account_login translate="label">
+		<reference name="content">
+			<block type="customer/form_yagharrakk" name="customer_form_login" template="customer/form/yagharrakk.phtml" />
+		</reference>
+	</customer_account_login>
+</layout>

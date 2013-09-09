@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Codex_Productimport>
+            <version>0.1.0</version>
+        </Codex_Productimport>
+    </modules>
+
+    <global>
+        <models>
+            <codex_productimport>
+                <class>Codex_Productimport_Model</class>
+            </codex_productimport>
+        </models>
+
+        <helpers>
+            <codex_productimport>
+                <class>Codex_Productimport_Helper</class>
+            </codex_productimport>
+        </helpers>
+
+        <events>
+            <avs_fastsimpleimport_entity_product_init_categories>
+                <observers>
+                    <codex_productimport>
+                        <type>singleton</type>
+                        <class>codex_productimport/observer</class>
+                        <method>avs_fastsimpleimport_entity_product_init_categories</method>
+                    </codex_productimport>
+                </observers>
+            </avs_fastsimpleimport_entity_product_init_categories>
+        </events>
+
+    </global>
+
+    <!--
+    <codex>
+        <productimport>
+            <php_binary>/Applications/MAMP/bin/php/php5.3.6/bin/php</php_binary>
+            <memlimit>512M</memlimit>
+        </productimport>
+    </codex>
+    -->
+
+    <phpunit>
+        <suite>
+            <modules>
+                <Codex_Productimport/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>
