@@ -87,7 +87,7 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 				case null:
 				case "":
 					// if there is no description so far
-					$descTemp1 = $prod->getArtikelbezeichnung1;
+					$descTemp1 = $prod->getArtikelbezeichnung1();
 					$descTemp2 = $prod->getDescription();
 					// description is the new description
 					$description = $descTemp2; 
@@ -118,7 +118,7 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 			);
 			$mprds[]= $temp; 
 			// specialwonsch again
-			// products tagges as "top_product" generate a new category and get collected again!
+			// products tagged as "top_product" generate a new category and get collected again!
 			if("1" === $this->getProductTop($prod)){
 				$temp = array(
 					'category_id'=>"$66666666666666",

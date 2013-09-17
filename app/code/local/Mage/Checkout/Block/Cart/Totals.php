@@ -64,21 +64,24 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
         return $block;
     }
 
-    public function renderTotal($total, $area = null, $colspan = 1)
-    {
-	// $total["address"]["applied_taxes"];
-	$code = $total->getCode();
-	if ($total->getAs()) {
-		$code = $total->getAs();
+
+
+
+
+	public function renderTotal($total, $area = null, $colspan = 1)
+	{
+		$code = $total->getCode();
+		if ($total->getAs()) {
+			$code = $total->getAs();
+		}
+		return $this->_getTotalRenderer($code)
+			->setTotal($total)
+			->setColspan($colspan)
+			->setRenderingArea(is_null($area) ? -1 : $area)
+			->toHtml();
 	}
-	$temp = $this->_getTotalRenderer($code)
-		->setTotal($total)
-		->setColspan($colspan)
-		->setRenderingArea(is_null($area) ? -1 : $area)
-		->toHtml();
-	$temp .= $code;
-    	return $temp;
-	}
+
+
 
     /**
      * Render totals html for specific totals area (footer, body)

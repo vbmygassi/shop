@@ -450,9 +450,6 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Template
         $mail->setSubject('=?utf-8?B?' . base64_encode($this->getProcessedTemplateSubject($variables)) . '?=');
         $mail->setFrom($this->getSenderEmail(), $this->getSenderName());
 
-
-
-
 	/********************************************** 
 	 * }}}}
 	 * adds the PDF Invoice Document
@@ -470,8 +467,6 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Template
 		}
 	}
 	/*** */
-	
-
 
 /*	
 	try {

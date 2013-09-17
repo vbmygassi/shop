@@ -153,7 +153,8 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Mage_Core_Model_Abstr
     {
         $this->y = $this->y ? $this->y : 815;
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
-        if ($image) {
+        
+	if ($image) {
             $image = Mage::getBaseDir('media') . '/sales/store/logo/' . $image;
             if (is_file($image)) {
                 $image       = Zend_Pdf_Image::imageWithPath($image);
@@ -362,10 +363,6 @@ EOD;
      */
     protected function insertOrder(&$page, $obj, $putOrderId = true)
     {
-        
-
-
-
 	if ($obj instanceof Mage_Sales_Model_Order) {
             $shipment = null;
             $order = $obj;
@@ -383,16 +380,18 @@ EOD;
         // $page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
 	$this->setDocHeaderCoordinates(array(25, $top, 570, $top - 55));
         // $this->_setFontRegular($page, 10);
-        $this->_setFontRegular($page, 7);
+        // $this->_setFontRegular($page, 7);
 
-	/*	
-	$this->insertDocumentNumber(
-		$page,
-		Mage::helper('sales')->__('Invoice # ') . $invoice->getIncrementId()
+	// sets the font to bold, 9pt
+        $this->_setFontBold($page, 9);
+	
+	// rechungsnummer
+	$page->drawText(
+		Mage::helper('sales')->__('Order #') . $order->getRealOrderId(), 
+		35, 
+		($top -= 30), 
+		'UTF-8'
 	);
-	*/
-
-	$page->drawText(Mage::helper('sales')->__('Order #') . $order->getRealOrderId(), 35, ($top -= 30), 'UTF-8');
 
 	// datum
         $page->drawText(
@@ -402,7 +401,7 @@ EOD;
 		'UTF-8'
 	);
 
-        $top -= 10;
+        $top -= 15;
 	$page->setFillColor(new Zend_Pdf_Color_Rgb(0.3, 0.3, 0.3));
         $page->setLineColor(new Zend_Pdf_Color_GrayScale(0.9));
         $page->setLineWidth(0.5);
