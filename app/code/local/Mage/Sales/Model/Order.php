@@ -2242,6 +2242,11 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
         return parent::_beforeDelete();
     }
 
+
+
+
+
+	// Emai: utility methods
 	public function getStatusForEmailTemplate()
 	{
 		$state = $this->getState();
@@ -2256,6 +2261,120 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 				$res = ("Die Bestellung wird verarbeitet.");
 				break;
 		}
+		return $res;
+	}
+
+	public function getBestelldatumForEmailTemplate()
+	{
+		$res = $this->getCreatedAt();
+		return $res;
+	}
+
+	public function getBillingAddressForEmailTemplate()
+	{
+		$res = $this->getBillingAddress()->format("html");
+		return $res;
+	}
+
+	public function getShippingAddressForEmailTemplate()
+	{
+		$res = $this->getShippingAddress()->format("html");
+		switch($res){
+			case false:	
+			case null:
+			case "":
+				$res = $this->getBillingAddress()->format("html");
+				break;				
+		}
+		if(2 > strlen($res)){
+			$res = $this->getBillingAddress()->format("html");
+		}
+		return $res;	
+	}
+
+	public function getProductListForEmailTemplate()
+	{
+		$res = "";
+
+		foreach($this->getAllItems() as $item){
+			$item = $item->load($item->getId());
+			foreach($item->getMediaGalleryImages() as $image){
+				$path = Mage::helper("catalog/image")->init($item, "thumbnail", $image->getFile())->keepFrame(false)->resize(360);
+				$file = (string)$path;
+			}
+			switch($file){
+				case null: 
+				case false:
+				case "":
+					// $file = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/1966_Dodge_Charger_383.jpg/800px-1966_Dodge_Charger_383.jpg"; 
+					break;
+			}
+			$res .= "<tr>";	
+			
+			$res .= "<td class='avalue'>";
+			$res .= round($item->getQtyOrdered());
+			$res .= "</td>";
+			
+			$res .= "<td class='avalue'>";
+			$res .= "<img width='75' src='" . $file . "'/>";
+			$res .= "</td>";
+			
+			$res .= "<td class='avalue'>";
+			$res .= $item->getName();
+			$res .= "</td>";
+			
+			$res .= "<td class='avaluer'>";
+			$res .= Mage::helper("core")->currency($item->getPriceInclTax());
+			$res .= "</td>";
+			
+			$total = $item->getRowTotal() +$item->getTaxAmount();
+			$res .= "<td class='avaluer'>";
+			$res .= Mage::helper("core")->currency($total);
+			$res .= "</td>";
+			
+			$res .= "</tr>";
+			
+			$res .= "\n";
+		}
+
+		return $res;		
+	}
+
+	public function getPaymentForEmailTemplate()
+	{
+		$res = __($this->getPayment()->getMethodInstance()->getTitle());
+		return $res;
+	}
+
+	public function getShippingInformationForEmailTemplate()
+	{
+		$res = "Versand durch einen Kurierdienst";
+		$sm = $this->getShippingMethod();
+		switch($sm){
+			case "freeshipping_freeshipping":
+				$res .= " : Versandkostenfrei";
+				break;
+		};
+		return $res;
+	}
+
+	public function getTotalForEmailTemplate()
+	{
+		$gt = $this->getGrandTotal();
+		$st = $this->getSubtotal();
+		$tx = $this->getTaxAmount();
+		$tt = $this->getGrandTotal();
+
+		$gt = Mage::helper("core")->currency($gt);
+		$st = Mage::helper("core")->currency($st);
+		$tx = Mage::helper("core")->currency($tx);
+		$tt = Mage::helper("core")->currency($tt);
+
+		$res  = "<tr><td class='blabel'>" . __("Zwischensumme:") . "</td><td class='bvalue'>" . $gt . "</td></tr>\n";
+		$res .= "<tr><td class='blabel'>" . __("Gesamt (zzgl. MwSt.):") . "</td><td class='bvalue'>" . $st . "</td></tr>\n";
+		$res .= "<tr><td class='blabel'>" . __("(19% MwSt.):") . "</td><td class='bvalue'>" . $tx . "</td></tr>\n";
+		$res .= "<tr><td class='bblabel'; font-size:12px; font-weight:bold'>" . __("Gesamt (inkl. MwSt.):") . "</td><td class='bbvalue'>" . $tt . "</td></tr>\n";
+		
 		return $res;
 	}
 }

@@ -1,0 +1,553 @@
+<!--@subject Willkommen, {{var customer.name}}! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var customer.email":"Customer Email",
+"htmlescape var=$customer.password":"Customer Password"}
+@-->
+
+<!--@styles
+	@media only screen and (max-width: 500px){
+		table[class=email-body-wrap]{
+			width:400px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		td[class=page-bg-show-thru]{
+			display:none !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		table[class=layout-block-wrapping-table]{
+			width:400px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		*[class=layout-block-full-width]{
+			width:400px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		table[class=layout-block-column],table[class=layout-block-padded-column]{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		table[class=layout-block-box-padding]{
+			width:100% !important;
+			padding:5px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		table[class=layout-block-horizontal-spacer]{
+			display:none !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		tr[class=layout-block-vertical-spacer]{
+			display:block !important;
+			height:8px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		td[class=container-padding]{
+			display:none !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		*[class~=desktop-only]{
+			display:none !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		*[class~=mobile-only]{
+			display:block !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		.hide{
+			max-height:none !important;
+			display:block !important;
+			overflow:visible !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		div[eqID=4CBC6890-AA26-4D67-81B7-B620F78286E5] [class=layout-block-padding-left]{
+			width:15px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		div[eqID=4CBC6890-AA26-4D67-81B7-B620F78286E5] [class=layout-block-padding-right]{
+			width:15px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		div[eqID=4CBC6890-AA26-4D67-81B7-B620F78286E5] [class=layout-block-content-cell]{
+			width:370px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		div[eqID=584CCC4F-BE4F-49B1-B5D9-45BFFBA2E8A9] [class=layout-block-padding-left]{
+			width:15px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		div[eqID=584CCC4F-BE4F-49B1-B5D9-45BFFBA2E8A9] [class=layout-block-padding-right]{
+			width:15px !important;
+		}
+
+}	@media only screen and (max-width: 500px){
+		div[eqID=584CCC4F-BE4F-49B1-B5D9-45BFFBA2E8A9] [class=layout-block-content-cell]{
+			width:370px !important;
+		}
+
+}
+    A:link { color: #ffffff; text-decoration : underline; }
+    A:visited { color: #ffffff; text-decoration : none; }
+    A:hover   {text-decoration: none; }
+    A:active { color: #ffffff; text-decoration : none; }
+
+@-->
+
+<body style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor="#ffffff" background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/page-bg.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=XLphYDr/b6ioJplAthFba9bq/dA%3D" eqid="E5D15D58-7D5A-420A-BBD7-4D9F59FD861D"> 
+
+<table background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/page-bg.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=XLphYDr/b6ioJplAthFba9bq/dA%3D" cellpadding="0" id="page-wrap" bgcolor="#ffffff" cellspacing="0" align="center" width="100%">
+<tbody><tr>
+	<td>
+
+<table class="email-body-wrap" width="860" cellpadding="0" id="email-body" cellspacing="0" align="center">
+<tbody><tr>
+	<td width="30" eqfixedwidth="true" class="page-bg-show-thru">&nbsp;<!-- Left page bg show-thru --></td>
+	<td width="800" bgcolor="#ffffff" background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/content-bg.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=XWbnSYTPoOvtXexn%2BwRc2kGipbk%3D" eqid="421A1C09-EA06-498A-8ED0-5D3EFB8E5020">
+		
+		<!-- Begin of layout container -->
+		<div id="eqLayoutContainer">
+			
+			<div class="desktop-only" eqlayoutblock="" eqsiblinglayoutblockid="07290D87-D991-4652-85ED-5CF86C14C862" style="" eqid="E24C2243-4747-458B-9143-5A17908E571C">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="800" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width" cellpadding="0" width="800" style="" cellspacing="0">
+								<tbody><tr>
+									<td width="800">
+										<div style="" class="layout-block-image">
+											<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-12.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=nPrE5A3MdAt5FsUD7Ebk9%2B7cKV0%3D" mc:edit="b9d69b4f879f4809b2af4f68785e59eb" alt="" eqid="B9E237CE-E889-4354-AA01-29B438F35C14" width="800" style="display:block;" height="123">
+										</div>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqsiblinglayoutblockid="E24C2243-4747-458B-9143-5A17908E571C" eqid="07290D87-D991-4652-85ED-5CF86C14C862">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="400" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+								<tbody><tr>
+									<td width="400">
+										<div style="display:none;max-height:0px;overflow:hidden;" class="layout-block-image hide">
+											<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-3.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=benix/aKWBRc%2B%2BSfNKDs3uHUfOU%3D" mc:edit="a183ce65d70446d19853783b92ab041a" alt="" eqid="EE7ED93C-45F6-424C-9A6C-0AFCC281DE54" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="78">
+										</div>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="desktop-only" eqlayoutblock="" eqsiblinglayoutblockid="6074193B-D351-4376-9F47-5064FE563607" style="" eqid="9DE972B7-58A3-4FEB-960F-0B643E4E2629">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="800" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width" cellpadding="0" width="800" style="" cellspacing="0">
+								<tbody><tr>
+									<td width="800">
+										<div class="layout-block-image">
+											<a href="http://www.mygassi.com/"><img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-7.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=V/07bGtCtYESVMH95ls7kEQa51E%3D" mc:edit="3ee4b19aadb4491394074e71c5b0f022" alt="" eqid="B6CC9C54-041E-4C92-A0D2-204A221CC0D5" width="800" style="display:block;" height="384"></a>
+										</div>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqsiblinglayoutblockid="9DE972B7-58A3-4FEB-960F-0B643E4E2629" eqid="6074193B-D351-4376-9F47-5064FE563607">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="400" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+								<tbody><tr>
+									<td width="400">
+										<div class="layout-block-image">
+											<a href="http://www.mygassi.com/"><img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-2.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=klkBiACGNLfU%2B9UlS0FsYMLBZpE%3D" mc:edit="c2a80fa5f7da4582a5223c77602de6bb" alt="" eqid="A9BCF404-C96F-4087-B435-47815075154E" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="196"></a>
+										</div>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" eqlayoutblock="" style="display:none;max-height:0px;overflow:hidden;" eqid="F241614C-990C-470E-BE13-0DBBFAA7976F">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="17" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="366" valign="top" align="left">
+							<table class="layout-block-column hide" cellpadding="0" width="366" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/box-bg-3.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=3LJVfSWcKxdi6l9hJ/nr8Yrmbm8%3D" bgcolor="#ffffff" align="left" eqid="FCFF5977-0B0F-44B6-9264-EEBC1BA76FD8" width="346" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding hide" cellpadding="0" width="346" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+											<tbody><tr>
+												<td width="346" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="ff9ba407cc514c5e8b837f46b81a7aa0" eqid="90D86C4C-96A5-4D2B-8971-C62C4E9DBCDA"><p style="margin:0px;text-align:center;font-size:30px;font-family:'Brandon Grotesque';"><b>WILLKOMMEN IN UNSEREM SHOP!</b></p>
+<p style="margin:0px;text-align:center;font-family:'Helvetica Neue';"><span style="font-size:17px;"><br></span></p><p style="margin:0px;text-align:center;font-family:'Helvetica Neue';"><span style="font-size:17px;">Danke für deine Anmeldung. Ab jetzt kannst du noch komfortabler bei uns einkaufen und hast Zugriff auf deine bisherigen Bestellungen und deren Status.</span></p><div><br></div></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="17" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="desktop-only" eqlayoutblock="" style="" eqid="6C6EEC37-5F43-4337-8CE1-5D2A2E614FCD">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="29" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="742" valign="top" align="left">
+							<table class="layout-block-column" cellpadding="0" width="742" style="" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/box-bg.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=1DHboHYQ6hGHr3UCAPcxt9hgF1Q%3D" bgcolor="#ffffff" align="left" eqid="BB71B1F2-8DB2-4182-8117-0D57F22D5CB1" width="722" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding" cellpadding="0" width="722" style="" cellspacing="0">
+											<tbody><tr>
+												<td width="722" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="6eca7285bce74b87bc974eedc9429152" eqid="726ADD25-46B4-41DA-BA44-B102DF664B2A"><p style="margin:0px;text-align:center;font-size:40px;font-family:'Brandon Grotesque';"><b>WILLKOMMEN IN USEREM SHOP!</b></p>
+<p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';"><br></p><p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';">Danke für deine Anmeldung. Ab jetzt kannst du noch komfortabler bei uns einkaufen und hast Zugriff auf deine bisherigen Bestellungen und deren Status.</p><p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';"><br></p><p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';"><br></p><div><br></div></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="29" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<!--
+			<div class="desktop-only" eqlayoutblock="" eqsiblinglayoutblockid="6A5909DF-DC74-4E85-AE25-77B9A4551594" style="" eqid="07CD3151-417A-47F2-BF18-8DC31062C8AF">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="800" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width" cellpadding="0" width="800" style="" cellspacing="0">
+								<tbody><tr>
+									<td width="800">
+										<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-18.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=zufADFiM6OvHBuz6fdiHeC%2BmiVg%3D" mc:edit="22faae84cfe74a1684fef401b5d42cae" alt="" eqid="E53B4069-E391-448F-8FD0-4E676A95A83B" width="800" style="display:block;" height="199">
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqsiblinglayoutblockid="07CD3151-417A-47F2-BF18-8DC31062C8AF" eqid="6A5909DF-DC74-4E85-AE25-77B9A4551594">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="400" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+								<tbody><tr>
+									<td width="400">
+										<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-4.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=DGw%2B/U0f2ZzoomzxkmjN%2Beeqbqo%3D" mc:edit="157139761f44485881e11b1b1c901642" alt="" eqid="3FF278B3-4828-4EE2-B31B-1AE29AC23517" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="199">
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqid="B9A85D4E-3DA1-42D9-AA93-9B8F2A6B20A4">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="17" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="366" valign="top" align="left">
+							<table class="layout-block-column hide" cellpadding="0" width="366" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/box-bg-6.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=wqmEH34OrxTpAKBWGnRLIvdgbMc%3D" bgcolor="#ffffff" align="left" eqid="8271549B-7C06-4AA6-82A2-7B4975404B3B" width="346" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding hide" cellpadding="0" width="346" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+											<tbody><tr>
+												<td width="346" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="1671f8ae00b448c5966c53454f3e14a4" eqid="3F3AA116-94A3-4E60-B04B-F09860F00DD2"><p style="margin:0px;text-align:center;font-size:30px;font-family:'Brandon Grotesque';"><b>LOS GEHT`S</b></p><div><br></div></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="17" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqsiblinglayoutblockid="07CD3151-417A-47F2-BF18-8DC31062C8AF" eqid="DD02050B-3947-40F0-908F-356A62704BE2">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="400" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+								<tbody><tr>
+									<td width="400">
+										<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-1.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=hIU0WPw50nWJH15OGL6N9S90rKo%3D" mc:edit="4d9692f7042a466e8f8f9902dbeca7d7" alt="" eqid="A75E7CAD-9C84-43F6-8DE9-04C21859CDD6" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="127">
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" eqlayoutblock="" style="display:none;max-height:0px;overflow:hidden;" eqid="03CFC15D-7CA9-4B92-8E4C-8A76CBEBBCF5">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="17" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="366" valign="top" align="left">
+							<table class="layout-block-column hide" cellpadding="0" width="366" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/box-bg-4.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=Ct9hG/mozKjk11BczE%2BU1bPNwaA%3D" bgcolor="#ffffff" align="left" eqid="65F83F24-D175-4890-9336-F94752F68DAC" width="346" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding hide" cellpadding="0" width="346" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+											<tbody><tr>
+												<td width="346" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="b153469253c24da9b6f3465c48e56a6c" eqid="2403386F-D8FE-4408-B84D-7DE9D7FEA8B1"><p style="margin:0px;text-align:center;font-family:'Helvetica Neue';"><span style="font-size:17px;">Lorem ipsum Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient.</span></p><p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';"><br></p></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="17" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqsiblinglayoutblockid="07CD3151-417A-47F2-BF18-8DC31062C8AF" eqid="6AB7BA9D-9C8D-445F-A3E9-CA52E35405E8">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="400" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+								<tbody><tr>
+									<td width="400">
+										<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-9.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=CHm//XqEuo1ltbSyA2RMHX1uftg%3D" mc:edit="baf364f0049b44a5a6ba1c19935a7119" alt="" eqid="67250042-4AFC-4230-80FB-69318E5FC97C" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="117">
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqid="E2E6EE71-FD8C-41FB-8831-A5E1C74BA1A6">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="17" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="366" valign="top" align="left">
+							<table class="layout-block-column hide" cellpadding="0" width="366" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/box-bg-5.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=MuJt%2BaarL3l5NR6t7EsS13h4L1s%3D" bgcolor="#ffffff" align="left" eqid="5064F8AB-3C2A-4B1A-B39B-1CC8BCD88E97" width="346" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding hide" cellpadding="0" width="346" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+											<tbody><tr>
+												<td width="346" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="5cd690dc91eb49afa4253b211e7d8b2d" eqid="6824AE93-2E72-4E40-9650-13DC08C8EBD9"><p style="margin:0px;text-align:center;font-family:'Helvetica Neue';"><span style="font-size:17px;">Lorem ipsum Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient.</span></p><p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';"><br></p></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="17" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="desktop-only" eqlayoutblock="" style="" eqid="4541B854-CE28-4A83-B378-438472F6146F">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="29" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="742" valign="top" align="left">
+							<table class="layout-block-column" cellpadding="0" width="742" style="" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/box-bg-1.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=oKMFlRhs9QJ4bE1%2BEwT3Dom3zsc%3D" bgcolor="#ffffff" align="left" eqid="328E9A6A-25FE-4F9F-A61A-5DFCB2D8059E" width="722" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding" cellpadding="0" width="722" style="" cellspacing="0">
+											<tbody><tr>
+												<td width="722" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="7d2c9123206348079603f8c0f754baef" eqid="E2B78E03-BF49-48DD-A252-79E157B532E7"><p style="margin:0px;text-align:center;font-size:40px;font-family:'Brandon Grotesque';"></p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';"><br></p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';">Lorem ipsum Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient.</p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';"><br></p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';"><br></p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';"><br></p><p></p></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="29" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			-->
+			<div class="desktop-only" style="" eqid="80E71058-54C6-4109-A29D-B6B0C8226F49" eqlayoutblock="">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="800" valign="top" class="layout-block-full-width">
+							<table class="layout-block-full-width" cellpadding="0" width="800" style="" cellspacing="0">
+								<tbody><tr>
+									<td width="800">
+										<img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-0C1D8E5C-521A-4F27-9D9A-FDAACECC0802/image-5.png?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2006516814&Signature=8MLbzZ2Oswo6ViRUk%2BH7SQegLuw%3D" mc:edit="f01d1d3c2d054d14a963f9092b480ff4" alt="" eqid="28E62D2E-1E72-4863-B534-191698E5BDAD" width="800" style="display:block;" height="94">
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqid="521F86D5-C9E0-425E-8A97-0F732A126079">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+					<tbody><tr>
+						<td width="17" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="366" valign="top" align="left">
+							<table class="layout-block-column hide" cellpadding="0" width="366" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-5B02C741-D89C-4EB4-BCB9-35076DF17947/box-bg-7.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004304702&Signature=6tenQTdMeA2ar0wNTlgg3WtYYUk%3D" bgcolor="#ffffff" align="left" eqid="B742060C-E59C-424D-9A18-A850915E14AF" width="346" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding hide" cellpadding="0" width="346" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+											<tbody><tr>
+												<td width="346" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="54d7d583d01e4af7b781b90ea03e3fd2" eqid="B66EC4E6-4938-4572-A7C5-93A85858F39C"><p style="margin:0px;text-align:center;font-size:30px;font-family:'Brandon Grotesque';"><b>UNSER REVIER</b></p>
+<p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';"><span style="font-size:17px;"><br></span></p><p style="margin:0px;text-align:center;font-family:'Helvetica Neue';"><span style="font-size:17px;"><br></span></p><p style="margin:0px;text-align:center;font-family:'Helvetica Neue';"><span style="font-size:17px;">Folge uns direkt auf Facebook und Twitter für noch mehr Infos rund um MyGassi und nützliche Themen für Hundebesitzer.</span></p><div><br></div></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="17" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="desktop-only" eqlayoutblock="" style="" eqid="4DCDB1D1-406E-4D67-903B-C98160206A26">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+					<tbody><tr>
+						<td width="29" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="742" valign="top" align="left">
+							<table class="layout-block-column" cellpadding="0" width="742" style="" cellspacing="0" align="left">
+								<tbody><tr>
+									<td background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-5B02C741-D89C-4EB4-BCB9-35076DF17947/box-bg-2.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004304702&Signature=VHW4HvhWDJbuWfPgaCAVB045PKo%3D" bgcolor="#ffffff" align="left" eqid="75C0E969-B548-4AE2-AF53-FBD4A81A0386" width="722" style="padding-left:10px;padding-right:10px;" valign="top">
+										<table class="layout-block-box-padding" cellpadding="0" width="722" style="" cellspacing="0">
+											<tbody><tr>
+												<td width="722" class="layout-block-column" align="left">
+													<div class="heading" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="af8d838fffd3487c8d5cfe4f2432428e" eqid="4AC1D8D7-C168-47F3-AB8B-2659C623F7DC"><p style="margin:0px;text-align:center;font-size:40px;font-family:'Brandon Grotesque';"></p><br><p style="margin:0px;text-align:center;font-size:15px;font-family:'Helvetica Neue';">Folge uns direkt auf Facebook und Twitter für noch mehr Infos rund um MyGassi und nützliche Themen für Hundebesitzer.</p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';"><br></p><p style="margin:0px;font-size:15px;font-family:'Helvetica Neue';"><br></p><p></p></div>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+						<td width="29" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="desktop-only" eqlayoutblock="" eqsiblinglayoutblockid="F1984B46-A348-4A38-8DBB-185CD12C2DBE" style="" eqid="7A738B0F-A31D-4F09-A1CE-19ABC8F2032C">
+				<table class="layout-block-wrapping-table" width="800" cellpadding="0" style="" cellspacing="0">
+				<tbody><tr>
+					<td width="800" eqcontentlayout="horizontal">
+						<table class="layout-block-full-width" cellpadding="0" width="400" style="" cellspacing="0" align="left">
+							<tbody><tr>
+								<td class="layout-block-column" width="400" valign="top" align="center">
+									<div class="layout-block-image">
+										<a href="https://www.facebook.com/mygassi"><img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-5B02C741-D89C-4EB4-BCB9-35076DF17947/image-16.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004304702&Signature=O9b6xin0%2BoG/ASnQ/93knakRcjI%3D" mc:edit="bddfa32e6567412598a79b7780b6e623" alt="" eqid="722BD22D-83D1-490E-AE14-7CC2B4A0D639" width="400" style="display:block;" height="86"></a>
+									</div>
+								</td>
+							</tr>
+						</tbody></table>
+						<table class="layout-block-full-width" cellpadding="0" width="400" style="" cellspacing="0" align="left">
+							<tbody><tr>
+								<td class="layout-block-column" width="400" valign="top" align="center">
+									<div class="layout-block-image">
+										<a href="https://twitter.com/MyGassi"><img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-5B02C741-D89C-4EB4-BCB9-35076DF17947/image-21.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004304702&Signature=3RpouiiyRsBaCsCFnbE0bEV4I1E%3D" mc:edit="62b58e4e6e1a403484e48ac5e282740b" alt="" eqid="18972121-6BBC-44C1-9BB5-CA254DEB43AD" width="400" style="display:block;" height="86"></a>
+									</div>
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</div>
+			
+			<div class="mobile-only hide" style="display:none;max-height:0px;overflow:hidden;" eqlayoutblock="" eqsiblinglayoutblockid="7A738B0F-A31D-4F09-A1CE-19ABC8F2032C" eqid="F1984B46-A348-4A38-8DBB-185CD12C2DBE">
+				<table class="layout-block-wrapping-table hide" width="400" cellpadding="0" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0">
+				<tbody><tr>
+					<td width="400" eqcontentlayout="horizontal">
+						<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+							<tbody><tr>
+								<td class="layout-block-column" width="400" valign="top" align="center">
+									<div class="layout-block-image">
+										<a href="https://www.facebook.com/mygassi"><img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-5B02C741-D89C-4EB4-BCB9-35076DF17947/image-4.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004304702&Signature=j00QIlsU7PtAoDoFHtP0GKUFUIU%3D" mc:edit="afcdeaafff1d40bca44171472c843289" alt="" eqid="ED8049BE-2C56-47D8-9A54-7DCAA7D7944B" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="86"></a>
+									</div>
+								</td>
+							</tr>
+						</tbody></table>
+						<table class="layout-block-full-width hide" cellpadding="0" width="400" style="display:none;max-height:0px;overflow:hidden;" cellspacing="0" align="left">
+							<tbody><tr>
+								<td class="layout-block-column" width="400" valign="top" align="center">
+									<div class="layout-block-image">
+										<a href="https://twitter.com/MyGassi"><img border="0" src="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-5B02C741-D89C-4EB4-BCB9-35076DF17947/image-6.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004304702&Signature=JXI3xuwJOH4mp09ux7LkDCE3YLA%3D" mc:edit="5be630e7a4db487d9bd4b10e5fed817b" alt="" eqid="A8CDE179-23D5-4C95-B345-526A4E04CE43" class="hide" width="400" style="display:block;display:none;max-height:0px;overflow:hidden;" height="83"></a>
+									</div>
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</div>
+			
+			<div style="background-image:url(http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-07783DF9-5A09-4E35-B179-05194812C65C/background-1.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004361479&Signature=LnkYYghFQWUUv%2BOa5FtugC/05to%3D);background-position:0% 0%;" eqid="584CCC4F-BE4F-49B1-B5D9-45BFFBA2E8A9" eqlayoutblock="">
+				<table background="http://template.mc60sec.net/a121ffa26ce5308b0674c207b/MailDesignerTemplate-07783DF9-5A09-4E35-B179-05194812C65C/background-1.jpg?AWSAccessKeyId=AKIAI7YXCMNRDP5M322Q&Expires=2004361479&Signature=LnkYYghFQWUUv%2BOa5FtugC/05to%3D" cellpadding="0" bgcolor="#1f5d0d" cellspacing="0" class="layout-block-wrapping-table" width="800" style="">
+					<tbody><tr>
+						<td width="30" class="layout-block-padding-left">&nbsp;</td>
+						<td class="layout-block-content-cell" width="740" valign="top" align="left">
+							<div class="text" style="font-size:16px;font-family:'Lucida Grande';" contenteditable="false" mc:edit="7b8618cb63a2441d9813f75b5e231865" eqid="C1850171-6AF5-44EC-8CC7-9927F8AC335B"><div style="text-align:center;line-height:24px;"><span style="line-height:24px;"><font color="#ffffff" face="PT Serif"><br></font></span></div><div style="text-align:center;"><div style="line-height:24px;"><font color="#ffffff" face="Times New Roman"><span style="font-size:14px;line-height:24px;">Mit viel Liebe zum Hund vom MyGassi-Team erstellt.</span></font></div><div style="line-height:24px;"><font color="#ffffff" face="Times New Roman"><span style="font-size:14px;line-height:24px;"><br></span></font></div><div><div style="line-height:20px;"><font color="#ffffff" face="Times New Roman"><span style="font-size:12px;line-height:20px">Bei Fragen erreichst du uns unter <a style="text-decoration:none;" href="mailto:support@mygassi.com>">support@mygassi.com</a></span></font></div><div style="line-height:20px;"><font color="#ffffff" face="Times New Roman"><span style="font-size:12px;line-height:20px">Unser Impressum findest du <a href="http://mygassi.com/privacy.html">hier</a></span></font></div><div style="line-height:20px;"><font color="#ffffff" face="Times New Roman"><span style="font-size:12px;line-height:20px;">MyGassi GmbH, Nymphenburger Straße 86, 80636 München</span></font></div></div><div style="line-height:16px;"><br></div></div></div>
+						</td>
+						<td width="30" class="layout-block-padding-right">&nbsp;</td>
+					</tr>
+				</tbody></table>
+			</div>
+			
+		</div>
+		<!-- End of layout container -->
+		
+	</td>
+	<td width="30" eqfixedwidth="true" class="page-bg-show-thru">&nbsp;<!-- Right page bg show-thru --></td>
+</tr>
+</tbody></table><!-- email-body -->
+
+	</td>
+</tr>
+</tbody></table><!-- page-wrap -->
+
+</body>

@@ -26,7 +26,7 @@ skin/frontend/default/iphone/
 skin/frontend/default/modern/
 skin/frontend/default/default/
 skin/frontend/default/blank/
-app/locale/
+app/locale/en_US/
 app/code/community/Payone/
 app/code/community/Firegento/
 app/code/community/German/

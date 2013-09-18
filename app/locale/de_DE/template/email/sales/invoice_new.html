@@ -1,0 +1,204 @@
+<!--@subject MyGassi-Rechnung Nr. {{var invoice.increment_id}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"https://shop.mygassi.com/skin/frontend/default/mygassi-mobile/images/MyGassiWortmarkeClaim.jpg",
+"var logo_alt":"MyGassi",
+"htmlescape var=$order.getCustomerName()":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var invoice.increment_id":"Invoice Id",
+"var order.increment_id":"Order Id",
+"var order.billing_address.format('html')":"Billing Address",
+"var payment_html":"Payment Details",
+"var order.shipping_address.format('html')":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"layout area=\"frontend\" handle=\"sales_email_order_invoice_items\" invoice=$invoice order=$order":"Invoice Items Grid",
+"var comment":"Invoice Comment"}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<center>
+
+<style type="text/css">
+ table, tr, td { padding: 0px; margin: 0px; border: 0px; }
+.border  { border-left:  1px #dbdbdb solid; border-right:  1px #dbdbdb solid; border-bottom: 1px #dbdbdb solid; }
+.borderl { border-right: 1px #dbdbdb solid; border-bottom: 1px #dbdbdb solid; }
+.blabel  { padding-left: 12px; padding-top: 12px; text-align: right; }
+.bblabel { padding-left: 12px; padding-top: 12px; text-align: right; font-weight: bold; }
+.bvalue  { padding-left: 12px; padding-top: 12px; padding-right: 12px; text-align: right; }
+.bbvalue { padding-left: 12px; padding-top: 12px; padding-right: 12px; text-align: right; font-weight: bold; }
+.avalue  { padding:4px; vertical-align:top; border: 1px #dbdbdb solid; }
+.avaluer { padding:4px; vertical-align:top; horizontal-align: right; text-align: right; padding-right:12px; }
+.alabel  { padding:12px; background-color:#666666; color:#ffffff; }
+.aalabel { padding:12px; background-color:#666666; color:#ffffff; padding-left: 4px; }
+</style>
+
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0px; padding:0;">
+
+<table cellspacing="0" cellpadding="0" width="650" style="background-color:#ffffff; padding:24px;">
+		
+	<!-- Logo // -->	
+	<tr>	
+               	<td align="right" valign="top">
+			<a href="{{store url=""}}"><img 
+					src="https://shop.mygassi.com/skin/frontend/default/mygassi-mobile/images/MyGassiWortmarkeClaim.jpg" 
+					alt="MyGassi" 
+					style="margin-bottom:10px;" 
+					border="0"
+				/></a>
+		</td>
+	</tr>
+
+	<!-- //-->
+	<tr>
+		<td>
+		<table cellpadding="0" cellspacing="0">
+		
+		<!-- Ihre Rechnung //-->
+		<tr>
+			<td style="font-size:16px; font-weight:bold;" colspan="2">Rechnung Nr. {{var invoice.increment_id}}</td>
+		</tr>
+		
+		<!-- Bestellnummer //-->
+		<tr>
+			<td style="font-size:12px; font-weight:bold; padding-right:16px;">Bestellnummer:</td>
+			<td style="font-size:12px; font-weight:bold;">{{var order.increment_id}}</td>
+		</tr>
+		
+		<!-- Bestelldatum //-->
+		<tr>
+			<td style="font-size:12px; font-weight:bold; padding-right:16px;">Bestelldatum:</td>
+			<td style="font-size:12px; font-weight:bold;">{{var order.getBestelldatumForEmailTemplate()}}</td>
+		</tr>
+		
+		<!-- Rechnungsdatum //-->
+		<tr>
+			<td style="font-size:12px; font-weight:bold; padding-right:16px;">Rechnungsdatum:</td>
+			<td style="font-size:12px; font-weight:bold;">{{var invoice.getCreatedAtForEmailTemplate()}}</td>
+		</tr>
+	
+		</table>
+		</td>
+
+	</tr>
+        
+	<!-- [ ::: the wrionxolmizzzr starts here] -->
+	<tr>
+		<td valign="top">
+			<h1 style="font-size:14px; font-weight:normal; line-height:22px; margin:0 0 11px 0; margin-top:16px">Guten Tag {{htmlescape var=$order.getCustomerName()}},</h1>
+			<p style="font-size:12px; line-height:16px; margin:0; padding-top:8px">
+				vielen Dank für Ihre Bestellung bei {{var store.getFrontendName()}}.
+				Im Anhang finden Sie Ihre Rechnung Nr. {{var invoice.increment_id}} für Ihre Bestellung Nr. {{var order.increment_id}}
+				Falls Sie Fragen oder Anregungen haben, kontaktieren Sie uns bitte per E-Mail an: 
+					<a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a>
+			</p>
+			<p style="font-size:12px; line-height:16px; margin:0; padding-top:16px">
+               			Vielen Dank für Ihr Vertrauen! <a href="http://www.mygassi.com/">www.mygassi.com</a>
+			</p>
+			<p style="font-size:12px; line-height:16px; margin:0; padding-top:16px">
+				Ihr Rabattcode für den nächsten Einkauf lautet: 
+				<br/>
+				{{htmlescape var=$client.getCouponCode()}}
+			</p>
+		</td>
+	</tr>
+		
+	<!-- srixll.mizzzer //-->
+	<tr>
+		<td style="padding-top: 12px;">
+		<table cellpadding="0" cellspacing="0" style="width:100%;">
+		<tr>
+		<td style="align:top; vertical-align:top">
+		<table cellpadding="0" cellspacing="0" style="width:300px; height:200px; padding-bottom: 12px" class="border">
+			<tr><td style="width:50%; padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:16px;">Empfänger</td></tr>
+			<tr><td style="width:50%; padding-left: 12px; padding-top: 12px; color:#000000; font-size:12px; align:top; vertical-align:top">{{var order.getBillingAddressForEmailTemplate()}}</td></tr>
+		</table>	
+		</td>
+		<td style="align:top; vertical-align:top">
+		<table cellpadding="0" cellspacing="0" style="width:350px; height:200px; padding-bottom:12px" class="borderl">
+			<tr><td style="padding: 12px; height: 50px; background-color:#666666; color:#ffffff; font-size:16px;">Lieferadresse</td></tr>
+			<tr><td style="padding-left: 12px; padding-top: 12px; color:#000000; font-size:12px; valign:top; vertical-align:top">{{var order.getShippingAddressForEmailTemplate()}}</td></tr>
+		</table>	
+		</td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+		
+	<!-- ::::::::::::: //-->
+	<tr>
+		<td style="padding-top: 12px; padding-bottom: 12px">
+		<table cellpadding="0" cellspacing="0" style="width:100%">
+			<tr>
+				<td class="alabel">Anzahl</td>
+				<td class="alabel"></td>
+				<td class="aalabel">Artikelbezeichnung</td>
+				<td class="alabel">Stückpreis</td>
+				<td class="alabel">Gesamt</td>
+			</tr>
+
+			<!-- repesterrrr //-->
+			{{var order.getProductListForEmailTemplate()}}
+		</table>	
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="padding-bottom: 36px">
+		<table cellpadding="0" cellspacing="0" style="width:100%">
+			<tr>
+				<td style="align:left; valign:top; vertical-align:top; width:300px">
+					<table cellpadding="0" cellspacing="0" class="border" style="width:100%">
+						<tr><td style="width:50%; padding: 12px; background-color:#666666; color:#ffffff; font-size:16px;">Zahlart</td></tr>
+						<tr><td style="width:50%; padding: 12px; color:#00000; font-size:12px;">{{var order.getPaymentForEmailTemplate()}}</td></tr>
+						<tr><td style="width:50%; padding: 12px; background-color:#666666; color:#ffffff; font-size:16px;">Versandart</td></tr>
+						<tr><td style="width:50%; padding: 12px; color:#00000; font-size:12px;">{{var order.getShippingInformationForEmailTemplate()}}</td></tr>
+					</table>
+				</td>
+				<td style="align:left; valign:top; vertical-align:top; width:350px">
+					<table cellpadding="0" cellspacing="0" style="width:100%">
+						<tr>
+							<td colspan="2" style="width:50%; padding: 12px; background-color:#58a300; color:#ffffff; font-size:16px;">Betrag</td>
+						</tr>
+						{{var order.getTotalForEmailTemplate();}}
+					</table>
+				</td>
+			</tr>
+		</table>	
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td style="font-size:9px; padding-right: 36px">
+					MyGassi GmbH<br/>
+					Nymphenburgerstr. 86<br/>
+					D-80636 M&uuml;nchen<br/>
+					support@mygassi.com<br/>
+					www.mygassi.com<br/>
+				</td>
+				<td style="font-size:9px; padding-right: 36px">
+					Sitz der Gesellschaft ist M&uuml;nchen<br/>
+					HRB 204049<br/>
+					Ust-IdNr: DE288486229<br/>
+					IBAN: DE60 700202700 15233881<br/>
+					SWIFT (BIC): HYVEDEMEMXXX<br/>
+				</td>
+				<td style="font-size:9px; vertical-align:top">
+					Gesch&auml;ftsf&uuml;hrung: Sven Claar, Alexander Holzreiter<br/>
+					Bankverbindung: Hypovereinsbank M&uuml;nchen<br/>
+					KTO: 1523881<br/>
+					BLZ: 70020270<br/>
+				</td>
+			</tr>
+		</table>	
+		</td>
+	</tr>
+</table>
+</div>
+</body>
