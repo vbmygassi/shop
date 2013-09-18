@@ -417,7 +417,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -32);
 		//  
 		foreach($items as $item){
-		$i = 8; 
+		$i = 1; 
 		while($i--){	
 			$cursor->page->setFillColor(new Zend_Pdf_Color_Rgb(.3, .3, .3));
 			// product
@@ -631,7 +631,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 	// draws an image with a given description into the given context
 	private function addImage($bounds)
 	{
-		$bounds->path = "/Users/vico/Desktop/err.png";
+		// $bounds->path = "/Users/vico/Desktop/err.png";
 		// returns without a file
 		if(!is_file($bounds->path)){
 			return $bounds->cursor;
