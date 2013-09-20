@@ -155,7 +155,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 			$customer = Mage::getModel("customer/customer")->load($invoice->getCustomerId());
 
 			// === foot ===
-			// always start with the foot
+			// feet go first
 			$cursor = $this->addFusszeile($cursor);
 			
 			// === logo ===
@@ -207,7 +207,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 			$billing = $sale->getBillingAddress()->getData();
 			$shipping = $sale->getShippingAddress()->getData();
 			$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -12);
-			$cursor = $this->addReceiver($cursor, $billing, $shipping);
+			$cursor = $this->addEmpfaenger($cursor, $billing, $shipping);
 		
 			// === artikel ======= 
 			$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -12);
@@ -244,7 +244,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		$cursor->page->drawText("HRB 204049", $cursor->x +100, $ypos -8, "UTF-8");
 		$cursor->page->drawText("Ust-IdNr: DE288496229", $cursor->x +100, $ypos -16, "UTF-8");
 		$cursor->page->drawText("IBAN: DE60 700202700 15233881", $cursor->x +100, $ypos -24, "UTF-8");
-		$cursor->page->drawText("SWIFT (BIC): HYVEDEMEMXXX", $cursor->x +100, $ypos -32, "UTF-8");
+		$cursor->page->drawText("SWIFT (BIC): HYVEDEMMXXX", $cursor->x +100, $ypos -32, "UTF-8");
 		// 
 		$cursor->page->drawText("Geschäftsführung: Sven Claar, Alexander Holzreiter", $cursor->x +240, $ypos, "UTF-8");
 		$cursor->page->drawText("Bankverbindung: Hypovereinsbank München", $cursor->x +240, $ypos -8, "UTF-8");
@@ -296,11 +296,10 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		//
 		$cursor->page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
 		$cursor->page->setFont($font, 8);
-		
-
 		// payment type 
 		$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -12);
 		$cursor->page->drawText($payment, $cursor->x +12, $cursor->y, "UTF-8");
+		$ph = $cursor->y;
 		// kontonummer
 		$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -24);
 		$cursor->page->drawText("Kontonummer:", $cursor->x +12, $cursor->y, "UTF-8");
@@ -316,7 +315,6 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		$cursor->page->drawText("Vorgangsnummer:", $cursor->x +12, $cursor->y, "UTF-8");
 		$cursor = $this->setCursor($cursor, $cursor->x +80, $cursor->y);
 		$cursor->page->drawText($vorgangsnummer, $cursor->x +12, $cursor->y, "UTF-8");
-	
 		// versandart
 		$cursor = $this->setCursor($cursor, $cursor->x, $cursor->y -10);
 		$message = "Versand durch einen Kurierdienst";
@@ -351,25 +349,17 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -12);
 		$cursor->page->setFont($font, 8);
 		$cursor->page->drawText($message, $cursor->x +12, $cursor->y, "UTF-8");
-	
-		// zwischensumme
-		$zwischensumme = $sale->getGrandTotal();
-		$zwischensumme = Mage::helper("core")->currency($zwischensumme, true, false);
-		$cursor = $this->setCursor($cursor, $cursor->xmin +$w, $cursor->y +48);
-		$width = $this->widthForStringUsingFontSize("Zwischensumme:", $font, 8);
-		$cursor->page->drawText("Zwischensumme:", $cursor->xmax -100 -$width, $cursor->y, "UTF-8");
-		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +100, $cursor->y);
-		$width = $this->widthForStringUsingFontSize($zwischensumme, $font, 8);
-		$cursor->page->drawText($zwischensumme, $cursor->xmax -$width -20, $cursor->y, "UTF-8");
+		//
+		$cursor = $this->setCursor($cursor, $cursor->xmin +$w, $ph);
 		// netto 
 		$preisohnesteuer = $sale->getSubtotal();	
 		$preisohnesteuer = Mage::helper("core")->currency($preisohnesteuer, true, false);
-		$cursor = $this->setCursor($cursor, $cursor->xmin +$w, $cursor->y -24);
 		$width = $this->widthForStringUsingFontSize("Gesamt(zzgl. MwSt.):", $font, 8);
 		$cursor->page->drawText("Gesamt(zzgl. MwSt.):", $cursor->xmax -100 -$width, $cursor->y, "UTF-8");
 		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +100, $cursor->y);
 		$width = $this->widthForStringUsingFontSize($preisohnesteuer, $font, 8);
 		$cursor->page->drawText($preisohnesteuer, $cursor->xmax -$width -20, $cursor->y, "UTF-8");
+		
 		// steuer
 		$steuer = $sale->getTaxAmount(); 
 		$steuer = Mage::helper("core")->currency($steuer, true, false);
@@ -379,6 +369,34 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +100, $cursor->y);
 		$width = $this->widthForStringUsingFontSize($steuer, $font, 8);
 		$cursor->page->drawText($steuer, $cursor->xmax -$width -20, $cursor->y, "UTF-8");
+		
+		// rabatt
+		$dsc = $sale->getDiscountDescription();
+		$dsb = $sale->getBaseDiscountAmount();
+		$dsb = Mage::helper("core")->currency($dsb);
+		$dsb = str_replace("</span>", "", $dsb);
+		$dsb = str_replace('<span class="price">', "", $dsb);
+		if(1 < strlen($dsc)){
+			$cursor = $this->setCursor($cursor, $cursor->xmin +$w, $cursor->y -24);
+			$width = $this->widthForStringUsingFontSize($dsc, $font, 8);
+			$cursor->page->drawText($dsc, $cursor->xmax -100 -$width, $cursor->y, "UTF-8");
+			$cursor = $this->setCursor($cursor, $cursor->xmin +$w +100, $cursor->y);
+			$width = $this->widthForStringUsingFontSize($dsb, $font, 8);
+			$cursor->page->drawText($dsb, $cursor->xmax -$width -20, $cursor->y, "UTF-8");
+		}
+
+		// zwischensumme
+		/*
+		$zwischensumme = $sale->getGrandTotal();
+		$zwischensumme = Mage::helper("core")->currency($zwischensumme, true, false);
+		$cursor = $this->setCursor($cursor, $cursor->xmin +$w, $cursor->y +48);
+		$width = $this->widthForStringUsingFontSize("Zwischensumme:", $font, 8);
+		$cursor->page->drawText("Zwischensumme:", $cursor->xmax -100 -$width, $cursor->y, "UTF-8");
+		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +100, $cursor->y);
+		$width = $this->widthForStringUsingFontSize($zwischensumme, $font, 8);
+		$cursor->page->drawText($zwischensumme, $cursor->xmax -$width -20, $cursor->y, "UTF-8");
+		*/
+		
 		// total
 		$gesamt = $sale->getGrandTotal();
 		$gesamt = Mage::helper("core")->currency($gesamt, true, false);
@@ -460,7 +478,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 	}
 	
 	// adds receiver
-	private function addReceiver($cursor, $billing, $shipping)
+	private function addEmpfaenger($cursor, $billing, $shipping)
 	{
 		// grauer block links 
 		$cursor->page->setFillColor(new Zend_Pdf_Color_Rgb(0.3, 0.3, 0.3));
@@ -475,8 +493,8 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		// linien drumherum
 		$cursor = $this->setCursor($cursor, $cursor->xmin +12, $cursor->y -24);
 		$cursor->page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
-        	$cursor->page->drawRectangle($cursor->xmin, $cursor->y, $cursor->xmin +$w, 450);
-        	$cursor->page->drawRectangle($cursor->xmin +$w, $cursor->y, $cursor->xmax, 450);
+        	$cursor->page->drawRectangle($cursor->xmin, $cursor->y, $cursor->xmin +$w, 420);
+        	$cursor->page->drawRectangle($cursor->xmin +$w, $cursor->y, $cursor->xmax, 420);
 		// grauer block links 
 		// text links 
 		$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
@@ -517,13 +535,26 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
 		$cursor->page->drawText(Mage::getModel("directory/country")->loadByCode($billing["country_id"])->getName(), $cursor->x, $cursor->y, "UTF-8");
 		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +12, $cursor->y);
 		$cursor->page->drawText(Mage::getModel("directory/country")->loadByCode($shipping["country_id"])->getName(), $cursor->x, $cursor->y, "UTF-8");
-		// 
+		// telefon
+		$cursor = $this->setCursor($cursor, $cursor->xmin +12, $cursor->y -12);
+		$cursor->page->drawText($billing["telephone"], $cursor->x, $cursor->y, "UTF-8");
+		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +12, $cursor->y);
+		$cursor->page->drawText($shipping["telephone"], $cursor->x, $cursor->y, "UTF-8");
+		// fax
+		$cursor = $this->setCursor($cursor, $cursor->xmin +12, $cursor->y -12);
+		$cursor->page->drawText($billing["fax"], $cursor->x, $cursor->y, "UTF-8");
+		$cursor = $this->setCursor($cursor, $cursor->xmin +$w +12, $cursor->y);
+		$cursor->page->drawText($shipping["fax"], $cursor->x, $cursor->y, "UTF-8");
+		//  
 		return $cursor;
 	}
 	
 	// adds ribatt code
 	private function addRabattcode($cursor, $code)
 	{
+		if(1 > strlen($code)){
+			return $cursor;
+		}
 		$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
         	$cursor->page->setFont($font, 8);
 		$cursor->page->drawText("Ihr Rabattcode für den nächsten Einkauf lautet:", $cursor->x, $cursor->y, "UTF-8");

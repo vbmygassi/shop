@@ -2246,6 +2246,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
 
 
+
+
+
 	// Emai: utility methods
 	public function getStatusForEmailTemplate()
 	{
@@ -2255,10 +2258,10 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 			case null:
 			case "":
 			case "new":
-				$res = ("Die Bestellung ist erfasst und wird verarbeitet.");
+				$res = __("Die Bestellung ist erfasst und wird verarbeitet.");
 				break;
 			case "processing": 
-				$res = ("Die Bestellung wird verarbeitet.");
+				$res = __("Die Bestellung wird verarbeitet.");
 				break;
 		}
 		return $res;
@@ -2297,38 +2300,38 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 		$res = "";
 
 		foreach($this->getAllItems() as $item){
-			$item = $item->load($item->getId());
-			foreach($item->getMediaGalleryImages() as $image){
-				$path = Mage::helper("catalog/image")->init($item, "thumbnail", $image->getFile())->keepFrame(false)->resize(360);
+			$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", $item->getSku());
+			$prod = $prod->load($prod->getId());
+			foreach($prod->getMediaGalleryImages() as $image){
+				$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(360);
 				$file = (string)$path;
 			}
 			switch($file){
 				case null: 
 				case false:
 				case "":
-					// $file = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/1966_Dodge_Charger_383.jpg/800px-1966_Dodge_Charger_383.jpg"; 
 					break;
 			}
 			$res .= "<tr>";	
 			
-			$res .= "<td class='avalue'>";
+			$res .= '<td style="padding:4px; vertical-align:top; border: 1px #dbdbdb solid">';
 			$res .= round($item->getQtyOrdered());
 			$res .= "</td>";
 			
-			$res .= "<td class='avalue'>";
+			$res .= '<td style="padding:4px; vertical-align:top; border: 1px #dbdbdb solid">';
 			$res .= "<img width='75' src='" . $file . "'/>";
 			$res .= "</td>";
 			
-			$res .= "<td class='avalue'>";
+			$res .= '<td style="padding:4px; vertical-align:top; border: 1px #dbdbdb solid">';
 			$res .= $item->getName();
 			$res .= "</td>";
 			
-			$res .= "<td class='avaluer'>";
+			$res .= '<td style="padding:4px; vertical-align:top; horizontal-align: right; text-align: right; padding-right:12px;">';
 			$res .= Mage::helper("core")->currency($item->getPriceInclTax());
 			$res .= "</td>";
 			
 			$total = $item->getRowTotal() +$item->getTaxAmount();
-			$res .= "<td class='avaluer'>";
+			$res .= '<td style="padding:4px; vertical-align:top; horizontal-align: right; text-align: right; padding-right:12px;">';
 			$res .= Mage::helper("core")->currency($total);
 			$res .= "</td>";
 			
@@ -2348,11 +2351,11 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
 	public function getShippingInformationForEmailTemplate()
 	{
-		$res = "Versand durch einen Kurierdienst";
+		$res = __("Versand durch einen Kurierdienst");
 		$sm = $this->getShippingMethod();
 		switch($sm){
 			case "freeshipping_freeshipping":
-				$res .= " : Versandkostenfrei";
+				$res .= __(" : Versandkostenfrei");
 				break;
 		};
 		return $res;
@@ -2360,6 +2363,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
 	public function getTotalForEmailTemplate()
 	{
+		$dsc = $this->getDiscountDescription();
+		$dsb = $this->getBaseDiscountAmount();
+
 		$gt = $this->getGrandTotal();
 		$st = $this->getSubtotal();
 		$tx = $this->getTaxAmount();
@@ -2369,11 +2375,32 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 		$st = Mage::helper("core")->currency($st);
 		$tx = Mage::helper("core")->currency($tx);
 		$tt = Mage::helper("core")->currency($tt);
+		$dsb = Mage::helper("core")->currency($dsb);
 
-		$res  = "<tr><td class='blabel'>" . __("Zwischensumme:") . "</td><td class='bvalue'>" . $gt . "</td></tr>\n";
-		$res .= "<tr><td class='blabel'>" . __("Gesamt (zzgl. MwSt.):") . "</td><td class='bvalue'>" . $st . "</td></tr>\n";
-		$res .= "<tr><td class='blabel'>" . __("(19% MwSt.):") . "</td><td class='bvalue'>" . $tx . "</td></tr>\n";
-		$res .= "<tr><td class='bblabel'; font-size:12px; font-weight:bold'>" . __("Gesamt (inkl. MwSt.):") . "</td><td class='bbvalue'>" . $tt . "</td></tr>\n";
+		$res  = "";
+		$res .= '<tr><td style="padding-left: 12px; padding-top: 12px; text-align: right;">' 
+			. __("Gesamt (zzgl. MwSt.):") 
+			. '</td><td style="padding-left: 12px; padding-top: 12px; padding-right: 12px; text-align: right;">' 
+			. $st 
+			. "</td></tr>\n";
+
+		$res .= "<tr><td style='padding-left: 12px; padding-top: 12px; text-align: right;'>" 
+			. __("(19% MwSt.):") 
+			. '</td><td style="padding-left: 12px; padding-top: 12px; padding-right: 12px; text-align: right;">' 
+			. $tx 
+			. "</td></tr>\n";
+		
+		if(1 < strlen($dsc)){
+			$res .= "<tr><td style='padding-left: 12px; padding-top: 12px; text-align: right;'>" 
+				. __($dsc) 
+				. '</td><td style="padding-left: 12px; padding-top: 12px; padding-right: 12px; text-align: right;">' 
+				. $dsb . "</td></tr>\n";
+		}
+		// $res .= "<tr><td class='blabel'>" . __("Zwischensumme:") . "</td><td class='bvalue'>" . $gt . "</td></tr>\n";
+		$res .= "<tr><td style='padding-left: 12px; padding-top: 12px; text-align: right; font-weight: bold;';>" 
+			. __("Gesamt (inkl. MwSt.):") 
+			. "</td><td style='padding-left: 12px; padding-top: 12px; padding-right: 12px; text-align: right; font-weight: bold;'>" 
+			. $tt . "</td></tr>\n";
 		
 		return $res;
 	}

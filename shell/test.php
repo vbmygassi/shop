@@ -4,6 +4,59 @@ require_once(mageroot);
 
 Mage::app();
 
-$invoice = Mage::getModel("sales/order_invoice")->loadByIncrementId("100000165");
-
+$invoice = Mage::getModel("sales/order_invoice")->loadByIncrementId("100000171");
+// print_r($invoice->debug());
+// $sale = Mage::getModel("sales/order")->load($invoice->getOrderId());
+// print_r ($sale->debug());
+// $email = $sale->getCustomerEmail();
+// print_r($email);
+// $email = $invoice->getCustomerEmail();
+// print_r($email);
+// $sale->setCustomerEmail("vberzsin@gmail.com");
+// $email = $sale->getCustomerEmail();
+// print_r($email);
 $invoice->sendEmail(); 
+
+exit(1);
+
+$sale = Mage::getModel("sales/order")->loadByIncrementId("1200000020316");
+
+/*
+$billing = $sale->getBillingAddress()->getData();
+$shipping = $sale->getShippingAddress()->getData();
+print_r($billing);
+print_r($shipping);
+*/
+
+$billing = $sale->getBillingAddress();
+$shipping = $sale->getShippingAddress();
+
+/*
+print_r($billing->debug());
+print_r($shipping->debug());
+*/
+
+$lb = "\n";
+
+print $billing->getTelephone();
+print $lb;
+print $billing->getFax();
+print $lb;
+print $shipping->getTelephone();
+print $lb;
+print $shipping->getFax();
+print $lb;
+
+exit(1);
+
+/*
+print "discount_description:   " . $sale->getDiscountDescription()  . "\n";
+print "base_discount_amount:   " . $sale->getBaseDiscountAmount()   . "\n";
+print "base_discount_invoiced: " . $sale->getBaseDiscountInvoiced() . "\n";
+*/
+
+// $invoice = Mage::getModel("sales/order_invoice")->loadByIncrementId("100000167");
+// $invoice = Mage::getModel("sales/order_invoice")->loadByIncrementId("100000166");
+
+// print_r($invoice->debug());
+

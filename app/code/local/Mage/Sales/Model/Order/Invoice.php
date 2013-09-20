@@ -987,10 +987,29 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     }
 
 
+
+
+
+
+
+
+
 	// Email utility methods
 	public function getCreatedAtForEmailTemplate()
 	{
 		$res = $this->getCreatedAt();
+		return $res;
+	}
+
+	// returns the code of the next coupon which is to be used at the next buy 
+	public function getNextCouponCodeForEmailTemplate()
+	{
+		$res = "";
+		$customer = Mage::getModel("customer/customer")->load($this->getCustomerId());
+		$res = $customer->getInvoiceCoupon();
+		if(1 < strlen($res)){
+			$res = "Ihr Rabattcode für den nächsten Einkauf lautet: <b>" . $res . "</b>";
+		}	
 		return $res;
 	}
 }

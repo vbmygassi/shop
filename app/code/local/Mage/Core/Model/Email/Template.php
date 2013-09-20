@@ -479,8 +479,8 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Template
             return false;
         }
 
-print_r($mail);
-exit(1);
+// print_r($mail);
+// exit(1);
 
         return  true;
     }
