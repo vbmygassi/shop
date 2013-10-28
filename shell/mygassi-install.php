@@ -11,6 +11,86 @@ logger("Starting: mygassi-install");
 
 $setup = new Mage_Eav_Model_Entity_Setup('core_setup');
 
+$setup->updateAttribute("catalog_product", "weight", "is_required", 0);
+$setup->updateAttribute("catalog_product", "basisartikelnr", "is_required", 0);
+
+
+$res = $setup->addAttribute('catalog_product', 'group_id', array(
+	'group'                      => 'MyGassi',
+	'label'                      => 'Produktgruppen ID',
+	'type'                       => 'int',
+	'input'                      => 'text',
+	'frontend'                   => '',
+	'visible'                    => true,
+	'required'                   => false,
+	'user_defined'               => true,
+	'is_user_defined'            => true,
+	'searchable'                 => true,
+	'filterable'                 => true,
+	'comparable'                 => false,
+	'visible_on_front'           => false,
+	'visible_in_advanced_search' => false,
+	'default'			=> '0',
+	'unique'                     => false 
+));
+
+$res = $setup->addAttribute('catalog_product', 'category_ids', array(
+	'group'                      => 'MyGassi',
+	'label'                      => 'Kategorien ID',
+	'type'                       => 'int',
+	'input'                      => 'text',
+	'frontend'                   => '',
+	'visible'                    => true,
+	'required'                   => false,
+	'user_defined'               => true,
+	'is_user_defined'            => true,
+	'searchable'                 => true,
+	'filterable'                 => true,
+	'comparable'                 => false,
+	'visible_on_front'           => false,
+	'visible_in_advanced_search' => false,
+	'default'			=> '0',
+	'unique'                     => false 
+));
+
+
+exit(1);
+
+/*
+$res = $setup->addAttribute('catalog_category', 'cpl', array(
+	'group'			=> 'Display Settings',
+	'label'			=> 'Category-Product-Link',
+	'type'			=> 'varchar',
+	'input'			=> 'text',
+    	'visible'		=> true,
+	'required' 		=> false,
+    	'user_defined' 		=> true,
+
+
+
+
+
+
+
+
+
+
+exit(1);
+
+/*
+$res = $setup->addAttribute('catalog_category', 'cpl', array(
+	'group'			=> 'Display Settings',
+	'label'			=> 'Category-Product-Link',
+	'type'			=> 'varchar',
+	'input'			=> 'text',
+    	'visible'		=> true,
+	'required' 		=> false,
+    	'user_defined' 		=> true,
+	'visible_on_front' 	=> false,
+
+
+
+
 /*
 function addOrderState($args)
 {

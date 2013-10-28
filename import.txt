@@ -1,0 +1,4034 @@
+Array
+(
+    [0] => Array
+        (
+            [_product_websites] => base
+            [_attribute_set] => Default
+            [_store] => 
+            [name] => RONDO KETTENLEINE SCHWARZ,12MM 100CM GENIETET
+            [short_description] => 
+            [description] => 
+            [tax_class_id] => 1
+            [is_in_stock] => 1
+            [use_config_manage_stock] => 1
+            [visibility] => 4
+            [status] => 1
+            [_type] => simple
+            [sku] => 03024
+            [basisartikelnr] => 353
+            [price] => 11.99
+
+	[uvp]
+	[mygassiprice]
+
+            [weight] => 0
+            [_media_image] => magpic/26555.png
+            [thumbnail] => magpic/26555.png
+            [small_image] => magpic/26555.png
+            [image] => magpic/26555.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+
+		--> status | neu | geändert | gelöscht | 
+		[ Bilder ]
+			--> neu
+        )
+
+    [1] => Array
+        (
+            [_store] => 
+            [name] => RONDO KETTENLEINE SCHWARZ,12MM 100CM GENIETET
+            [description] => Genietet, mit Handschlaufe.
+Mit Zierreifel.
+Verchromte Beschläge.
+            [short_description] => Genietet, mit Handschlaufe.
+Mit Zierreifel.
+Verchromte Beschläge.
+            [globalname] => Rondo Kettenleinen
+        )
+
+    [2] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO KETTENLEINE
+        )
+
+    [3] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO KETTENLEINE
+        )
+
+    [4] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,12MM 100CM
+        )
+
+    [5] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,12MM 100CM
+        )
+
+    [6] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENIETET
+        )
+
+    [7] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENIETET
+        )
+
+    [8] => Array
+        (
+            [_store] => 
+            [merkmal_117] => 12
+        )
+
+    [9] => Array
+        (
+            [_store] => 
+            [merkmal_119] => 1
+        )
+
+    [10] => Array
+        (
+            [_store] => 
+            [merkmal_122] => 4016598030240
+        )
+
+    [11] => Array
+        (
+            [_store] => 
+            [merkmal_123] => 19
+        )
+
+    [12] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [13] => Array
+        (
+            [_store] => 
+            [merkmal_143] => 42010000
+        )
+
+    [14] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [15] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [16] => Array
+        (
+            [_store] => 
+            [merkmal_157] => 77957.png
+        )
+
+    [17] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [18] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [19] => Array
+        (
+            [_store] => 
+            [merkmal_232] => 65
+        )
+
+    [20] => Array
+        (
+            [_store] => 
+            [merkmal_280] => 26555.png
+        )
+
+    [21] => Array
+        (
+            [_store] => 
+            [merkmal_284] => 100
+        )
+
+    [22] => Array
+        (
+            [_store] => 
+            [merkmal_285] => 0
+        )
+
+    [23] => Array
+        (
+            [_store] => 
+            [merkmal_286] => cm
+        )
+
+    [24] => Array
+        (
+            [_store] => 
+            [merkmal_287] => 12
+        )
+
+    [25] => Array
+        (
+            [_store] => 
+            [merkmal_289] => mm
+        )
+
+    [26] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [27] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [28] => Array
+        (
+            [_store] => 
+            [merkmal_303] => 312,284,287,302
+        )
+
+    [29] => Array
+        (
+            [_store] => 
+            [merkmal_304] => 34556.png
+        )
+
+    [30] => Array
+        (
+            [_store] => 
+            [merkmal_305] => 34550.png
+        )
+
+    [31] => Array
+        (
+            [_store] => 
+            [merkmal_306] => 
+        )
+
+    [32] => Array
+        (
+            [_store] => 
+            [merkmal_307] => 
+        )
+
+    [33] => Array
+        (
+            [_store] => 
+            [merkmal_308] => 
+        )
+
+    [34] => Array
+        (
+            [_store] => 
+            [merkmal_312] => XS/S
+        )
+
+    [35] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [36] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [37] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese stabile Kettenleine mit genieteter Handschlaufe aus Vollrindleder ist robust und langlebig. Zum Einsatz kommen hochwertige Materialien. Eine verchromte Ansatzkette in Kombination mit super softem Leder, welches gut in der Hand liegt. Erhältlich in zwei verschiedenen Längen und in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [38] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese stabile Kettenleine mit genieteter Handschlaufe aus Vollrindleder ist robust und langlebig. Zum Einsatz kommen hochwertige Materialien. Eine verchromte Ansatzkette in Kombination mit super softem Leder, welches gut in der Hand liegt. Erhältlich in zwei verschiedenen Längen und in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [39] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [40] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [41] => Array
+        (
+            [_store] => 
+            [merkmal_321] => 0
+        )
+
+    [42] => Array
+        (
+            [_store] => 
+            [merkmal_322] => 0
+        )
+
+    [43] => Array
+        (
+            [_store] => 
+            [merkmal_336] => 1
+        )
+
+    [44] => Array
+        (
+            [_store] => 
+            [merkmal_472] => 1
+        )
+
+    [45] => Array
+        (
+            [_store] => 
+            [merkmal_473] => 77957.png
+        )
+
+    [46] => Array
+        (
+            [_store] => 
+            [merkmal_474] => gg
+        )
+
+    [47] => Array
+        (
+            [_store] => 
+            [merkmal_475] => 11.99
+        )
+
+    [48] => Array
+        (
+            [_store] => 
+            [merkmal_3020] => 
+        )
+
+    [49] => Array
+        (
+            [_store] => en
+            [name] => RONDO CHAIN LEASH BLACK,12MM 100CM RIVETED
+            [description] => Riveted, with hand loop.
+With ornamental embossing.
+Chrome-plated fittings.
+            [short_description] => Riveted, with hand loop.
+With ornamental embossing.
+Chrome-plated fittings.
+            [globalname] => Rondo chain leashes
+        )
+
+    [50] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO CHAIN LEASH
+        )
+
+    [51] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO CHAIN LEASH
+        )
+
+    [52] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,12MM 100CM
+        )
+
+    [53] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,12MM 100CM
+        )
+
+    [54] => Array
+        (
+            [_store] => en
+            [merkmal_109] => RIVETED
+        )
+
+    [55] => Array
+        (
+            [_store] => en
+            [merkmal_109] => RIVETED
+        )
+
+    [56] => Array
+        (
+            [_store] => en
+            [merkmal_117] => 
+        )
+
+    [57] => Array
+        (
+            [_store] => en
+            [merkmal_119] => 
+        )
+
+    [58] => Array
+        (
+            [_store] => en
+            [merkmal_122] => 
+        )
+
+    [59] => Array
+        (
+            [_store] => en
+            [merkmal_123] => 
+        )
+
+    [60] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [61] => Array
+        (
+            [_store] => en
+            [merkmal_143] => 
+        )
+
+    [62] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [63] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [64] => Array
+        (
+            [_store] => en
+            [merkmal_157] => 
+        )
+
+    [65] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [66] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [67] => Array
+        (
+            [_store] => en
+            [merkmal_232] => 
+        )
+
+    [68] => Array
+        (
+            [_store] => en
+            [merkmal_280] => 
+        )
+
+    [69] => Array
+        (
+            [_store] => en
+            [merkmal_284] => 
+        )
+
+    [70] => Array
+        (
+            [_store] => en
+            [merkmal_285] => 
+        )
+
+    [71] => Array
+        (
+            [_store] => en
+            [merkmal_286] => 
+        )
+
+    [72] => Array
+        (
+            [_store] => en
+            [merkmal_287] => 
+        )
+
+    [73] => Array
+        (
+            [_store] => en
+            [merkmal_289] => 
+        )
+
+    [74] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [75] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [76] => Array
+        (
+            [_store] => en
+            [merkmal_303] => 
+        )
+
+    [77] => Array
+        (
+            [_store] => en
+            [merkmal_304] => 
+        )
+
+    [78] => Array
+        (
+            [_store] => en
+            [merkmal_305] => 
+        )
+
+    [79] => Array
+        (
+            [_store] => en
+            [merkmal_306] => 
+        )
+
+    [80] => Array
+        (
+            [_store] => en
+            [merkmal_307] => 
+        )
+
+    [81] => Array
+        (
+            [_store] => en
+            [merkmal_308] => 
+        )
+
+    [82] => Array
+        (
+            [_store] => en
+            [merkmal_312] => 
+        )
+
+    [83] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [84] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [85] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [86] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [87] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [88] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [89] => Array
+        (
+            [_store] => en
+            [merkmal_321] => 
+        )
+
+    [90] => Array
+        (
+            [_store] => en
+            [merkmal_322] => 
+        )
+
+    [91] => Array
+        (
+            [_store] => en
+            [merkmal_336] => 
+        )
+
+    [92] => Array
+        (
+            [_store] => en
+            [merkmal_472] => 
+        )
+
+    [93] => Array
+        (
+            [_store] => en
+            [merkmal_473] => 
+        )
+
+    [94] => Array
+        (
+            [_store] => en
+            [merkmal_474] => 
+        )
+
+    [95] => Array
+        (
+            [_store] => en
+            [merkmal_475] => 
+        )
+
+    [96] => Array
+        (
+            [_store] => en
+            [merkmal_3020] => 
+        )
+
+    [97] => Array
+        (
+            [_media_image] => magpic/77957.png
+            [thumbnail] => magpic/77957.png
+            [small_image] => magpic/77957.png
+            [image] => magpic/77957.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [98] => Array
+        (
+            [_media_image] => magpic/26555.png
+            [thumbnail] => magpic/26555.png
+            [small_image] => magpic/26555.png
+            [image] => magpic/26555.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [99] => Array
+        (
+            [_media_image] => magpic/77957.png
+            [thumbnail] => magpic/77957.png
+            [small_image] => magpic/77957.png
+            [image] => magpic/77957.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [100] => Array
+        (
+            [_category] => 0.117206
+        )
+
+    [101] => Array
+        (
+            [_category] => 0.117393
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [_product_websites] => base
+            [_attribute_set] => Default
+            [_store] => 
+            [name] => WURFKETTE ZUR DRESSUR 3 MM x 20 CM VERNICKELT
+            [short_description] => 
+            [description] => 
+            [tax_class_id] => 1
+            [is_in_stock] => 1
+            [use_config_manage_stock] => 1
+            [visibility] => 4
+            [status] => 1
+            [_type] => simple
+            [sku] => 05190
+            [basisartikelnr] => 741
+            [price] => 3.99
+            [weight] => 0
+            [_media_image] => magpic/17595.png
+            [thumbnail] => magpic/17595.png
+            [small_image] => magpic/17595.png
+            [image] => magpic/17595.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [1] => Array
+        (
+            [_store] => 
+            [name] => WURFKETTE ZUR DRESSUR 3 MM x 20 CM VERNICKELT
+            [description] => Spezieller Klang, vernickelt.
+            [short_description] => Spezieller Klang, vernickelt.
+            [globalname] => Wurfkette zur Ausbildung
+        )
+
+    [2] => Array
+        (
+            [_store] => 
+            [merkmal_105] => WURFKETTE ZUR DRESSUR
+        )
+
+    [3] => Array
+        (
+            [_store] => 
+            [merkmal_105] => WURFKETTE ZUR DRESSUR
+        )
+
+    [4] => Array
+        (
+            [_store] => 
+            [merkmal_108] => 3 MM x 20 CM
+        )
+
+    [5] => Array
+        (
+            [_store] => 
+            [merkmal_108] => 3 MM x 20 CM
+        )
+
+    [6] => Array
+        (
+            [_store] => 
+            [merkmal_109] => VERNICKELT
+        )
+
+    [7] => Array
+        (
+            [_store] => 
+            [merkmal_109] => VERNICKELT
+        )
+
+    [8] => Array
+        (
+            [_store] => 
+            [merkmal_117] => 144
+        )
+
+    [9] => Array
+        (
+            [_store] => 
+            [merkmal_119] => 1
+        )
+
+    [10] => Array
+        (
+            [_store] => 
+            [merkmal_122] => 4016598051900
+        )
+
+    [11] => Array
+        (
+            [_store] => 
+            [merkmal_123] => 19
+        )
+
+    [12] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [13] => Array
+        (
+            [_store] => 
+            [merkmal_143] => 73158900
+        )
+
+    [14] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [15] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [16] => Array
+        (
+            [_store] => 
+            [merkmal_157] => 77977.png
+        )
+
+    [17] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [18] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [19] => Array
+        (
+            [_store] => 
+            [merkmal_232] => 5970
+        )
+
+    [20] => Array
+        (
+            [_store] => 
+            [merkmal_280] => 17595.png
+        )
+
+    [21] => Array
+        (
+            [_store] => 
+            [merkmal_284] => 20
+        )
+
+    [22] => Array
+        (
+            [_store] => 
+            [merkmal_285] => 0
+        )
+
+    [23] => Array
+        (
+            [_store] => 
+            [merkmal_286] => cm
+        )
+
+    [24] => Array
+        (
+            [_store] => 
+            [merkmal_287] => 3
+        )
+
+    [25] => Array
+        (
+            [_store] => 
+            [merkmal_289] => mm
+        )
+
+    [26] => Array
+        (
+            [_store] => 
+            [merkmal_303] => 
+        )
+
+    [27] => Array
+        (
+            [_store] => 
+            [merkmal_304] => 
+        )
+
+    [28] => Array
+        (
+            [_store] => 
+            [merkmal_305] => 
+        )
+
+    [29] => Array
+        (
+            [_store] => 
+            [merkmal_306] => 
+        )
+
+    [30] => Array
+        (
+            [_store] => 
+            [merkmal_307] => 
+        )
+
+    [31] => Array
+        (
+            [_store] => 
+            [merkmal_308] => 
+        )
+
+    [32] => Array
+        (
+            [_store] => 
+            [merkmal_312] => 
+        )
+
+    [33] => Array
+        (
+            [_store] => 
+            [merkmal_318] => 
+        )
+
+    [34] => Array
+        (
+            [_store] => 
+            [merkmal_318] => 
+        )
+
+    [35] => Array
+        (
+            [_store] => 
+            [merkmal_319] => 
+        )
+
+    [36] => Array
+        (
+            [_store] => 
+            [merkmal_319] => 
+        )
+
+    [37] => Array
+        (
+            [_store] => 
+            [merkmal_320] => Für ein effektives Training! Mit der Wurfkette als akustische Erziehungshilfe kann die Aufmerksamkeit des Hundes wieder erlangt werden, ganz ohne Gewalteinwirkung. Durch den spezifischen Klang wird der Hund von unerwünschtem Verhalten abgelenkt und der Halter erhält wieder seine volle Aufmerksamkeit. Zur Unterstützung jeder Trainingsmaßnahme sollte der Hund mit viel Lob für richtiges Verhalten belohnt werden. Ein Leckerchen zur Belohnung wird Ihren Trainingserfolg deutlich beschleunigen. Achtung: Die Wurfkette darf niemals direkt auf den Hund gerichtet werden! 
+        )
+
+    [38] => Array
+        (
+            [_store] => 
+            [merkmal_320] => Für ein effektives Training! Mit der Wurfkette als akustische Erziehungshilfe kann die Aufmerksamkeit des Hundes wieder erlangt werden, ganz ohne Gewalteinwirkung. Durch den spezifischen Klang wird der Hund von unerwünschtem Verhalten abgelenkt und der Halter erhält wieder seine volle Aufmerksamkeit. Zur Unterstützung jeder Trainingsmaßnahme sollte der Hund mit viel Lob für richtiges Verhalten belohnt werden. Ein Leckerchen zur Belohnung wird Ihren Trainingserfolg deutlich beschleunigen. Achtung: Die Wurfkette darf niemals direkt auf den Hund gerichtet werden! 
+        )
+
+    [39] => Array
+        (
+            [_store] => 
+            [merkmal_321] => 0
+        )
+
+    [40] => Array
+        (
+            [_store] => 
+            [merkmal_322] => 0
+        )
+
+    [41] => Array
+        (
+            [_store] => 
+            [merkmal_336] => 1
+        )
+
+    [42] => Array
+        (
+            [_store] => 
+            [merkmal_472] => 1
+        )
+
+    [43] => Array
+        (
+            [_store] => 
+            [merkmal_473] => 77977.png
+        )
+
+    [44] => Array
+        (
+            [_store] => 
+            [merkmal_474] => 
+        )
+
+    [45] => Array
+        (
+            [_store] => 
+            [merkmal_475] => 3.99
+        )
+
+    [46] => Array
+        (
+            [_store] => 
+            [merkmal_290] => 
+        )
+
+    [47] => Array
+        (
+            [_store] => 
+            [merkmal_292] => 
+        )
+
+    [48] => Array
+        (
+            [_store] => 
+            [merkmal_293] => 
+        )
+
+    [49] => Array
+        (
+            [_store] => 
+            [merkmal_294] => 
+        )
+
+    [50] => Array
+        (
+            [_store] => 
+            [merkmal_295] => 
+        )
+
+    [51] => Array
+        (
+            [_store] => 
+            [merkmal_296] => 
+        )
+
+    [52] => Array
+        (
+            [_store] => 
+            [merkmal_297] => 
+        )
+
+    [53] => Array
+        (
+            [_store] => 
+            [merkmal_298] => 
+        )
+
+    [54] => Array
+        (
+            [_store] => 
+            [merkmal_300] => 
+        )
+
+    [55] => Array
+        (
+            [_store] => en
+            [name] => THROWING CHAIN DRESS. 3 MM x 20CM NICKEL PLATED
+            [description] => Special sound, nickel-plated.
+            [short_description] => Special sound, nickel-plated.
+            [globalname] => throwing chain for training
+        )
+
+    [56] => Array
+        (
+            [_store] => en
+            [merkmal_105] => THROWING CHAIN
+        )
+
+    [57] => Array
+        (
+            [_store] => en
+            [merkmal_105] => THROWING CHAIN
+        )
+
+    [58] => Array
+        (
+            [_store] => en
+            [merkmal_108] => DRESS. 3 MM x 20CM
+        )
+
+    [59] => Array
+        (
+            [_store] => en
+            [merkmal_108] => DRESS. 3 MM x 20CM
+        )
+
+    [60] => Array
+        (
+            [_store] => en
+            [merkmal_109] => NICKEL PLATED
+        )
+
+    [61] => Array
+        (
+            [_store] => en
+            [merkmal_109] => NICKEL PLATED
+        )
+
+    [62] => Array
+        (
+            [_store] => en
+            [merkmal_117] => 
+        )
+
+    [63] => Array
+        (
+            [_store] => en
+            [merkmal_119] => 
+        )
+
+    [64] => Array
+        (
+            [_store] => en
+            [merkmal_122] => 
+        )
+
+    [65] => Array
+        (
+            [_store] => en
+            [merkmal_123] => 
+        )
+
+    [66] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [67] => Array
+        (
+            [_store] => en
+            [merkmal_143] => 
+        )
+
+    [68] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [69] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [70] => Array
+        (
+            [_store] => en
+            [merkmal_157] => 
+        )
+
+    [71] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [72] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [73] => Array
+        (
+            [_store] => en
+            [merkmal_232] => 
+        )
+
+    [74] => Array
+        (
+            [_store] => en
+            [merkmal_280] => 
+        )
+
+    [75] => Array
+        (
+            [_store] => en
+            [merkmal_284] => 
+        )
+
+    [76] => Array
+        (
+            [_store] => en
+            [merkmal_285] => 
+        )
+
+    [77] => Array
+        (
+            [_store] => en
+            [merkmal_286] => 
+        )
+
+    [78] => Array
+        (
+            [_store] => en
+            [merkmal_287] => 
+        )
+
+    [79] => Array
+        (
+            [_store] => en
+            [merkmal_289] => 
+        )
+
+    [80] => Array
+        (
+            [_store] => en
+            [merkmal_303] => 
+        )
+
+    [81] => Array
+        (
+            [_store] => en
+            [merkmal_304] => 
+        )
+
+    [82] => Array
+        (
+            [_store] => en
+            [merkmal_305] => 
+        )
+
+    [83] => Array
+        (
+            [_store] => en
+            [merkmal_306] => 
+        )
+
+    [84] => Array
+        (
+            [_store] => en
+            [merkmal_307] => 
+        )
+
+    [85] => Array
+        (
+            [_store] => en
+            [merkmal_308] => 
+        )
+
+    [86] => Array
+        (
+            [_store] => en
+            [merkmal_312] => 
+        )
+
+    [87] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [88] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [89] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [90] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [91] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [92] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [93] => Array
+        (
+            [_store] => en
+            [merkmal_321] => 
+        )
+
+    [94] => Array
+        (
+            [_store] => en
+            [merkmal_322] => 
+        )
+
+    [95] => Array
+        (
+            [_store] => en
+            [merkmal_336] => 
+        )
+
+    [96] => Array
+        (
+            [_store] => en
+            [merkmal_472] => 
+        )
+
+    [97] => Array
+        (
+            [_store] => en
+            [merkmal_473] => 
+        )
+
+    [98] => Array
+        (
+            [_store] => en
+            [merkmal_474] => 
+        )
+
+    [99] => Array
+        (
+            [_store] => en
+            [merkmal_475] => 
+        )
+
+    [100] => Array
+        (
+            [_store] => en
+            [merkmal_290] => 
+        )
+
+    [101] => Array
+        (
+            [_store] => en
+            [merkmal_292] => 
+        )
+
+    [102] => Array
+        (
+            [_store] => en
+            [merkmal_293] => 
+        )
+
+    [103] => Array
+        (
+            [_store] => en
+            [merkmal_294] => 
+        )
+
+    [104] => Array
+        (
+            [_store] => en
+            [merkmal_295] => 
+        )
+
+    [105] => Array
+        (
+            [_store] => en
+            [merkmal_296] => 
+        )
+
+    [106] => Array
+        (
+            [_store] => en
+            [merkmal_297] => 
+        )
+
+    [107] => Array
+        (
+            [_store] => en
+            [merkmal_298] => 
+        )
+
+    [108] => Array
+        (
+            [_store] => en
+            [merkmal_300] => 
+        )
+
+    [109] => Array
+        (
+            [_media_image] => magpic/77977.png
+            [thumbnail] => magpic/77977.png
+            [small_image] => magpic/77977.png
+            [image] => magpic/77977.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [110] => Array
+        (
+            [_media_image] => magpic/17595.png
+            [thumbnail] => magpic/17595.png
+            [small_image] => magpic/17595.png
+            [image] => magpic/17595.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [111] => Array
+        (
+            [_media_image] => magpic/77977.png
+            [thumbnail] => magpic/77977.png
+            [small_image] => magpic/77977.png
+            [image] => magpic/77977.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [112] => Array
+        (
+            [_category] => 0.117212
+        )
+
+    [113] => Array
+        (
+            [_category] => 0.117297
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [_product_websites] => base
+            [_attribute_set] => Default
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,12MM 200CM GENIETET
+            [short_description] => 
+            [description] => 
+            [tax_class_id] => 1
+            [is_in_stock] => 1
+            [use_config_manage_stock] => 1
+            [visibility] => 4
+            [status] => 1
+            [_type] => simple
+            [sku] => 06014
+            [basisartikelnr] => 354
+            [price] => 20.99
+            [weight] => 0
+            [_media_image] => magpic/26556.png
+            [thumbnail] => magpic/26556.png
+            [small_image] => magpic/26556.png
+            [image] => magpic/26556.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [1] => Array
+        (
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,12MM 200CM GENIETET
+            [description] => Genietet, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [short_description] => Genietet, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [globalname] => Rondo Führleinen
+        )
+
+    [2] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [3] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [4] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,12MM 200CM
+        )
+
+    [5] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,12MM 200CM
+        )
+
+    [6] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENIETET
+        )
+
+    [7] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENIETET
+        )
+
+    [8] => Array
+        (
+            [_store] => 
+            [merkmal_117] => 12
+        )
+
+    [9] => Array
+        (
+            [_store] => 
+            [merkmal_119] => 1
+        )
+
+    [10] => Array
+        (
+            [_store] => 
+            [merkmal_122] => 4016598060148
+        )
+
+    [11] => Array
+        (
+            [_store] => 
+            [merkmal_123] => 19
+        )
+
+    [12] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [13] => Array
+        (
+            [_store] => 
+            [merkmal_143] => 42010000
+        )
+
+    [14] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [15] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [16] => Array
+        (
+            [_store] => 
+            [merkmal_157] => 77982.png
+        )
+
+    [17] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [18] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [19] => Array
+        (
+            [_store] => 
+            [merkmal_232] => 191
+        )
+
+    [20] => Array
+        (
+            [_store] => 
+            [merkmal_280] => 26556.png
+        )
+
+    [21] => Array
+        (
+            [_store] => 
+            [merkmal_284] => 200
+        )
+
+    [22] => Array
+        (
+            [_store] => 
+            [merkmal_285] => 0
+        )
+
+    [23] => Array
+        (
+            [_store] => 
+            [merkmal_286] => cm
+        )
+
+    [24] => Array
+        (
+            [_store] => 
+            [merkmal_287] => 12
+        )
+
+    [25] => Array
+        (
+            [_store] => 
+            [merkmal_289] => mm
+        )
+
+    [26] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [27] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [28] => Array
+        (
+            [_store] => 
+            [merkmal_303] => 312,284,287,302
+        )
+
+    [29] => Array
+        (
+            [_store] => 
+            [merkmal_304] => 34550.png
+        )
+
+    [30] => Array
+        (
+            [_store] => 
+            [merkmal_305] => 34556.png
+        )
+
+    [31] => Array
+        (
+            [_store] => 
+            [merkmal_306] => 
+        )
+
+    [32] => Array
+        (
+            [_store] => 
+            [merkmal_307] => 
+        )
+
+    [33] => Array
+        (
+            [_store] => 
+            [merkmal_308] => 
+        )
+
+    [34] => Array
+        (
+            [_store] => 
+            [merkmal_312] => XS/S
+        )
+
+    [35] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [36] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [37] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genietete Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar und in der Länge 350 cm ist sie 8-fach verstellbar. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [38] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genietete Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar und in der Länge 350 cm ist sie 8-fach verstellbar. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [39] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [40] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [41] => Array
+        (
+            [_store] => 
+            [merkmal_321] => 0
+        )
+
+    [42] => Array
+        (
+            [_store] => 
+            [merkmal_322] => 0
+        )
+
+    [43] => Array
+        (
+            [_store] => 
+            [merkmal_336] => 1
+        )
+
+    [44] => Array
+        (
+            [_store] => 
+            [merkmal_472] => 1
+        )
+
+    [45] => Array
+        (
+            [_store] => 
+            [merkmal_473] => 77982.png
+        )
+
+    [46] => Array
+        (
+            [_store] => 
+            [merkmal_474] => 
+        )
+
+    [47] => Array
+        (
+            [_store] => 
+            [merkmal_475] => 20.99
+        )
+
+    [48] => Array
+        (
+            [_store] => 
+            [merkmal_3020] => 
+        )
+
+    [49] => Array
+        (
+            [_store] => en
+            [name] => RONDO TRAIN.LEASH BLACK,12MM 200CM RIVETED
+            [description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [short_description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [globalname] => Rondo training leashes
+        )
+
+    [50] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [51] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [52] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,12MM 200CM
+        )
+
+    [53] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,12MM 200CM
+        )
+
+    [54] => Array
+        (
+            [_store] => en
+            [merkmal_109] => RIVETED
+        )
+
+    [55] => Array
+        (
+            [_store] => en
+            [merkmal_109] => RIVETED
+        )
+
+    [56] => Array
+        (
+            [_store] => en
+            [merkmal_117] => 
+        )
+
+    [57] => Array
+        (
+            [_store] => en
+            [merkmal_119] => 
+        )
+
+    [58] => Array
+        (
+            [_store] => en
+            [merkmal_122] => 
+        )
+
+    [59] => Array
+        (
+            [_store] => en
+            [merkmal_123] => 
+        )
+
+    [60] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [61] => Array
+        (
+            [_store] => en
+            [merkmal_143] => 
+        )
+
+    [62] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [63] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [64] => Array
+        (
+            [_store] => en
+            [merkmal_157] => 
+        )
+
+    [65] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [66] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [67] => Array
+        (
+            [_store] => en
+            [merkmal_232] => 
+        )
+
+    [68] => Array
+        (
+            [_store] => en
+            [merkmal_280] => 
+        )
+
+    [69] => Array
+        (
+            [_store] => en
+            [merkmal_284] => 
+        )
+
+    [70] => Array
+        (
+            [_store] => en
+            [merkmal_285] => 
+        )
+
+    [71] => Array
+        (
+            [_store] => en
+            [merkmal_286] => 
+        )
+
+    [72] => Array
+        (
+            [_store] => en
+            [merkmal_287] => 
+        )
+
+    [73] => Array
+        (
+            [_store] => en
+            [merkmal_289] => 
+        )
+
+    [74] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [75] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [76] => Array
+        (
+            [_store] => en
+            [merkmal_303] => 
+        )
+
+    [77] => Array
+        (
+            [_store] => en
+            [merkmal_304] => 
+        )
+
+    [78] => Array
+        (
+            [_store] => en
+            [merkmal_305] => 
+        )
+
+    [79] => Array
+        (
+            [_store] => en
+            [merkmal_306] => 
+        )
+
+    [80] => Array
+        (
+            [_store] => en
+            [merkmal_307] => 
+        )
+
+    [81] => Array
+        (
+            [_store] => en
+            [merkmal_308] => 
+        )
+
+    [82] => Array
+        (
+            [_store] => en
+            [merkmal_312] => 
+        )
+
+    [83] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [84] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [85] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [86] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [87] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [88] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [89] => Array
+        (
+            [_store] => en
+            [merkmal_321] => 
+        )
+
+    [90] => Array
+        (
+            [_store] => en
+            [merkmal_322] => 
+        )
+
+    [91] => Array
+        (
+            [_store] => en
+            [merkmal_336] => 
+        )
+
+    [92] => Array
+        (
+            [_store] => en
+            [merkmal_472] => 
+        )
+
+    [93] => Array
+        (
+            [_store] => en
+            [merkmal_473] => 
+        )
+
+    [94] => Array
+        (
+            [_store] => en
+            [merkmal_474] => 
+        )
+
+    [95] => Array
+        (
+            [_store] => en
+            [merkmal_475] => 
+        )
+
+    [96] => Array
+        (
+            [_store] => en
+            [merkmal_3020] => 
+        )
+
+    [97] => Array
+        (
+            [_media_image] => magpic/77982.png
+            [thumbnail] => magpic/77982.png
+            [small_image] => magpic/77982.png
+            [image] => magpic/77982.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [98] => Array
+        (
+            [_media_image] => magpic/26556.png
+            [thumbnail] => magpic/26556.png
+            [small_image] => magpic/26556.png
+            [image] => magpic/26556.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [99] => Array
+        (
+            [_media_image] => magpic/77982.png
+            [thumbnail] => magpic/77982.png
+            [small_image] => magpic/77982.png
+            [image] => magpic/77982.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [100] => Array
+        (
+            [_category] => 0.117206
+        )
+
+    [101] => Array
+        (
+            [_category] => 0.117393
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [_product_websites] => base
+            [_attribute_set] => Default
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,18MM 200CM GENIETET
+            [short_description] => 
+            [description] => 
+            [tax_class_id] => 1
+            [is_in_stock] => 1
+            [use_config_manage_stock] => 1
+            [visibility] => 4
+            [status] => 1
+            [_type] => simple
+            [sku] => 06034
+            [basisartikelnr] => 354
+            [price] => 31.99
+            [weight] => 0
+            [_media_image] => magpic/26556.png
+            [thumbnail] => magpic/26556.png
+            [small_image] => magpic/26556.png
+            [image] => magpic/26556.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [1] => Array
+        (
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,18MM 200CM GENIETET
+            [description] => Genietet, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [short_description] => Genietet, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [globalname] => Rondo Führleinen
+        )
+
+    [2] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [3] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [4] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,18MM 200CM
+        )
+
+    [5] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,18MM 200CM
+        )
+
+    [6] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENIETET
+        )
+
+    [7] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENIETET
+        )
+
+    [8] => Array
+        (
+            [_store] => 
+            [merkmal_117] => 12
+        )
+
+    [9] => Array
+        (
+            [_store] => 
+            [merkmal_119] => 1
+        )
+
+    [10] => Array
+        (
+            [_store] => 
+            [merkmal_122] => 4016598060346
+        )
+
+    [11] => Array
+        (
+            [_store] => 
+            [merkmal_123] => 19
+        )
+
+    [12] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [13] => Array
+        (
+            [_store] => 
+            [merkmal_143] => 42010000
+        )
+
+    [14] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [15] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [16] => Array
+        (
+            [_store] => 
+            [merkmal_157] => 77982.png
+        )
+
+    [17] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [18] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [19] => Array
+        (
+            [_store] => 
+            [merkmal_232] => 111
+        )
+
+    [20] => Array
+        (
+            [_store] => 
+            [merkmal_280] => 26556.png
+        )
+
+    [21] => Array
+        (
+            [_store] => 
+            [merkmal_284] => 200
+        )
+
+    [22] => Array
+        (
+            [_store] => 
+            [merkmal_285] => 0
+        )
+
+    [23] => Array
+        (
+            [_store] => 
+            [merkmal_286] => cm
+        )
+
+    [24] => Array
+        (
+            [_store] => 
+            [merkmal_287] => 18
+        )
+
+    [25] => Array
+        (
+            [_store] => 
+            [merkmal_289] => mm
+        )
+
+    [26] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [27] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [28] => Array
+        (
+            [_store] => 
+            [merkmal_303] => 312,284,287,302
+        )
+
+    [29] => Array
+        (
+            [_store] => 
+            [merkmal_304] => 34550.png
+        )
+
+    [30] => Array
+        (
+            [_store] => 
+            [merkmal_305] => 34556.png
+        )
+
+    [31] => Array
+        (
+            [_store] => 
+            [merkmal_306] => 
+        )
+
+    [32] => Array
+        (
+            [_store] => 
+            [merkmal_307] => 
+        )
+
+    [33] => Array
+        (
+            [_store] => 
+            [merkmal_308] => 
+        )
+
+    [34] => Array
+        (
+            [_store] => 
+            [merkmal_312] => M
+        )
+
+    [35] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [36] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [37] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genietete Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar und in der Länge 350 cm ist sie 8-fach verstellbar. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [38] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genietete Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar und in der Länge 350 cm ist sie 8-fach verstellbar. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [39] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [40] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [41] => Array
+        (
+            [_store] => 
+            [merkmal_321] => 0
+        )
+
+    [42] => Array
+        (
+            [_store] => 
+            [merkmal_322] => 0
+        )
+
+    [43] => Array
+        (
+            [_store] => 
+            [merkmal_336] => 1
+        )
+
+    [44] => Array
+        (
+            [_store] => 
+            [merkmal_472] => 1
+        )
+
+    [45] => Array
+        (
+            [_store] => 
+            [merkmal_473] => 77982.png
+        )
+
+    [46] => Array
+        (
+            [_store] => 
+            [merkmal_474] => 
+        )
+
+    [47] => Array
+        (
+            [_store] => 
+            [merkmal_475] => 31.99
+        )
+
+    [48] => Array
+        (
+            [_store] => 
+            [merkmal_3020] => 
+        )
+
+    [49] => Array
+        (
+            [_store] => en
+            [name] => RONDO TRAIN.LEASH BLACK,18MM 200CM RIVETED
+            [description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [short_description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [globalname] => Rondo training leashes
+        )
+
+    [50] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [51] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [52] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,18MM 200CM
+        )
+
+    [53] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,18MM 200CM
+        )
+
+    [54] => Array
+        (
+            [_store] => en
+            [merkmal_109] => RIVETED
+        )
+
+    [55] => Array
+        (
+            [_store] => en
+            [merkmal_109] => RIVETED
+        )
+
+    [56] => Array
+        (
+            [_store] => en
+            [merkmal_117] => 
+        )
+
+    [57] => Array
+        (
+            [_store] => en
+            [merkmal_119] => 
+        )
+
+    [58] => Array
+        (
+            [_store] => en
+            [merkmal_122] => 
+        )
+
+    [59] => Array
+        (
+            [_store] => en
+            [merkmal_123] => 
+        )
+
+    [60] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [61] => Array
+        (
+            [_store] => en
+            [merkmal_143] => 
+        )
+
+    [62] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [63] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [64] => Array
+        (
+            [_store] => en
+            [merkmal_157] => 
+        )
+
+    [65] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [66] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [67] => Array
+        (
+            [_store] => en
+            [merkmal_232] => 
+        )
+
+    [68] => Array
+        (
+            [_store] => en
+            [merkmal_280] => 
+        )
+
+    [69] => Array
+        (
+            [_store] => en
+            [merkmal_284] => 
+        )
+
+    [70] => Array
+        (
+            [_store] => en
+            [merkmal_285] => 
+        )
+
+    [71] => Array
+        (
+            [_store] => en
+            [merkmal_286] => 
+        )
+
+    [72] => Array
+        (
+            [_store] => en
+            [merkmal_287] => 
+        )
+
+    [73] => Array
+        (
+            [_store] => en
+            [merkmal_289] => 
+        )
+
+    [74] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [75] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [76] => Array
+        (
+            [_store] => en
+            [merkmal_303] => 
+        )
+
+    [77] => Array
+        (
+            [_store] => en
+            [merkmal_304] => 
+        )
+
+    [78] => Array
+        (
+            [_store] => en
+            [merkmal_305] => 
+        )
+
+    [79] => Array
+        (
+            [_store] => en
+            [merkmal_306] => 
+        )
+
+    [80] => Array
+        (
+            [_store] => en
+            [merkmal_307] => 
+        )
+
+    [81] => Array
+        (
+            [_store] => en
+            [merkmal_308] => 
+        )
+
+    [82] => Array
+        (
+            [_store] => en
+            [merkmal_312] => 
+        )
+
+    [83] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [84] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [85] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [86] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [87] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [88] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [89] => Array
+        (
+            [_store] => en
+            [merkmal_321] => 
+        )
+
+    [90] => Array
+        (
+            [_store] => en
+            [merkmal_322] => 
+        )
+
+    [91] => Array
+        (
+            [_store] => en
+            [merkmal_336] => 
+        )
+
+    [92] => Array
+        (
+            [_store] => en
+            [merkmal_472] => 
+        )
+
+    [93] => Array
+        (
+            [_store] => en
+            [merkmal_473] => 
+        )
+
+    [94] => Array
+        (
+            [_store] => en
+            [merkmal_474] => 
+        )
+
+    [95] => Array
+        (
+            [_store] => en
+            [merkmal_475] => 
+        )
+
+    [96] => Array
+        (
+            [_store] => en
+            [merkmal_3020] => 
+        )
+
+    [97] => Array
+        (
+            [_media_image] => magpic/77982.png
+            [thumbnail] => magpic/77982.png
+            [small_image] => magpic/77982.png
+            [image] => magpic/77982.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [98] => Array
+        (
+            [_media_image] => magpic/26556.png
+            [thumbnail] => magpic/26556.png
+            [small_image] => magpic/26556.png
+            [image] => magpic/26556.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [99] => Array
+        (
+            [_media_image] => magpic/77982.png
+            [thumbnail] => magpic/77982.png
+            [small_image] => magpic/77982.png
+            [image] => magpic/77982.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [100] => Array
+        (
+            [_category] => 0.117206
+        )
+
+    [101] => Array
+        (
+            [_category] => 0.117393
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [_product_websites] => base
+            [_attribute_set] => Default
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,18MM 200CM GENÄHT
+            [short_description] => 
+            [description] => 
+            [tax_class_id] => 1
+            [is_in_stock] => 1
+            [use_config_manage_stock] => 1
+            [visibility] => 4
+            [status] => 1
+            [_type] => simple
+            [sku] => 06104
+            [basisartikelnr] => 355
+            [price] => 35.99
+            [weight] => 0
+            [_media_image] => magpic/26557.png
+            [thumbnail] => magpic/26557.png
+            [small_image] => magpic/26557.png
+            [image] => magpic/26557.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [1] => Array
+        (
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,18MM 200CM GENÄHT
+            [description] => Genäht, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [short_description] => Genäht, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [globalname] => Rondo Führleinen
+        )
+
+    [2] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [3] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [4] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,18MM 200CM
+        )
+
+    [5] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,18MM 200CM
+        )
+
+    [6] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENÄHT
+        )
+
+    [7] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENÄHT
+        )
+
+    [8] => Array
+        (
+            [_store] => 
+            [merkmal_117] => 12
+        )
+
+    [9] => Array
+        (
+            [_store] => 
+            [merkmal_119] => 1
+        )
+
+    [10] => Array
+        (
+            [_store] => 
+            [merkmal_122] => 4016598061046
+        )
+
+    [11] => Array
+        (
+            [_store] => 
+            [merkmal_123] => 19
+        )
+
+    [12] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [13] => Array
+        (
+            [_store] => 
+            [merkmal_143] => 42010000
+        )
+
+    [14] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [15] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [16] => Array
+        (
+            [_store] => 
+            [merkmal_157] => 77985.png
+        )
+
+    [17] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [18] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [19] => Array
+        (
+            [_store] => 
+            [merkmal_232] => 9
+        )
+
+    [20] => Array
+        (
+            [_store] => 
+            [merkmal_280] => 26557.png
+        )
+
+    [21] => Array
+        (
+            [_store] => 
+            [merkmal_284] => 200
+        )
+
+    [22] => Array
+        (
+            [_store] => 
+            [merkmal_285] => 0
+        )
+
+    [23] => Array
+        (
+            [_store] => 
+            [merkmal_286] => cm
+        )
+
+    [24] => Array
+        (
+            [_store] => 
+            [merkmal_287] => 18
+        )
+
+    [25] => Array
+        (
+            [_store] => 
+            [merkmal_289] => mm
+        )
+
+    [26] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [27] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [28] => Array
+        (
+            [_store] => 
+            [merkmal_303] => 312,284,287,302
+        )
+
+    [29] => Array
+        (
+            [_store] => 
+            [merkmal_304] => 34550.png
+        )
+
+    [30] => Array
+        (
+            [_store] => 
+            [merkmal_305] => 34556.png
+        )
+
+    [31] => Array
+        (
+            [_store] => 
+            [merkmal_306] => 
+        )
+
+    [32] => Array
+        (
+            [_store] => 
+            [merkmal_307] => 
+        )
+
+    [33] => Array
+        (
+            [_store] => 
+            [merkmal_308] => 
+        )
+
+    [34] => Array
+        (
+            [_store] => 
+            [merkmal_312] => M
+        )
+
+    [35] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [36] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [37] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genähte Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar. Außerdem kann der Haken bei einer Leinenlänge von 240 cm ausgewechselt werden, z.B. gegen einen Jagdhaken. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [38] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genähte Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar. Außerdem kann der Haken bei einer Leinenlänge von 240 cm ausgewechselt werden, z.B. gegen einen Jagdhaken. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [39] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [40] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [41] => Array
+        (
+            [_store] => 
+            [merkmal_321] => 0
+        )
+
+    [42] => Array
+        (
+            [_store] => 
+            [merkmal_322] => 0
+        )
+
+    [43] => Array
+        (
+            [_store] => 
+            [merkmal_336] => 1
+        )
+
+    [44] => Array
+        (
+            [_store] => 
+            [merkmal_472] => 1
+        )
+
+    [45] => Array
+        (
+            [_store] => 
+            [merkmal_473] => 77985.png
+        )
+
+    [46] => Array
+        (
+            [_store] => 
+            [merkmal_474] => 
+        )
+
+    [47] => Array
+        (
+            [_store] => 
+            [merkmal_475] => 35.99
+        )
+
+    [48] => Array
+        (
+            [_store] => 
+            [merkmal_3020] => 
+        )
+
+    [49] => Array
+        (
+            [_store] => en
+            [name] => RONDO TRAIN.LEASH BLACK,18MM 200CM SEWN
+            [description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [short_description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [globalname] => Rondo training leashes
+        )
+
+    [50] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [51] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [52] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,18MM 200CM
+        )
+
+    [53] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,18MM 200CM
+        )
+
+    [54] => Array
+        (
+            [_store] => en
+            [merkmal_109] => SEWN
+        )
+
+    [55] => Array
+        (
+            [_store] => en
+            [merkmal_109] => SEWN
+        )
+
+    [56] => Array
+        (
+            [_store] => en
+            [merkmal_117] => 
+        )
+
+    [57] => Array
+        (
+            [_store] => en
+            [merkmal_119] => 
+        )
+
+    [58] => Array
+        (
+            [_store] => en
+            [merkmal_122] => 
+        )
+
+    [59] => Array
+        (
+            [_store] => en
+            [merkmal_123] => 
+        )
+
+    [60] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [61] => Array
+        (
+            [_store] => en
+            [merkmal_143] => 
+        )
+
+    [62] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [63] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [64] => Array
+        (
+            [_store] => en
+            [merkmal_157] => 
+        )
+
+    [65] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [66] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [67] => Array
+        (
+            [_store] => en
+            [merkmal_232] => 
+        )
+
+    [68] => Array
+        (
+            [_store] => en
+            [merkmal_280] => 
+        )
+
+    [69] => Array
+        (
+            [_store] => en
+            [merkmal_284] => 
+        )
+
+    [70] => Array
+        (
+            [_store] => en
+            [merkmal_285] => 
+        )
+
+    [71] => Array
+        (
+            [_store] => en
+            [merkmal_286] => 
+        )
+
+    [72] => Array
+        (
+            [_store] => en
+            [merkmal_287] => 
+        )
+
+    [73] => Array
+        (
+            [_store] => en
+            [merkmal_289] => 
+        )
+
+    [74] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [75] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [76] => Array
+        (
+            [_store] => en
+            [merkmal_303] => 
+        )
+
+    [77] => Array
+        (
+            [_store] => en
+            [merkmal_304] => 
+        )
+
+    [78] => Array
+        (
+            [_store] => en
+            [merkmal_305] => 
+        )
+
+    [79] => Array
+        (
+            [_store] => en
+            [merkmal_306] => 
+        )
+
+    [80] => Array
+        (
+            [_store] => en
+            [merkmal_307] => 
+        )
+
+    [81] => Array
+        (
+            [_store] => en
+            [merkmal_308] => 
+        )
+
+    [82] => Array
+        (
+            [_store] => en
+            [merkmal_312] => 
+        )
+
+    [83] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [84] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [85] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [86] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [87] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [88] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [89] => Array
+        (
+            [_store] => en
+            [merkmal_321] => 
+        )
+
+    [90] => Array
+        (
+            [_store] => en
+            [merkmal_322] => 
+        )
+
+    [91] => Array
+        (
+            [_store] => en
+            [merkmal_336] => 
+        )
+
+    [92] => Array
+        (
+            [_store] => en
+            [merkmal_472] => 
+        )
+
+    [93] => Array
+        (
+            [_store] => en
+            [merkmal_473] => 
+        )
+
+    [94] => Array
+        (
+            [_store] => en
+            [merkmal_474] => 
+        )
+
+    [95] => Array
+        (
+            [_store] => en
+            [merkmal_475] => 
+        )
+
+    [96] => Array
+        (
+            [_store] => en
+            [merkmal_3020] => 
+        )
+
+    [97] => Array
+        (
+            [_media_image] => magpic/77985.png
+            [thumbnail] => magpic/77985.png
+            [small_image] => magpic/77985.png
+            [image] => magpic/77985.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [98] => Array
+        (
+            [_media_image] => magpic/26557.png
+            [thumbnail] => magpic/26557.png
+            [small_image] => magpic/26557.png
+            [image] => magpic/26557.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [99] => Array
+        (
+            [_media_image] => magpic/77985.png
+            [thumbnail] => magpic/77985.png
+            [small_image] => magpic/77985.png
+            [image] => magpic/77985.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [100] => Array
+        (
+            [_category] => 0.117206
+        )
+
+    [101] => Array
+        (
+            [_category] => 0.117393
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [_product_websites] => base
+            [_attribute_set] => Default
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,18MM 240CM GENÄHT,AUSSCHNALLBAR
+            [short_description] => 
+            [description] => 
+            [tax_class_id] => 1
+            [is_in_stock] => 1
+            [use_config_manage_stock] => 1
+            [visibility] => 4
+            [status] => 1
+            [_type] => simple
+            [sku] => 06144
+            [basisartikelnr] => 355
+            [price] => 47.99
+            [weight] => 0
+            [_media_image] => magpic/26557.png
+            [thumbnail] => magpic/26557.png
+            [small_image] => magpic/26557.png
+            [image] => magpic/26557.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [1] => Array
+        (
+            [_store] => 
+            [name] => RONDO FÜHRLEINE SCHWARZ,18MM 240CM GENÄHT,AUSSCHNALLBAR
+            [description] => Genäht, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [short_description] => Genäht, aus einem Stück gefertigt. Mit Zierreifel. Verchromte Beschläge. 
+            [globalname] => Rondo Führleinen
+        )
+
+    [2] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [3] => Array
+        (
+            [_store] => 
+            [merkmal_105] => RONDO FÜHRLEINE
+        )
+
+    [4] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,18MM 240CM
+        )
+
+    [5] => Array
+        (
+            [_store] => 
+            [merkmal_108] => SCHWARZ,18MM 240CM
+        )
+
+    [6] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENÄHT,AUSSCHNALLBAR
+        )
+
+    [7] => Array
+        (
+            [_store] => 
+            [merkmal_109] => GENÄHT,AUSSCHNALLBAR
+        )
+
+    [8] => Array
+        (
+            [_store] => 
+            [merkmal_117] => 12
+        )
+
+    [9] => Array
+        (
+            [_store] => 
+            [merkmal_119] => 1
+        )
+
+    [10] => Array
+        (
+            [_store] => 
+            [merkmal_122] => 4016598061442
+        )
+
+    [11] => Array
+        (
+            [_store] => 
+            [merkmal_123] => 19
+        )
+
+    [12] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [13] => Array
+        (
+            [_store] => 
+            [merkmal_143] => 42010000
+        )
+
+    [14] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [15] => Array
+        (
+            [_store] => 
+            [merkmal_152] => 
+        )
+
+    [16] => Array
+        (
+            [_store] => 
+            [merkmal_157] => 77989.png
+        )
+
+    [17] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [18] => Array
+        (
+            [_store] => 
+            [merkmal_228] => 
+        )
+
+    [19] => Array
+        (
+            [_store] => 
+            [merkmal_232] => 23
+        )
+
+    [20] => Array
+        (
+            [_store] => 
+            [merkmal_280] => 26557.png
+        )
+
+    [21] => Array
+        (
+            [_store] => 
+            [merkmal_284] => 240
+        )
+
+    [22] => Array
+        (
+            [_store] => 
+            [merkmal_285] => 0
+        )
+
+    [23] => Array
+        (
+            [_store] => 
+            [merkmal_286] => cm
+        )
+
+    [24] => Array
+        (
+            [_store] => 
+            [merkmal_287] => 18
+        )
+
+    [25] => Array
+        (
+            [_store] => 
+            [merkmal_289] => mm
+        )
+
+    [26] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [27] => Array
+        (
+            [_store] => 
+            [merkmal_302] => 100
+        )
+
+    [28] => Array
+        (
+            [_store] => 
+            [merkmal_303] => 312,284,287,302
+        )
+
+    [29] => Array
+        (
+            [_store] => 
+            [merkmal_304] => 34550.png
+        )
+
+    [30] => Array
+        (
+            [_store] => 
+            [merkmal_305] => 34556.png
+        )
+
+    [31] => Array
+        (
+            [_store] => 
+            [merkmal_306] => 
+        )
+
+    [32] => Array
+        (
+            [_store] => 
+            [merkmal_307] => 
+        )
+
+    [33] => Array
+        (
+            [_store] => 
+            [merkmal_308] => 
+        )
+
+    [34] => Array
+        (
+            [_store] => 
+            [merkmal_312] => M
+        )
+
+    [35] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [36] => Array
+        (
+            [_store] => 
+            [merkmal_318] => Die Rondo Serie umfasst eine große Vielfalt an Halsbändern, Leinen und Führleinen - genietet, genäht, eingeflochten, mit Ziernieten, Motiven, .... Rondo Leder Super Soft ist ein sehr weiches Vollrindleder. Das Leder hat einen hohen Fettanteil, wodurch sich die Produkte angenehm griffig anfühlen. Durch seinen hohen Fettanteil ist es außerdem einfach zu pflegen und unempfindlich gegen Feuchtigkeit. Dieses durchgefärbte, strapazierfähige Leder wird in den Farben schwarz, rot, natur und braun verarbeitet. - Gut zu wissen: naturfarbiges Leder dunkelt unter Lichteinwirkung mit der Zeit nach.
+        )
+
+    [37] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genähte Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar. Außerdem kann der Haken bei einer Leinenlänge von 240 cm ausgewechselt werden, z.B. gegen einen Jagdhaken. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [38] => Array
+        (
+            [_store] => 
+            [merkmal_319] => Diese solide genähte Leine aus weichem Vollrindleder ist durch das verwendete hochwertige Leder und die stabilen verchromten Beschläge besonders robust und langlebig. In der Länge 200 cm ist sie aus einem Stück gefertigt und 3-fach verstellbar, in der Länge 240 cm 4-fach verstellbar. Außerdem kann der Haken bei einer Leinenlänge von 240 cm ausgewechselt werden, z.B. gegen einen Jagdhaken. Erhältlich ist sie in den Farben schwarz, rot, natur und braun.
+Made in Germany. 5 Jahre Garantie.
+Zu dieser Leine gibt es viele passende Rondo Halsbänder.
+        )
+
+    [39] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [40] => Array
+        (
+            [_store] => 
+            [merkmal_320] => 
+        )
+
+    [41] => Array
+        (
+            [_store] => 
+            [merkmal_321] => 0
+        )
+
+    [42] => Array
+        (
+            [_store] => 
+            [merkmal_322] => 0
+        )
+
+    [43] => Array
+        (
+            [_store] => 
+            [merkmal_336] => 1
+        )
+
+    [44] => Array
+        (
+            [_store] => 
+            [merkmal_472] => 1
+        )
+
+    [45] => Array
+        (
+            [_store] => 
+            [merkmal_473] => 77989.png
+        )
+
+    [46] => Array
+        (
+            [_store] => 
+            [merkmal_474] => 
+        )
+
+    [47] => Array
+        (
+            [_store] => 
+            [merkmal_475] => 47.99
+        )
+
+    [48] => Array
+        (
+            [_store] => 
+            [merkmal_3020] => 
+        )
+
+    [49] => Array
+        (
+            [_store] => en
+            [name] => RONDO TRAIN.LEASH BLACK,18MM 240CM SEWN, EXCHAN.SNAP
+            [description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [short_description] => Riveted, made from one single piece. With ornamental embossing.
+Chrome-plated fittings.
+            [globalname] => Rondo training leashes
+        )
+
+    [50] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [51] => Array
+        (
+            [_store] => en
+            [merkmal_105] => RONDO TRAIN.LEASH
+        )
+
+    [52] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,18MM 240CM
+        )
+
+    [53] => Array
+        (
+            [_store] => en
+            [merkmal_108] => BLACK,18MM 240CM
+        )
+
+    [54] => Array
+        (
+            [_store] => en
+            [merkmal_109] => SEWN, EXCHAN.SNAP
+        )
+
+    [55] => Array
+        (
+            [_store] => en
+            [merkmal_109] => SEWN, EXCHAN.SNAP
+        )
+
+    [56] => Array
+        (
+            [_store] => en
+            [merkmal_117] => 
+        )
+
+    [57] => Array
+        (
+            [_store] => en
+            [merkmal_119] => 
+        )
+
+    [58] => Array
+        (
+            [_store] => en
+            [merkmal_122] => 
+        )
+
+    [59] => Array
+        (
+            [_store] => en
+            [merkmal_123] => 
+        )
+
+    [60] => Array
+        (
+            [merkmal_137] => 0
+        )
+
+    [61] => Array
+        (
+            [_store] => en
+            [merkmal_143] => 
+        )
+
+    [62] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [63] => Array
+        (
+            [_store] => en
+            [merkmal_152] => 
+        )
+
+    [64] => Array
+        (
+            [_store] => en
+            [merkmal_157] => 
+        )
+
+    [65] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [66] => Array
+        (
+            [_store] => en
+            [merkmal_228] => 
+        )
+
+    [67] => Array
+        (
+            [_store] => en
+            [merkmal_232] => 
+        )
+
+    [68] => Array
+        (
+            [_store] => en
+            [merkmal_280] => 
+        )
+
+    [69] => Array
+        (
+            [_store] => en
+            [merkmal_284] => 
+        )
+
+    [70] => Array
+        (
+            [_store] => en
+            [merkmal_285] => 
+        )
+
+    [71] => Array
+        (
+            [_store] => en
+            [merkmal_286] => 
+        )
+
+    [72] => Array
+        (
+            [_store] => en
+            [merkmal_287] => 
+        )
+
+    [73] => Array
+        (
+            [_store] => en
+            [merkmal_289] => 
+        )
+
+    [74] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [75] => Array
+        (
+            [_store] => en
+            [merkmal_302] => 100
+        )
+
+    [76] => Array
+        (
+            [_store] => en
+            [merkmal_303] => 
+        )
+
+    [77] => Array
+        (
+            [_store] => en
+            [merkmal_304] => 
+        )
+
+    [78] => Array
+        (
+            [_store] => en
+            [merkmal_305] => 
+        )
+
+    [79] => Array
+        (
+            [_store] => en
+            [merkmal_306] => 
+        )
+
+    [80] => Array
+        (
+            [_store] => en
+            [merkmal_307] => 
+        )
+
+    [81] => Array
+        (
+            [_store] => en
+            [merkmal_308] => 
+        )
+
+    [82] => Array
+        (
+            [_store] => en
+            [merkmal_312] => 
+        )
+
+    [83] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [84] => Array
+        (
+            [_store] => en
+            [merkmal_318] => 
+        )
+
+    [85] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [86] => Array
+        (
+            [_store] => en
+            [merkmal_319] => 
+        )
+
+    [87] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [88] => Array
+        (
+            [_store] => en
+            [merkmal_320] => 
+        )
+
+    [89] => Array
+        (
+            [_store] => en
+            [merkmal_321] => 
+        )
+
+    [90] => Array
+        (
+            [_store] => en
+            [merkmal_322] => 
+        )
+
+    [91] => Array
+        (
+            [_store] => en
+            [merkmal_336] => 
+        )
+
+    [92] => Array
+        (
+            [_store] => en
+            [merkmal_472] => 
+        )
+
+    [93] => Array
+        (
+            [_store] => en
+            [merkmal_473] => 
+        )
+
+    [94] => Array
+        (
+            [_store] => en
+            [merkmal_474] => 
+        )
+
+    [95] => Array
+        (
+            [_store] => en
+            [merkmal_475] => 
+        )
+
+    [96] => Array
+        (
+            [_store] => en
+            [merkmal_3020] => 
+        )
+
+    [97] => Array
+        (
+            [_media_image] => magpic/77989.png
+            [thumbnail] => magpic/77989.png
+            [small_image] => magpic/77989.png
+            [image] => magpic/77989.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [98] => Array
+        (
+            [_media_image] => magpic/26557.png
+            [thumbnail] => magpic/26557.png
+            [small_image] => magpic/26557.png
+            [image] => magpic/26557.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [99] => Array
+        (
+            [_media_image] => magpic/77989.png
+            [thumbnail] => magpic/77989.png
+            [small_image] => magpic/77989.png
+            [image] => magpic/77989.png
+            [_media_attribute_id] => 88
+            [_media_is_disabled] => 0
+            [_media_position] => 1
+        )
+
+    [100] => Array
+        (
+            [_category] => 0.117206
+        )
+
+    [101] => Array
+        (
+            [_category] => 0.117393
+        )
+
+)

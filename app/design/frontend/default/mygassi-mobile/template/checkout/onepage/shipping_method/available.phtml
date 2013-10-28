@@ -25,6 +25,9 @@
  */
 ?>
 <?php /** @var $this Mage_Checkout_Block_Onepage_Shipping_Method_Available */ ?>
+
+
+
 <?php $_shippingRateGroups = $this->getShippingRates(); ?>
 
 
@@ -44,6 +47,31 @@ if(Mage::getSingleton("checkout/cart")->getQuote()->getGrandTotal() >= 19){
 				unset($_shippingRateGroups[$key]);
 			}
 		}
+	}
+}
+
+/**
+ * Removes "Versandkostenpaushale" (from "Versandkostenfrei");
+ * ** generell ***
+ * dann, dann, dann dann 
+ */ 
+$freeShippingFreeShippingFlag = false;
+$flatrateFlaterateFlag = false;
+$keyToBeRemoved = null;
+foreach($_shippingRateGroups as $key=>$rates){
+	foreach($rates as $rate){
+		if("freeshipping_freeshipping" === $rate->getCode()){
+			$freeShippingFreeShippingFlag = true;
+		}
+		if("flatrate_flatrate" === $rate->getCode()){
+			$flatrateFlaterateFlag = true;
+			$keyToBeRemoved = $key;
+		}
+	}
+}
+if($freeShippingFreeShippingFlag && $flatrateFlaterateFlag){
+	if(null != $keyToBeRemoved){
+		unset($_shippingRateGroups[$keyToBeRemoved]);
 	}
 }
 ?>

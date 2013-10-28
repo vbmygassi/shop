@@ -20,7 +20,7 @@ function fetchNextProduct($args)
 	// fetches the next product
 	$target = "article/mygassionly/1/limit/".$args["bulk"]."/offset/".$args["offset"]; 
 	logger($target);
-	 print $target . "\n";
+	// print $target . "\n";
 	if(null === ($client = Mage::getModel('codex_api/api'))){ return; }
 	if(null !== ($response = $client->call($target, 'GET'))){
 		$args["offset"] += $args["bulk"];
@@ -105,7 +105,60 @@ function fetchProductAttributes($sku)
 $magicImportIDs = array();
 function writeProduct($product)
 {
-	var_dump($product); exit();
+	// print_r($product);
+	// return;
+
+	/*
+	print '"';
+	print $product[0]["sku"];
+	print '"';
+	
+	print ",";
+	
+	$res = "";
+	$res = str_replace('"', "", $product[0]["name"]);
+	$res = str_replace(",", " ", $res);
+	$res = str_replace('"', '', $res);
+	
+	print '"';
+	print $res;
+	print '"';
+	
+	$res = "";
+	foreach($product as $fields){
+		if(isset($fields["merkmal_122"])){
+			$res = $fields["merkmal_122"];
+		}
+	}
+	// print $product[10]["merkmal_122"];
+	
+	print ",";
+	
+	print '"';
+	print $res;
+	print '"';
+	
+	print ",";
+	
+	print '"';
+	$res = 0;
+	$res = $product[0]["price"];
+	// $res = Mage::helper('core')->currency($res, true, false);
+	// $res = str_replace(",", ".", $res);
+	// $res = str_replace(".", ",", $res);
+	print $res;
+	print '"';
+	
+	$res = str_replace(".", ",", $res);
+	print ",";
+	print '"';
+	print $res; 
+	print '"';
+		
+	print "\n";
+	return; 
+	*/
+
 	global $settings;	
 	global $magicImportIDs;
 	global $productContainer;
@@ -681,10 +734,10 @@ $settings = array(
 	"offset" 	=> 0, 
 	"bulk" 		=> 1, 
 	"max" 		=> 500, 
-	"fetch" 	=> true, 
-	"import" 	=> true,
+	"fetch" 	=> false, 
+	"import" 	=> false,
 	"attrdownload"	=> false,
-	"reindex" 	=> true 
+	"reindex" 	=> false 
 );
 /***
  * fetches the next product

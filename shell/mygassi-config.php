@@ -1,5 +1,5 @@
 <?php
-define("mageroot", "app/Mage.php");
+define("mageroot", "/Users/vico/Workspace/MyGassiShop/app/Mage.php");
 
 
 

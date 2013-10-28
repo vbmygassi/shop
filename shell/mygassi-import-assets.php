@@ -61,7 +61,7 @@ foreach($coll as $prod)
 	array_push($gall["images"], $temp);
 	$prod->setData("media_gallery", $gall);
 	foreach($prod->getMediaGalleryImages() as $image){
-		var_dump($image->debug);
+		// var_dump($image->debug);
 		if(is_file($image->getFile())){
 			$path = (string)Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
 			print "path: " . $path . "\n";

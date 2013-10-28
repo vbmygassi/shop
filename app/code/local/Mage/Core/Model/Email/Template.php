@@ -468,7 +468,6 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Template
 	}
 
 	/*** */
-
 	try {
             $mail->send();
             $this->_mail = null;
@@ -478,9 +477,6 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Template
             Mage::logException($e);
             return false;
         }
-
-// print_r($mail);
-// exit(1);
 
         return  true;
     }

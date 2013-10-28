@@ -4,6 +4,28 @@ require_once(mageroot);
 
 Mage::app();
 
+$product = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
+$product = $product->load($product->getId());
+
+print_r($product->debug());
+
+exit(1);
+
+// $product = Mage::getModel("catalog/product")->loadByAttribute("sku", "1381845171");
+$ref = serialize($product);
+print_r($ref);
+file_put_contents("/Users/vico/Workspace/ProdImport/data/mprod.php", $ref);
+exit(1);
+
+
+
+
+
+
+
+
+
+exit(1);
 $invoice = Mage::getModel("sales/order_invoice")->loadByIncrementId("100000171");
 // print_r($invoice->debug());
 // $sale = Mage::getModel("sales/order")->load($invoice->getOrderId());
