@@ -4,14 +4,10 @@ require_once(mageroot);
 
 Mage::app();
 
-$product = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
-$product = $product->load($product->getId());
 
-print_r($product->debug());
 
-exit(1);
 
-// $product = Mage::getModel("catalog/product")->loadByAttribute("sku", "1381845171");
+$product = Mage::getModel("catalog/product")->loadByAttribute("sku", "007");
 $ref = serialize($product);
 print_r($ref);
 file_put_contents("/Users/vico/Workspace/ProdImport/data/mprod.php", $ref);

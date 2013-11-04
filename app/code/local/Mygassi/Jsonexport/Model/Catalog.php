@@ -51,7 +51,7 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 			$imageURL1st = "";
 			foreach($prod->getMediaGalleryImages() as $image){
 				$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
-				if("the1st" === $image->getLabel()){ 
+				if("the1stImage" === $image->getLabel()){ 
 					$imageURL1st = (string)$path; 
 				} 
 			}	
@@ -67,14 +67,24 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 			// category IDs get one category ID
 			// $catID = array_shift($prod->getCategoryIds());
 			$catIDs = $prod->getCategoryIds();
-			$catID = $catIDs[0];
+			$catID = $catIDs[1];
 			$cat = Mage::getModel("catalog/category")->load($catID);
+			// category image
+			$catImage = "";
+			$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $cat->getImage())->keepFrame(false)->resize(640);
+			$catImage = (string)$path;
+			// created.. 
 			$created = strtotime($prod->getCreatedAt());
-			if($this->getProductTop($prod)){ $created = date("U"); }
-			if($this->getProductStream($prod)){ $created = date("U"); }
+			if($this->getProductTop($prod)){ 
+				$created = date("U"); 
+			}
+			if($this->getProductStream($prod)){ 
+				$created = date("U"); 
+			}
 			// specialwonsh : the description is NOT the description! 
 			// description is the new detail
 			// desc is the 2
+			/*
 			$description = $prod->getArtikelbezeichnung2();
 			switch($description){
 				case null:
@@ -97,20 +107,22 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 						$description = $descTemp1;
 					}
 			}
+			*/
 			// fills json array 
 			$temp = array(
-				'category_id'=>$catID,
+				'category_id'=>$cat->getId(),
 				'category_path'=>$cat->getPath(),
 				'category_name'=>$cat->getName(),
-				'category_ids'=>$prod->getCategoryIds(),
+				'category_description'=>$cat->getDescription(),
+				'category_image'=>$catImage,
 				'sku'=>$prod->getSku(),
 				'id'=>$prod->getSku(),
 				'title'=>$prod->getName(),
 				'old_price'=>$this->getPhoneFormattedPrice($prod->getOldPrice()),
 				'price'=>$this->getPhoneFormattedPrice($prod->getPrice()),
 				'image_url'=>$imageURL1st,
-				'description'=>$description,
-				'short_description'=>$description,
+				'description'=>$prod->getDescription(),
+				'short_description'=>$prod->getDescription(),
 				'created'=>$created,
 				'basisartikelnr'=>$prod->getBasisartikelnr(),
 				'is_top_product'=>$this->getProductTop($prod),
@@ -124,15 +136,16 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 					'category_id'=>"$66666666666666",
 					'category_path'=>$cat->getPath(),
 					'category_name'=>"Top-Produkte",
-					'category_ids'=>$prod->getCategoryIds(),
+					'category_description'=>$cat->getDescription(),
+					'category_image'=>$catImage,
 					'sku'=>$prod->getSku(),
 					'id'=>$prod->getSku(),
 					'title'=>$prod->getName(),
 					'old_price'=>$this->getPhoneFormattedPrice($prod->getOldPrice()),
 					'price'=>$this->getPhoneFormattedPrice($prod->getPrice()),
 					'image_url'=>$imageURL1st,
-					'description'=>$description,
-					'short_description'=>$description,
+					'description'=>$prod->getDescription(),
+					'short_description'=>$prod->getDescription(),
 					'created'=>$created,
 					'basisartikelnr'=>$prod->getBasisartikelnr(),
 					'is_top_product'=>$this->getProductTop($prod),
