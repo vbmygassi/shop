@@ -1,0 +1,154 @@
+Mal angenommen: auf Magento aufgesetzt ? Warum eigentlich nicht?
+
+	Ein Modul: Premium Accounts
+	Kundentyp: Premium Kunden
+		vom Magento zu PAYONE ist dann .:: ähh, gelöst; 
+		Kreditkarten werden nicht "local" gespeichert.........
+	
+	Anpassung der Module-Templates
+	Weiterleitung der Zahlungen...
+	
+	Schnittstellerer zum nodes.dk Premium Kunden PIN Generiererei
+
+
+Problem: 
+	Magento soll nicht aus dem Web erreichbar sein
+	--> eigene Masken mit Mage::app();
+
+
+theme "mygassi" rennt aus dem web
+theme "mygassi-mobile" aus dem mobile
+
+der internetshop, der aus dem internet nicht erreichbar sein darf (alex) ist jetzt aus dem internet erreichbar.
+die einzelnen areitschritte sind (wie gewünscht) abgebildet.
+zum "schluss" des ganzen kommt die payone checkout maske.
+anders gehts nicht.
+die zu verhökernden scheissdingar sind produkte.
+rechnungen, zahlungen etc. das läuft wie immer.
+
+premium kunden sind magento kunden vom typ "premium".
+
+problem: es sollten nur bestellungen an karlie versandt werden, die nicht von premium kunden gekauft werden.
+auch sollten beim produkte update undso die produkte nicht gelöscht werden.
+
+moment.
+nee, also view und stores und websites anlegen hilft nicht.
+
+die produkte sind in der sammlung und haben irgendeinen attributeset oder was, das sie characterisiert.
+
+die produkte werden gekauft und ich passe die designs an.
+
+texte merken:
+	das geht nicht.
+	ohne bezahlgateway keine zahlung.
+	ohne payone keine rechung,
+		keine buchung,
+		kein gutschrift,
+		kein rekla	
+		kein recht,
+		kein anwalt,
+		kein richter,
+		payone wiederum tut mit onepage checkout
+		(auch das gerade so mal...
+		die wird im look angepasst,
+		tatsächlich kann die rechnungsadresse abweichen
+		
+versandart kommt raus;
+als gast oder reg kommt raus; 
+	weil das passiert ja "sinnvoller" weise zuvor schon
+	ribattcode kommt raus
+		
+	
+ich bin mir nicht sicher, was beim magento geht doch es kann sogar sein; dass die prozessortimes "messen" bzw. das deren observer - dispatcher modell so ne "acks" setzt... 
+kann einfach nicht sein....
+
+objekte und vererbung und mvc und eventmodel und observer patterns... nützen überhaupt nichts.
+
+geht nicht.
+
+das geht nur so wie es ist.
+
+aber nicht nur magento: auch der iphone app ist so aufbereitet, dass man damit nicht mal testen kann; was testen: überprüfen; 
+
+lauter weltmeister des "das war schon immer so"; zeitstehler. 
+
+idioten.
+
+
+
+premium ist demnach
+	ein registrieren
+	ein produkt wählen
+	... aber obacht: auch das wird nicht so einfach sein... nur mal schnell
+
+
+der mit abstand grösster verhau ist der magento. mit abstand. da geht nichts geht da so, wie man es 20 jahre lang erlernt hat.
+nichts.
+
+das *geht. ich schwöre: das ist eine orthodoxe sekte oder sowas. die "können" schon, keine frage: aber "such mal die abstraktion" "vererb mal undso"....
+immer und immer wieder von vorne und nochmal: das geht nicht. 
+
+da ist kein submitOrder()
+da ist ein saveOrder(); das geht nur so, mit allen abhängigkeiten, wie das "geht".
+
+ich habe einen tag lang versucht, "saveOrder()" (letztlich je nach einstellung dann payone): ich bin gebeten worden, mich zu beeilen, 
+ich "darf" und "werde" nichts ändern, was die bezahlung abwickelt, 
+
+die abhängigkeiten sind immens, je nach einstellung rechnung oder nicht, an payone oder paypal, die antworten so oder so: von da nach dahin, wenns nicht klappt zurück....
+
+onepage "gertstylee" irgendwie mit css und gut.
+
+geht nicht anders.
+
+der witz ist: immer und immer wieder: unterm strich ist es gut, dass es nicht geht.
+
+soll keiner ändern: der verkäufer "will" irgendwas: das geht nicht: na gott sei dank, und dann stellt man fest; männo; dafür ist die checkout page da.
+
+
+
+wie oft mir das passiert ist: als scripter ohne einen schimmer vom verkaufen; der verkäufer ohne ahnung vom scripten: kann kategorisch nur schief gehen.
+
+da ist die checkout/onepage und gut.
+
+
+
+bitte keine website, die dann ein new Order()->save() ruft.
+
+forget it. 
+
+so sollte es sein; aber das geht nicht, weil es nicht geht.
+
+
+sehr schönes beispiel: "machma schnell gutschrift". 
+ja -10 euro oder?
+
+nein. 
+
+bestellung storniert, 
+neue bestellung, 
+neue rechnung
+alte rechnung erstattet, 
+neue rechnung eingezogen
+
+....
+
+
+don dschadscha in 10 minuten if (-10) und gut oda?
+
+hauptsache es geht; NEIN, es geht nicht.
+
+
+
+wenns ned passd, dann gehe ich. 
+
+
+
+
+
+
+Kategorien automatisiert aus dem Admin
+	http://api.mygassi.com/poi/categories ??? 
+
+
+
+

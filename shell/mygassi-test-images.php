@@ -22,6 +22,16 @@ $coll = Mage::getModel("catalog/product")->getCollection();
 $index = 0;
 foreach($coll as $prod){
 	$prod = $prod->load($prod->getId());
+	
+	
+	$cids = $prod->getCategoryIds();
+	$catNames = array();
+	foreach($cids as $id){
+		$cat = Mage::getModel("catalog/category")->load($id);
+		$cat = $cat->load($cat->getId());
+		$catNames[]= $cat->getName();
+	}
+
 	$sku = $prod->getSku();
 	$title = $prod->getName();
 	$description = $prod->getDescription();
@@ -54,6 +64,13 @@ foreach($coll as $prod){
 	<br/>{$stream}
 <br/>
 EOD;
+
+	$buff .= "<br/><b>Kategorien</b>";
+	foreach($catNames as $catName){
+		$buff .= "<br/>" . $catName;
+	}
+	
+
 	foreach($prod->getMediaGalleryImages() as $image){
 		$path = (string)Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
 		$filename = $image->getFile();

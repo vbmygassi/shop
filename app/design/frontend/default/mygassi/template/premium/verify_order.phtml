@@ -1,0 +1,226 @@
+<?php ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style type="text/css">
+
+body {
+	font-family: Arial, Helvetica;
+}
+
+a {
+	text-decoration: none;
+}
+
+#header {
+	width: 834px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu {
+	width: 834px;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu span {
+	font-size: 18px;
+	text-decoration: none;
+	margin: 52px;
+}
+
+#commando {
+	font-size: 18px;
+	margin: 52px;
+	font-weight: bold;
+}
+
+#output_1, #output_2 {
+	width: 834px;
+	text-align: left;
+	margin-bottom: 32px;
+}
+
+#personal_data {
+	text-align: left;
+	float: left;
+	height: 250px;
+	width: 50%;
+}
+
+#corporate_data {
+	height: 250px;
+}
+
+#personal_data span, #corporate_data span, #payment_method span {
+	line-height: 32px;
+}
+
+#terms_and_conditions {
+	width: 834px;
+}
+
+.headline {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+</style>
+
+<script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
+<script type="text/javascript" language="javascript">
+
+jQuery(document).ready(function(){ CP.init(); });
+
+CP = {
+	btnSend: null,
+	btnAccept: null,
+	init: function(){
+		CP.btnSend = jQuery("#submit");
+		if(null != CP.btnSend){
+			CP.btnSend.attr("disabled", "disabled");
+		}
+		CP.btnAccept = jQuery("#accept");
+		if(null != CP.btnAccept){
+			CP.btnAccept.bind("click", function(){
+				if(CP.btnAccept.is(":checked")){
+					CP.btnSend.removeAttr("disabled");
+				}
+				else {
+					CP.btnSend.attr("disabled", "disabled");
+				}
+			});
+		}
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+<center>
+<div id="header">Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</div>
+<div id="menu">
+	<span class="">Kontaktdaten</span>
+	<span class="">Zahlungsdaten</span>
+	<span class="">Abschluss</span>
+</div>
+
+<div id="commando">Bitte &uuml;berpr&uuml;fen Sie Ihre eingegebenen Daten<sup>*</sup></div>
+
+<div id="output_1">
+
+<?php 
+
+// values from the model
+$p_name = "Max Mustermann";
+$p_email = "max@mustermann.de";
+$p_telephone = "+49 11 22 33 44";
+$p_street = "Musterstra&szlig;e 33";
+$p_zip = "13456";
+$p_city = "Musterhausen";
+
+print <<<EOD
+<div id="personal_data">
+	<span class="headline">Pers&ouml;nliche Daten</span>
+	<br/>
+	<span class="message">{$p_name}</span>
+	<br/>
+	<span class="message">{$p_email}</span>
+	<br/>
+	<span class="message">{$p_telephone}</span>
+	<br/>
+	<span class="message">{$p_street}</span>
+	<br/>
+	<span class="message">{$p_zip}</span>
+	<br/>
+	<sppan class="message">{$p_city}</span>
+</div>
+
+EOD;
+
+// values from the model
+// jumpyjumpies from the outer space 
+$c_category = "Obertierarzt";
+$c_name = "Max Mustermann";
+$c_email = "max@mustermann.de";
+$c_telephone = "+49 11 22 33 44";
+$c_street = "Musterstra&szlig;e 33";
+$c_zip = "13456";
+$c_city = "Musterhausen";
+
+print <<<EOD
+<div id="corporate_data">
+	<span class="headline">Unternehmensdaten</span>
+	<br/>
+	<span class="message">{$c_category}</span>
+	<br/>
+	<span class="message">{$c_name}</span>
+	<br/>
+	<span class="message">{$c_street}</span>
+	<br/>
+	<span class="message">{$c_zip}</span>
+	<br/>
+	<span class="message">{$c_city}</span>
+	<br/>
+	<span class="message">{$c_email}</span>
+	<br/>
+	<span class="message">{$c_telephone}</span>
+</div>
+
+</div><!-- ouput_1 -->
+
+EOD;
+
+// values from the model
+$selected_package = "Bronze";
+$charge = "€60";
+$selected_payment_method = "Bankeinzug";
+
+print <<<EOD
+
+<div id="output_2">
+<div id="payment_method">
+	<span class="headline">Zahlungsdaten</span>	
+	<br/>
+	<span class="message">Gew&auml;hltes Paket: {$selected_package}</span>	
+	<br/>
+	<span class="message">{$charge} pro Jahr</span>	
+	<br/>
+	<span class="message">Zahlung via: {$selected_payment_method}</span>
+</div>
+</div><!-- output_2 -->
+
+EOD;
+
+$baseURL = Mage::getBaseUrl();
+
+print <<<EOD
+<div id="terms_and_conditions">
+	<form method="POST" action="{$baseURL}premium/index/place_order">
+	<!--
+	<form method="POST" action="{$baseURL}premium/index/saveOrder">
+	-->
+		<input type="checkbox" id="accept" name="accept" value="yes_i_do"></input>
+		<label for="accept">Ich stimme den</label>
+		<a href="http://apple.com/">Nutzungsbedingungen</a>
+		der MyGassi GmbH f&uuml;r den Verkauf von Premiumorten zu.
+		<p/>
+		<input type="submit" id="submit" value="Bestellung absenden"></input>
+	</form>
+</div>
+
+EOD;
+
+?>
+
+</center>
+</html>
+</body>
+

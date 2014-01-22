@@ -12,8 +12,8 @@ function prompt($message)
 prompt("Sind Sie Sich über die Folgen Ihrer Handlung im Klaren?\n");
 prompt("Wirklich?\n");
 
-print "Nee, mache ich nicht.\n";
-exit(1);
+// print "Nee, mache ich nicht.\n";
+// exit(1);
 
 require_once("mygassi-config.php");
 require_once(mageroot);

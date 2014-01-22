@@ -1,0 +1,64 @@
+<config>
+
+
+
+	<modules>
+		<Mygassi_Premium>
+			<version>0.1.0</version>
+		</Mygassi_Premium>
+	</modules>
+
+
+
+
+	<frontend>
+		<routers>
+			<premium>
+				<use>standard</use>
+				<args>
+					<module>Mygassi_Premium</module>
+					<frontName>premium</frontName>
+				</args>
+			</premium>
+		
+
+			<checkout>
+				<args>
+					<modules>
+						<checkoutdigg before="Mage_Checkout">Mygassi_Premium</checkoutdigg>
+					</modules>
+				</args>
+			</checkout>
+
+		</routers>
+	</frontend>
+	
+
+
+
+
+	<models>
+		<checkout>
+			<rewrite>	
+				<type_onepage>Mygassi_Premium_Model_Type_Onepage</type_onepage>
+			</rewrite>	
+		</checkout>	
+	</models>
+
+
+
+
+
+
+	<blocks>
+		<checkout>
+			<rewrite>
+				<onepage_shipping_method>Mygassi_Premium_Block_Onepage_Shipping_Method</onepage_shipping_method>
+			</rewrite>
+		</checkout>
+	</blocks>
+
+
+
+	
+</config>

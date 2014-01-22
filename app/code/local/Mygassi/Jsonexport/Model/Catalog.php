@@ -189,7 +189,6 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 		$price = (float)$price;
 		$price = round($price, 2);
 		$price *= 100;
-		$price = (int)$price;
 		return $price;
 	}
 }

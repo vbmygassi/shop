@@ -1,0 +1,216 @@
+<?php ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title></title>
+
+<style type="text/css">
+
+body {
+	font-family: Arial, Helvetica;
+}
+
+#header {
+	width: 834px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu, #commando_1, #commando_2 {
+	width: 834px;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu span {
+	font-size: 18px;
+	margin: 52px;
+}
+
+#commando_1, #commando_2 {
+	font-size: 18px;
+	margin: 52px;
+	font-weight: bold;
+}
+
+#package_box_1 {
+	width: 30%;
+	border-style: solid;
+	border-color: pink;
+	text-align: left;
+	float: left;
+	margin-right: 24px; 
+}
+
+#package_box_1 ul li, #package_box_2 ul li, #package_box_3 ul li {
+	margin-bottom: 24px;
+	font-size: 14px;
+}
+
+#package_box_2 {
+	width: 30%;
+	border-style: solid;
+	border-color: #cde012;
+	text-align: left;
+	float: left; 
+	margin-right: 24px; 
+}
+
+#package_box_3 {
+	width: 30%;
+	border-style: solid;
+	border-color: #ffcce0;
+	text-align: left;
+	float: left;
+	margin-bottom: 32px;
+}
+
+#packages {
+	width: 834px;
+}
+
+#commando_2 {
+	width: 834px;
+	clear: both;
+}
+
+#payment_method {
+	width: 834px;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#payment_method form input {
+	margin-bottom: 32px;
+}
+
+.sub {
+	font-size: 10px;
+}
+
+.headline {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+</style>
+
+</head>
+
+</body>
+<center>
+<div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
+
+<div id="menu">
+	<span class="">Kontaktdaten</span>
+	<span class="">Zahlungsdaten</span>
+	<span class="">Abschluss</span>
+</div>
+
+<div id="commando_1">W&auml;hlen Sie Ihr gew&uuml;nschtes Premium-Paket aus<sup>*</sup></div>
+
+<div id="packages">
+
+<div id="package_box_1">
+	<ul class="package_description">
+		<li>
+			<span class="headline">Paket "Bronze" €60 pro Jahr</span>
+			<br/>
+			<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
+		</li>
+		<li>Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte</li>
+		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
+		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
+	</ul>
+</div>
+
+<div id="package_box_2">
+	<ul class="package_description">
+		<li>
+			<span class="headline">Paket "Silber" €199 pro Jahr</span>
+			<br/>
+			<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
+		</li>
+		<li>Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte</li>
+		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
+		<li>Kommentarbox zur direkten Interaktion/Kommunikation mit den Nutzern der MyGassi App</li>
+		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
+	</ul>
+	
+</div>
+
+<div id="package_box_3">
+	<ul class="package_description">
+		<li>
+			<span class="headline">Paket "Gold" €299 pro Jahr</span>
+			<br/>
+			<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
+		</li>
+		<li>Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte</li>
+		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
+		<li>Kommentarbox zur direkten Interaktion/Kommunikation mit den Nutzern der MyGassi App</li>
+		<li>Anlegen von Ihren &Ouml;ffnungszeiten</li>
+		<li>Anlegen von News, Tipps und Informationen sowie Aktionen und Gutschein mit Apple Passbookintegration</li>
+		<li>Statistiken und Auswertungen von Klickzahlen und Nutzerverhalten</li>
+		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
+	</ul>	
+</div>
+
+</div>
+
+<div id="commando_2">W&auml;hlen Sie Ihre gew&uuml;nschte Zahlungsweise bei j&auml;hrlicher Abrechnung aus<sup>*</sup></div>
+
+<div id="payment_method">
+	
+	<form method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/ptfs" ?>">
+	<!--
+	<form method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/savePayment" ?>">
+	-->
+
+		<input type="radio" id="payone_online_bank_transfer" name="payment_type" value="payone_online_bank_transfer">
+			<label for="payone_online_bank_transfer">Sofort &uuml;berweisung</label>
+		</input>
+		<!--	
+		<input type="radio" id="payment:checkmo" name="payment[method]" value="checkmo">
+			<label for="payment:checkmo">Scheck</label>
+		</input>
+		-->
+		<br/>
+
+		<!--
+		<input type="radio" id="payment:payone_online_bank_transfer" name="payment[method]" value="payone_online_bank_transfer">
+			<label for="payment:checkmo">Sofort&uuml;berweisung</label>
+		</input>
+		-->
+
+		<br/>
+
+		<input type="radio" id="payone_wallet" name="payment_type" value="payone_wallet" checked>
+			<label for="payone_wallet">PayPal</label>
+		</input>
+
+		<!--
+		<input type="radio" id="payment:payone_wallet" name="payment[method]" value="payone_wallet" checked>
+			<label for="payment:payone_wallet">PayPal</label>
+		</input>
+		-->
+
+		<input type="hidden" name="payone_wallet_type" value="PPE"/>
+		
+		<!-- not sure about diss: -->
+		<input type="hidden" name="payone_config_payment_method_id" value="3"/>
+		
+		<br/>
+		<input type="submit" value="Bestellung &uuml;berpr&uuml;fen"></input>
+	</form>
+</div>
+
+</body>
+
+</html>
+

@@ -4,18 +4,41 @@ require_once(mageroot);
 
 Mage::app();
 
+/*
+$product = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
+$product = $product->load($product->getId());
+$updated_at = $product->getUpdatedAt();
+print_r($updated_at);
+$ts = strtotime($updated_at);
+$cs = date("U");
+print PHP_EOL;
+print "ts:" . $ts . PHP_EOL;
+print "cs:" . $cs . PHP_EOL;
+*/
 
+/**
 
+ Durch sämtliche Produkte hindurch: 
+	wenn, wennn wenn, ähh, wenn
+		ähh
+	prod->getUpdatedAt() 
+		grösser ist 
+		als erwartet;
 
-$product = Mage::getModel("catalog/product")->loadByAttribute("sku", "007");
-$ref = serialize($product);
-print_r($ref);
-file_put_contents("/Users/vico/Workspace/ProdImport/data/mprod.php", $ref);
+	dann alles an den Service (von Vladimir) 
+		zurücksenden;
+
+	Whatawowbow
+ **/
+
+$coll = Mage::getModel("catalog/product")->getCollection();
+foreach($coll as $prod){
+	// $prod = $prod->load($prod->getId());
+	print "SKU: " . $prod->getSku(). PHP_EOL;
+	print "update at: " . strtotime($prod->getUpdatedAt()) . PHP_EOL;
+} // somethinglikediss | update my ass | 
+
 exit(1);
-
-
-
-
 
 
 

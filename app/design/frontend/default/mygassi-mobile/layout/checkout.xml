@@ -343,6 +343,17 @@ One page checkout main layout
                 </block>
                 <block type="checkout/onepage_review" name="checkout.onepage.review" as="review" template="checkout/onepage/review.phtml"/>
             </block>
+
+
+		
+		<block 
+			type="page/html" 
+			name="google.analiytics" 
+			template="ga/analyticstracking.php" 
+		/>
+
+
+
         </reference>
 
 

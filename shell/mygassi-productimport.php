@@ -734,10 +734,10 @@ $settings = array(
 	"offset" 	=> 0, 
 	"bulk" 		=> 1, 
 	"max" 		=> 500, 
-	"fetch" 	=> false, 
-	"import" 	=> false,
+	"fetch" 	=> true, 
+	"import" 	=> true,
 	"attrdownload"	=> false,
-	"reindex" 	=> false 
+	"reindex" 	=> true 
 );
 /***
  * fetches the next product

@@ -1,0 +1,478 @@
+<?php 
+// reads previously posted values as for to prefill the input fields
+$post = Mage::getSingleton("core/session")->getPostValues();
+$post = json_encode($post);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title></title>
+<style type="text/css">
+
+body {
+	font-family: Arial, Helvetica;
+}
+
+#header {
+	width: 834px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu {
+	width: 834px;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu span {
+	font-size: 18px;
+	text-decoration: none;
+	margin: 52px;
+}
+
+#inputboxes {
+	width: 834px;
+	vertical-align: top;
+	text-align: left;
+}
+
+#inputboxes ul li {
+	list-style: none;
+}
+
+#premium_customer_form {
+	width: 100%;
+}
+
+#personal_data_form {
+	margin: 0px;
+	width: 50%;
+	float: left;
+}
+
+#corporate_data_form {
+}
+
+.liheader {
+	font-size: 16px;
+	font-weight: bold;	
+}
+
+.lisub {
+	font-size: 10px;
+}
+
+.liplhldr {
+	height: 200px;
+}
+
+
+#commando {
+	font-size: 18px;
+	margin: 52px;
+	font-weight: bold;
+}
+
+input[type="text"], input[type="submit"], select {	
+	padding: 8px;
+	width: 320px;
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
+input[type="text"] {
+	color: #666666;
+}
+
+</style>
+
+<script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
+<script type="text/javascript" langauge="javascript">
+
+post = <?php print_r($post); ?>
+
+jQuery(document).ready(function(){ CP.init(post); });
+
+CP = {
+	deb: null,
+	cur: null,
+	corporateDataEqPersonalData: false,
+	validFlags: [],
+	isFormValid: false,
+	post: null,
+	
+	out: function(message)
+	{
+		// CP.deb.val(message +" " +new Date().getTime());
+	},
+
+	setValidFlag: function(key)
+	{
+		CP.setOKBorder();	
+		CP.validFlags[key] = true;
+	},	
+
+	setInvalidFlag: function(key)
+	{
+		CP.setErrBorder();
+		CP.validFlags[key] = false;
+	},
+	
+	init: function(doc)
+	{
+		CP.post = doc;
+		CP.deb = jQuery("#deb");
+		CP.btnSend = jQuery("#btnSend");
+		
+		jQuery("#inputboxes li input").bind("change", function(e)
+		{
+			CP.cur = jQuery(this);
+			CP.setInputColor();
+			CP.validate();
+		});
+		
+		jQuery("#inputboxes li input").bind("click", function(e)
+		{
+			CP.cur = jQuery(this);
+			CP.setInputColor();
+			CP.validate();
+		});
+		
+		jQuery("#inputboxes li input").bind("keyup", function(e)
+		{
+			CP.cur = jQuery(this);
+			CP.setInputColor();
+			CP.validate();
+		});
+
+		jQuery("#inputboxes li select").bind("change", function(e)
+		{
+			CP.cur = jQuery(this);
+			CP.validate();
+		});
+		
+		jQuery("#inputboxes li select").bind("keyup", function(e)
+		{
+			CP.cur = jQuery(this);
+			CP.validate();
+		});
+
+		jQuery("#is_personal_data").bind("click", function(e)
+		{
+			CP.cur = jQuery(this);
+			if(CP.cur.is(":checked")){
+				CP.copyPersonalDataToCorporateData();
+				CP.corporateDataEqPersonalData = true;
+			}
+			else {
+				CP.corporateDataEqPersonalData = false;
+			}
+		});
+		
+		CP.btnSend.attr("disabled", "disabled");
+		CP.prefillForm();
+	},
+
+	prefillForm: function()
+	{
+		if(null == CP.post){
+			return;
+		}
+		
+		jQuery("#inputboxes li input").each(function(index, value){
+			key = jQuery(this).attr("name");
+			if("btnSend" != key){
+				val = jQuery(this).val();
+				fil = CP.post[key] == "" ? val : CP.post[key];
+				target = jQuery(this);
+				target.val(fil);
+				CP.cur = target;
+				CP.validate();
+			}
+		});
+	},
+
+	copyPersonalDataToCorporateData: function()
+	{
+		jQuery("#c_zip").val(jQuery("#p_zip").val());
+		jQuery("#c_zip").change();
+		jQuery("#c_city").val(jQuery("#p_city").val());
+		jQuery("#c_city").change();
+		jQuery("#c_street").val(jQuery("#p_street").val());
+		jQuery("#c_street").change();
+		jQuery("#c_telephone").val(jQuery("#p_telephone").val());
+		jQuery("#c_telephone").change();
+	},
+
+	setInputColor: function()
+	{
+		CP.cur.css("color", "#000000");
+	},
+
+	setErrBorder: function()
+	{
+		CP.cur.css("border-color", "#fb3c1a");
+	},
+	
+	setOKBorder: function()
+	{
+		CP.cur.css("border-color", "#6aad1d");
+	},
+
+	validate: function()
+	{
+		key = CP.cur.attr("name");
+		val = CP.cur.val();
+		switch(key){
+			
+			case "p_name":
+				// p_name is string with a length of 8 chars
+				if(8 > val.length){ 
+					CP.setInvalidFlag("p_name");
+				}
+				else {
+					CP.setValidFlag("p_name");
+				}
+				break;
+			
+			case "p_email":
+				// email this is
+				expr = new RegExp(/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/);
+				if(false == expr.test(val)){
+					CP.setInvalidFlag("p_email");
+				}
+				else{
+					CP.setValidFlag("p_email");
+				}
+				break;
+			
+			case "p_telephone":
+				// telephone this is
+				expr = new RegExp(/^\d+$/);
+				strval = val;
+				strval = strval.replace(new RegExp("\\(", "g"), "");
+				strval = strval.replace(new RegExp("\\)", "g"), "");
+				strval = strval.replace(new RegExp("\\/", "g"), "");
+				strval = strval.replace(new RegExp("\\ ", "g"), "");
+				strval = strval.replace(new RegExp("\\+", "g"), "");
+				strval = strval.replace(new RegExp("\\-", "g"), "");
+				strval = strval.replace(new RegExp("\\.", "g"), "");
+				if(false == expr.test(strval) ||6 > strval.length){
+					CP.setInvalidFlag("p_telephone");
+				}
+				else{
+					CP.setValidFlag("p_telephone");
+				}
+				break;
+			
+			case "p_street":
+				// length of 6? characters	
+				if(6 > val.length){
+					CP.setInvalidFlag("p_street");
+				}
+				else{
+					CP.setValidFlag("p_street");
+				}
+				break;
+			
+			case "p_zip":
+				// zip is digits 
+				expr = new RegExp(/^\d+$/);
+				if(false == expr.test(val) ||4 > val.length){
+					CP.setInvalidFlag("p_zip");
+				}
+				else{
+					CP.setValidFlag("p_zip");
+				}
+				break;
+
+			case "p_city":
+				// length of 2? characters
+				if(2 > val.length){
+					CP.setInvalidFlag("p_city");
+				}
+				else{
+					CP.setValidFlag("p_city");
+				}
+				break;
+
+			case "c_name":
+				// c_name is string with a length of 8 chars
+				if(8 > val.length){ 
+					CP.setInvalidFlag("c_name");
+				}
+				else {
+					CP.setValidFlag("c_name");
+				}
+				break;
+			
+			case "c_street":
+				// length of 6? characters	
+				if(6 > val.length){
+					CP.setInvalidFlag("c_street");
+				}
+				else{
+					CP.setValidFlag("c_street");
+				}
+				break;
+	
+			case "c_zip":
+				// zip is digits 
+				expr = new RegExp(/^\d+$/);
+				if(false == expr.test(val) ||4 > val.length){
+					CP.setInvalidFlag("c_zip");
+				}
+				else{
+					CP.setValidFlag("c_zip");
+				}
+				break;
+			
+			case "c_city":
+				// length of 2? characters
+				if(2 > val.length){
+					CP.setInvalidFlag("c_city");
+				}
+				else{
+					CP.setValidFlag("c_city");
+				}
+				break;
+		
+			case "c_telephone":
+				// telephone this is
+				expr = new RegExp(/^\d+$/);
+				strval = val;
+				strval = strval.replace(new RegExp("\\(", "g"), "");
+				strval = strval.replace(new RegExp("\\)", "g"), "");
+				strval = strval.replace(new RegExp("\\/", "g"), "");
+				strval = strval.replace(new RegExp("\\ ", "g"), "");
+				strval = strval.replace(new RegExp("\\+", "g"), "");
+				strval = strval.replace(new RegExp("\\-", "g"), "");
+				strval = strval.replace(new RegExp("\\.", "g"), "");
+				if(false == expr.test(strval) ||6 > strval.length){
+					CP.setInvalidFlag("c_telephone");
+				}
+				else {
+					CP.setValidFlag("c_telephone");
+				}
+				break;
+
+			case "c_website":
+				// length of 6? characters	
+				if(6 > val.length){
+					CP.setInvalidFlag("c_website");
+				}
+				else{
+					CP.setValidFlag("c_website");
+				}
+				break;
+		}
+
+		// evaluates form is valid
+		CP.isFormValid = true;
+		i = Object.keys(CP.validFlags).length;
+		if(12 > i){
+		 	CP.isFormValid = false;
+		}	
+		else 
+		{
+			for(i in CP.validFlags){ 
+				if(false == CP.validFlags[i]){
+					CP.isFormValid = false;
+				}
+			}
+		}
+
+		// enabledisables :))) submit button
+		if(CP.isFormValid){
+			CP.btnSend.removeAttr("disabled");
+		}
+		else{
+			CP.btnSend.attr("disabled", "disabled");
+		}
+	}
+};
+
+</script>
+
+</head>
+
+<body>
+
+<center>
+
+<div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
+
+<div id="menu">
+	<span class="">Kontaktdaten</span>
+	<span class="">Zahlungsdaten</span>
+	<span class="">Abschluss</span>
+</div>
+
+<div id="commando">Bitte eingeben Sie<sup>*</sup></div>
+
+<div id="inputboxes">
+
+	<form id="premium_customer_form" name="premium_customer_form" method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/pcfs" ?>">	
+	<!--	
+	<form id="premium_customer_form" name="premium_customer_form" method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/saveBilling" ?>">	
+	-->
+		
+		<ul id="personal_data_form">
+			<li class="liheader">Pers&ouml;hnliche Daten*</li>
+			<li class="lisub">(werden in der App nicht angezeigt)</li>
+			<li class="lisub">&nbsp;</li>
+			<li><input type="text" id="p_name" name="p_name" value="Vor- und Nachname"></input></li>
+			<li><input type="text" name="p_email" value="E-Mail-Adresse"></input></li>
+			<li><input type="text" id="p_telephone" name="p_telephone" value="Telefonnummer"></input></li>
+			<li><input type="text" id="p_street" name="p_street" value="Strasse"></input></li>
+			<li><input type="text" id="p_zip" name="p_zip" value="Postleitzahl"></input></li>
+			<li><input type="text" id="p_city" name="p_city" value="Stadt"></input></li>
+			<li class="liplhldr">&nbsp;</li>
+			<!--
+			<li><input type="text" id="billing:firstname" name="billing[firstname]" value="Vor- und Nachname"></input></li>
+			<li><input type="text" id="billing:lastname" name="billing[lastname]" value="Vor- und Nachname"></input></li>
+			<li><input type="text" id="billing:email" name="billing[email]" value="E-Mail-Adresse"></input></li>
+			<li><input type="text" id="billing:telephone" name="billing[telephone]" value="Telefonnummer"></input></li>
+			<li><input type="text" id="billing:street1" name="billing[street][]" value="Strasse"></input></li>
+			<li><input type="text" id="billing:street2" name="billing[street][]" value="Strasse"></input></li>
+			<li><input type="text" id="billing:postcode" name="billing[postcode]" value="Postleitzahl"></input></li>
+			<li><input type="text" id="billing:city" name="billing[city]" value="Stadt"></input></li>
+			<li><input type="text" id="billing:country_id" name="billing[country_id]" value="Land"></input></li>
+			-->	
+		</ul>
+	
+		<ul id="corporate_data_form">
+			<li class="liheader">Unternehmensdaten*</li>
+			<li class="lisub">&nbsp;</li>
+			<li class="lisub">&nbsp;</li>
+			<li>
+				<select name="cat">
+					<option name="biz_cat_1" value="biz_cat_1">Kategorie 1</option>	
+					<option name="biz_cat_2" value="biz_cat_2">Kategorie 2</option>	
+					<option name="biz_cat_3" value="biz_cat_3">Kategorie 3</option>	
+				</select>
+			</li>
+			<li><input type="text" name="c_name" value="Unternehmensname"></input></li>
+			<li class="lisub">&nbsp;</li>
+			<li class="lisub">&nbsp;</li>
+			<li class="lisub"><input type="checkbox" id="is_personal_data" name="is_personal_data" value="is_personal_data"></input><label for="is_personal_data">Entspricht den pers&ouml;nlichen Daten</label></li>
+			<li class="lisub">&nbsp;</li>
+			<li><input type="text" id="c_street" name="c_street" value="Strasse"></input></li>
+			<li><input type="text" id="c_zip" name="c_zip" value="Postleitzahl"></input></li>
+			<li><input type="text" id="c_city" name="c_city" value="Stadt"></input></li>
+			<li><input id="c_telephone" type="text" name="c_telephone" value="Telefonnummer"></input></li>
+			<li><input type="text" name="c_website" value="Website"></input></li>
+			<li><input id="btnSend" name="btnSend" type="submit" value="Zahlungsdaten eingeben"></input></li>
+		</ul>
+	</form>
+</div>
+
+<!-- <textarea id="deb" style="width:750px; height:200px"></textarea> -->
+
+</center>
+</body>
+</html>

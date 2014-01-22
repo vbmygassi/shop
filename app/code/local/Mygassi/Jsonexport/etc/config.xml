@@ -40,4 +40,26 @@
 		</jobs>
 	</crontab>
 	-->
+	
+	<!-- Observerpatternfactoryimpolementationsadapterconfiguration -->
+	<global>
+		<models>
+			 <jsonexport>
+				<class>Mygassi_Jsonexport_Model</class>
+			</jsonexport>
+		</models>
+	</global>
+	<frontend>
+		<events>
+			<catalog_product_edit_action>
+				<observers>
+					<edit>
+						<type>singleton</type>
+						<class>jsonexport/observer</class>
+						<method>test</method>
+					</edit>
+				</observers>
+			</catalog_product_edit_action>
+		</events>
+	</frontend>
 </config>

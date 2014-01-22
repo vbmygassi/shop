@@ -143,11 +143,22 @@
         <general>
             <locale>
                 <code>de_DE</code>
-                <timezone>America/Los_Angeles</timezone>
+                <timezone>Europe/Berlin</timezone>
             </locale>
         </general>
     </default>
     <varien>
         <class>Varien</class>
     </varien>
+	<!-- an attempt to change the theme of the premium module -->
+	<!--
+	<stores>
+		<default>
+			<design>
+				<package><name>premium</name></package>
+				<theme><default>premium</default></theme>
+			</design>
+		</default>
+	</stores>
+	-->
 </config>

@@ -14,7 +14,7 @@ $setup = new Mage_Eav_Model_Entity_Setup('core_setup');
 $setup->updateAttribute("catalog_product", "weight", "is_required", 0);
 $setup->updateAttribute("catalog_product", "basisartikelnr", "is_required", 0);
 
-
+/*
 $res = $setup->addAttribute('catalog_product', 'group_id', array(
 	'group'                      => 'MyGassi',
 	'label'                      => 'Produktgruppen ID',
@@ -52,7 +52,7 @@ $res = $setup->addAttribute('catalog_product', 'category_ids', array(
 	'default'			=> '0',
 	'unique'                     => false 
 ));
-
+*/
 
 exit(1);
 

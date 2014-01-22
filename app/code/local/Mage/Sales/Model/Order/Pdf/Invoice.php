@@ -573,6 +573,9 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
         	$cursor->page->setFont($font, 8);
 		// greetz
 		$greetz = "Guten Tag " . $name . ",";
+		if("" == $name || null == $name){
+			$greetz = "Guten Tag,";
+		}
 		$cursor->page->drawText($greetz, $cursor->x, $cursor->y, "UTF-8");
 		// line1	
 		$cursor = $this->setCursor($cursor, $cursor->xmin, $cursor->y -24);

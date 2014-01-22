@@ -26,15 +26,7 @@
 ?>
 <?php /** @var $this Mage_Checkout_Block_Onepage_Shipping_Method_Available */ ?>
 
-
-
 <?php $_shippingRateGroups = $this->getShippingRates(); ?>
-
-
-
-
-
-
 
 <?php
 /** 
@@ -49,11 +41,8 @@ if(Mage::getSingleton("checkout/cart")->getQuote()->getGrandTotal() >= 19){
 		}
 	}
 }
-
 /**
  * Removes "Versandkostenpaushale" (from "Versandkostenfrei");
- * ** generell ***
- * dann, dann, dann dann 
  */ 
 $freeShippingFreeShippingFlag = false;
 $flatrateFlaterateFlag = false;
@@ -75,15 +64,6 @@ if($freeShippingFreeShippingFlag && $flatrateFlaterateFlag){
 	}
 }
 ?>
-
-
-
-
-
-
-
-
-
 
 <?php if (!$_shippingRateGroups): ?>
     <p><?php echo $this->__('Sorry, no quotes are available for this order at this time.') ?></p>
@@ -136,7 +116,8 @@ if(Mage::getSingleton("checkout/cart")->getQuote()->getGrandTotal() >= 19){
                         <?php if ($_sole) : ?>
                         <span class="no-display"><input name="shipping_method" type="radio" value="<?php echo $_rate->getCode() ?>" id="s_method_<?php echo $_rate->getCode() ?>" checked="checked" /></span>
                         <?php else: ?>
-                        <input name="shipping_method" type="radio" value="<?php echo $_rate->getCode() ?>" id="s_method_<?php echo $_rate->getCode() ?>"<?php if($_rate->getCode()===$this->getAddressShippingMethod()) echo ' checked="checked"' ?> class="radio"/>
+                        
+			<input name="shipping_method" type="radio" value="<?php echo $_rate->getCode() ?>" id="s_method_<?php echo $_rate->getCode() ?>"<?php if($_rate->getCode()===$this->getAddressShippingMethod()) echo ' checked="checked"' ?> class="radio"/>
 
                         <?php if ($_rate->getCode() === $this->getAddressShippingMethod()): ?>
                         <script type="text/javascript">
