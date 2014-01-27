@@ -1,4 +1,9 @@
 <?php
+/**
+	no way to "test" or "get that run" without the merchant payment test gateway
+	through third party redirects and such
+ **/
+
 /***
 	a web form 
 		for a premium user
@@ -44,20 +49,19 @@
 	here we go: 
  ****/
 
-// class Mygassi_Premium_IndexController extends Mage_Core_Controller_Front_Action
 class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 {
 	// http://192.168.178.27/magento/premium/
-	// http://192.168.178.27/magento/premium/index
+	// http://192.168.178.27/magento/premium/index/
 	
-	var $onePage = null;
+	var $checkout = null;
 
 	public function indexAction()
 	{
-		$blck = Mage::getSingleton("core/layout");
-		$buff = $blck->createBlock("core/template");
-		$buff->setTemplate("premium/form.phtml");
-		print $buff->toHtml();
+		print Mage::getSingleton("core/layout")
+			->createBlock("core/template")
+			->setTemplate("premium/form.phtml")
+			->toHtml();
 		
 		return true;
 	}
@@ -65,7 +69,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	// http://192.168.178.27/magento/premium/index/login
 	public function loginAction()
 	{
-		// welcome to amazon: amazon loves you
+		// welcome to the amazon: the amazon loves you
 		$loc = "http://frontend-1722069931.eu-west-1.elb.amazonaws.com/";
 		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 		
@@ -78,241 +82,96 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
+		
+		Mage::getSingleton("core/session")->setErrorMessage("");
+		$loc = Mage::getBaseUrl() . "premium";
 
 		// inits cart	
 		$cart = Mage::getSingleton("checkout/cart");
 		$cart->init();
+		
 		// empties cart
 		if(count($cart->getItems()) > 0){
 			$res = Mage::getSingleton('checkout/session')->getQuote()->removeAllItems();
 		}
+	
+		// todo: add the selected premium product	
 		// fills cart
 		try{
 			$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
 			$cart->addProduct($prod, array("product"=>"01840", "qty"=>"2"));
 		}
 		catch(Exception $e){
-			print_r($e->getMessage());
-		}
-		// saves cart
-		$cart->save();
-			
-		// $this->onePage = new Mage_Checkout_Model_Type_Onepage();
-		$this->onePage = Mage::getSingleton('checkout/type_onepage');
-		$this->onePage->initCheckout();
-		$this->onePage->saveCheckoutMethod("guest");
-		
-		// sets up billing data
-		$p = Mage::getSingleton("core/session")->getPostValues();
-		// 	
-		$d = array();
-		$d["firstname"] = $p["p_name"];	
-		$d["lastname"] = $p["p_name"];	
-		$d["company"] = $p["c_name"];	
-		$d["street"][0] = $p["p_street"];	
-		$d["street"][1] = $p["p_street"];	
-		$d["city"] = $p["p_city"];	
-		$d["postcode"] = $p["p_postcode"];	
-		$d["telephone"] = $p["p_telephone"];	
-		$d["country_id"] = "de";	
-		$d["postcode"] = "1234";	
-		$d["use_for_shipping"] = "1";
-		$this->onePage->saveBilling($d, false);
-		
-		$d["use_for_shipping"] = "1";
-		$d["same_as_billing"] = "1";		
-		$this->onePage->saveShipping($d, false);
-		
-		$this->onePage->saveShippingMethod("freeshipping_freeshipping");
-		
-		$d = array();
-		$d["method"] = $p["payment_type"];
-		$d["payone_wallet_type"] = "PPE";
-		$d["payone_config_payment_method_id"] = "3";
-
-		// $this->onePage->savePayment($d);
-		$this->onePage->savePayment(array("method"=>"checkmo"));
-		
-		$res = $this->onePage->saveOrder();
-		
-		$loc = Mage::getBaseUrl() . "premium/index/thanks";
-		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
-	}
-
-/*
-	public function f(){
-		// fixdiss
-		// if(null == $this->onePage){ $this->onePage = new Mage_Checkout_Model_Type_Onepage(); }	
-		
-		// reads post values	
-		$post = $this->getRequest()->getPost();
-		$accept = $post["accept"];
-		
-		// redirects without accept
-		if("yes_i_do" != $accept){
-			$loc = Mage::getBaseUrl() . "premium/index/verify";
+			Mage::getSingleton("core/session")->setErrorMessage($e->getMessage());
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}
-
-		// evaluates current customer	
-		$customer = Mage::getSingleton("customer/session")->getCustomer();
 		
-		// todo: add street etc...
-		$customer = $customer->loadByEmail($customer->getEmail());
-		// todo: do not load daniel
-		$customer = $customer->loadByEmail("daniel.zwigart@gmx.de");
-	
-		// fills up quote	
-		// $this->onePage->getQuote()->setCustomer($customer);	
-	
-		// evaluates address id of customer
-		$customerAddressId = $customer->getDefaultBilling();
-	
-		// sets up billing data
-		$p = Mage::getSingleton("core/session")->getPostValues();
-	
-		// 	
-		$d = array();
-		$d["firstname"] = $p["p_name"];	
-		$d["lastname"] = $p["p_name"];	
-		$d["company"] = $p["c_name"];	
-		$d["street"][0] = $p["p_street"];	
-		$d["street"][1] = $p["p_street"];	
-		$d["city"] = $p["p_city"];	
-		$d["postcode"] = $p["p_postcode"];	
-		$d["telephone"] = $p["p_telephone"];	
-		$d["country_id"] = "DE";	
-		$d["use_for_shipping"] = "1";
-		
-		// saves billing related data
-		try{
-			$res = $this->onePage->saveBilling($d, $customerAddressId);
-		}
-		catch(Exception $e){
-			// todo: redirect with error
-			print_r($e->getMessage());
-			exit(1);
-		}
-		
-		// evaluates shipping id of customer
-		$shippingAddressId = $customer->getDefaultShipping();
-
-		// sets up shipping data 
-		// [ we do not need it ]
-		$d["use_for_shipping"] = "1";
-		$d["same_as_billing"] = "1";		
-	
-		// saves shipping related data
-		try{
-			$res = $this->onePage->saveShipping($d, $shippingAddressId);
-		}
-		catch(Exception $e){
-			// todo: redirect with error message
-			print_r($e->getMessage());
-			exit(1);
-		}
-		// evaluates shipping method
-		// we do not need it 
-		// there is no shipping	
-		$d = array();
-		// $d["shipping_method"] = "freeshipping_freeshipping";
-		$d = "freeshipping_freeshipping";	
-		
-		// saves shipping method	
-		try{
-			// $res = $this->onePage->getQuote()->getShippingAddress()->setShippingMethod($d);
-			// $res = $this->onePage->saveShippingMethod($d);
-			// $res = Mage::getModel("customer/address")->load($shippingAddressId);
-			// $res = $this->onePage->getQuote()->isVirtual();	
-			// print_r($res);
-		}
-		catch(Exception $e){
-			// todo: redirect with error message
-			print_r($e->getMessage());
-			exit(1);
-		}
-		
-		// collects totals
-		// $res = $this->onePage->getQuote()->collectTotals()->save();
-		$res = Mage::getSingleton('checkout/session')->getQuote()->collectTotals()->save();
-
-		// sets up payment method data 
-		$d = array();
-		$d["method"] = $p["payment_type"];
-		
-		// saves payment method
-		try{
-			$res = $this->onePage->savePayment($d);
-		}
-		catch(Exception $e){
-			// todo: write error into session : redirect
-			print_r($e->getMessage());
-			exit(1);
-		}
-	
-		// sets up order data 
-		$d = array();
-		$d["method"] = $p["payment_type"];
-		$d["payone_wallet_type"] = $p["payone_wallet_type"];
-		$d["payone_config_payment_method_id"] = $p["payone_config_payment_method_id"];
-		
-		$d["payone_wallet_type"] = "PPE";
-		$d["payone_config_payment_method_id"] = "3";
-		
-		// diss i do not know
-		try{	
-			// $res = $this->onePage->getQuote()->getPayment()->importData($d);
-			$res = Mage::getSingleton('checkout/session')->getQuote()->getPayment()->importData($d);
-		}
-		catch(Exception $e){
-			// todo: write error into session : redirect with error
-			print $e->getMessage();
-			exit(1);
-		}
-	
-		// saves quote	
-		// $res = $this->onePage->getQuote()->save();
-	
-		// inits the cart
-		$cart = Mage::getSingleton("checkout/cart");
-		$cart->init();
-	
-		// empties cart
-		if(count($cart->getItems()) > 0){
-			$res = Mage::getSingleton('checkout/session')->getQuote()->removeAllItems();
-		}
-
-		// fills cart
-		try{
-			$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
-			$cart->addProduct($prod, array("product"=>"01840", "qty"=>"5"));
-		}
-		catch(Exception $e){
-			print_r($e->getMessage());
-		}
-
 		// saves cart
 		$cart->save();
 		
-		// saves order
-		try{
-			$res = $this->onePage->saveOrder();
-		}
-		catch(Exception $e){
-			print "saveOrder()";
-			print $e->getMessage();
-			exit(1);
-		}
+		// sets up checkout	
+		$this->checkout = Mage::getSingleton('checkout/type_onepage');
+		$this->checkout->initCheckout();
+		$this->checkout->saveCheckoutMethod("customer");
+		// $this->checkout->saveCheckoutMethod("guest");
 		
-		print "saveOrder: " . PHP_EOL;
+		// sets up billing data
+		// billing is kind of a company address
+		$p = Mage::getSingleton("core/session")->getCustomerInput();
+		$q = Mage::getSingleton("core/session")->getPaymentInput();
+		// 	
 		
-		// $loc = Mage::getBaseUrl() . "premium/index/thanks";
-		// $this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+		$d = array();	
+		$this->checkout->saveBilling($d, false);
+		$this->checkout->saveShipping($d, false);
+		
+		// sets up shipping method
+		$this->checkout->saveShippingMethod("freeshipping_freeshipping", false);
+		
+		// sets up payment method and cocolores	
+		$d = array();
+		$d["method"] = $q["payment_type"];
+		$d["payone_wallet_type"] = "PPE";
+		$d["payone_config_payment_method_id"] = "3";
+		$this->checkout->savePayment($d, false);
+	
+		/*
+		Mage/app/code/community/Payone/Core/Helper/Url.php
+		The redirect url as for the "success" of  premium user payment is "patched" here: 
+		Mage/app/code/core/Mage/Checkout/controllers/OnepageController.php
+		(this url is to be submitted to the payment gateway 
+		FOR THAT NO ONE CAN REDIRECT A SUCCESS MESSAGE
+		*/
+	
+		// save diss order baby
+		// do not save now : still testing
+		$res = $this->checkout->saveOrder();
+		
+		// evaluates redirect url
+		// that is the url the gateway (dep. configuration) is about to return
+		// sandbox.paypal?with_an_id	
+            	$redirectUrl = $this->checkout->getCheckout()->getRedirectUrl(); 
+		if("checkmo" == $q["payment_type"]){
+			$redirectUrl = Mage::getBaseUrl() . "premium/index/thanks";
+		}		
 
-		return true;	
+		// redirects withour redirect url	
+		switch($redirectUrl){
+			case null:
+			case "":
+				Mage::getSingleton("core/session")->setErrorMessage("Gateway nicht erreicht");
+				$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+				exit(1);
+		}	
+		
+		// redirect babäh; don't stop until the fat lady sings
+		// payone -> redirects to the payment
+		// do not redirect for now
+		$this->getResponse()->setHeader("Location", $redirectUrl)->sendHeaders();
+	
+		return true;
 	}
-*/
 
 	public function thanksAction()
 	{
@@ -320,10 +179,13 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
 		
-		$blck = Mage::getSingleton("core/layout");
-		$buff = $blck->createBlock("core/template");
-		$buff->setTemplate("premium/thanks.phtml");
-		print $buff->toHtml();
+		// resets fck error message
+		Mage::getSingleton("core/session")->setErrorMessage("");
+		
+		print Mage::getSingleton("core/layout")
+			->createBlock("core/template")
+			->setTemplate("premium/thanks.phtml")
+			->toHtml();
 		
 		return true;
 	}
@@ -335,28 +197,22 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
 		
+		// resets fck error message
+		Mage::getSingleton("core/session")->setErrorMessage("");
+		
 		// reads post values	
 		$post = $this->getRequest()->getPost();
-	
+
+		// no post	
 		if(null == $post){
-			return false;	
+			$loc = Mage::getBaseUrl() . "premium";
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
 		}	
 		
-		// evaluates payment type	
-		$paymentType = $post["payment_type"];
-			
-		switch($paymentType){
-			case null:
-			case "":
-				$paymentType = "payone_wallet"; 
-				break;
-		}	
+		Mage::getSingleton("core/session")->setPaymentInput($post);
 		
 		// copies savement type to the session vars
-		// Mage::getSingleton("core/session")->setPaymentType($paymentType);
-		$post = Mage::getSingleton("core/session")->getPostValues();
-		$post["payment_type"] = $paymentType;
-		$res = Mage::getSingleton("core/session")->setPostValues($post);
 		// redirects to verify your order page	
 		$loc = Mage::getBaseUrl() . "premium/index/verify";
 		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
@@ -371,11 +227,14 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
 		
+		// resets fck error message
+		Mage::getSingleton("core/session")->setErrorMessage("");
+		
 		// renders "check your order" page
-		$blck = Mage::getSingleton("core/layout");
-		$buff = $blck->createBlock("core/template");
-		$buff->setTemplate("premium/verify_order.phtml");
-		print $buff->toHtml();
+		print Mage::getSingleton("core/layout")
+			->createBlock("core/template")
+			->setTemplate("premium/verify_order.phtml")
+			->toHtml();
 	
 		return true;
 	} 
@@ -384,14 +243,17 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	// premium customer form submit
 	public function pcfsAction()
 	{
-		// redirect for something goes wrong	
-		$loc = Mage::getBaseUrl() . "premium/index";
+		// resets error message
+		Mage::getSingleton("core/session")->setErrorMessage("");
+		
+		// sets redirect url	
+		$loc = Mage::getBaseUrl() . "premium";
 		
 		// reads post values
 		$post = $this->getRequest()->getPost();
 		
 		// reposts values 
-		Mage::getSingleton("core/session")->setPostValues($post);
+		Mage::getSingleton("core/session")->setCustomerInput($post);
 		
 		// redirects without post values
 		if(
@@ -408,6 +270,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			!isset($post["c_telephone"]) ||
 			!isset($post["c_website"])
 		){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie Ihre Eingaben");
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}
@@ -415,60 +278,236 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		// validates incoming post values
 		// name consists of 8 chars
 		if(8 > strlen($post["p_name"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte geben Sie einen Namen an");
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}
 		else {
-			$post["p_name"] = substr($post["p_name"], 0, 64);
+			$post["p_name"] = trim(substr($post["p_name"], 0, 64));
+			$temp = explode(" ", $post["p_name"]);
+			if(count($temp) >=2){
+				$post["p_firstname"] = trim(array_shift($temp));
+				$post["p_lastname"] = trim(implode(" ", $temp));
+			}
+			else {
+				$post["p_firstname"] = trim($post["p_name"]);
+				$post["p_lastname"] = "";
+			} 
 		}	
 	
 		// email validation
 		if(!filter_var($post["p_email"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte pr&uuml;fen Sie die angegebene Emailadresse");
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}
 		else {
-			$post["p_email"] = substr($post["p_email"], 0, 64);
+			$post["p_email"] = trim(substr($post["p_email"], 0, 64));
 		}
 
-		// todo: telphone validation
-		// todo: ***************************************** to do ::: do that fckng validation fun routines
+		// p_telephone
+		if(false){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Telephonnummer");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$post["p_telephone"] = trim(substr($post["p_telephone"], 0, 64));
+		}
+		
+		// p_street
+		if(8 > strlen($post["p_street"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Adresse");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$tmp = explode(" ", $post["p_street"]);
+			if(count($tmp) >= 2){
+				$post["p_street_1"] = trim(substr(array_shift($tmp), 0, 64));
+				$post["p_street_2"] = trim(substr(join(" ", $tmp), 0, 64));
+			}
+			else{
+				$post["p_street_1"] = trim(substr($post["p_street"], 0, 64));
+			}
+		}
+			
+		// p_zip
+		if(4 > strlen($post["p_zip"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Postleitzahl");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$post["p_zip"] = trim(substr($post["p_zip"], 0, 64));
+		}
 
-		// adds premium customer
-		// for that they can pay the premium djuty
-		// the charge
-		// todo: premium customer shall not buy nor login
-		// todo: in fact pc's "can" buy: no probs with money
-		// 
+		// ************* ::::::::::::::: ---------------------- *************** 
+		// c_street
+		if(8 > strlen($post["c_street"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Adresse");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$tmp = explode(" ", $post["c_street"]);
+			if(count($tmp) >= 2){
+				$post["c_street_1"] = trim(substr(array_shift($tmp), 0, 64));
+				$post["c_street_2"] = trim(substr(join(" ", $tmp), 0, 64));
+			}
+			else{
+				$post["c_street_1"] = trim(substr($post["c_street"], 0, 64));
+			}
+		}
+			
+		// c_zip
+		if(4 > strlen($post["c_zip"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Postleitzahl");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$post["c_zip"] = trim(substr($post["c_zip"], 0, 64));
+		}
+
+		// c_city
+		if(4 > strlen($post["c_city"])){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Postleitzahl");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$post["c_city"] = trim(substr($post["c_zip"], 0, 64));
+		}
+
+		// c_telephone
+		if(false){
+			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Telephonnummer");
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		else{
+			$post["c_telephone"] = trim(substr($post["c_telephone"], 0, 64));
+		}
+		
+		// repost customer input
+		Mage::getSingleton("core/session")->setCustomerInput($post);
+
+		// inits premium user group
 		$this->initPremiumCustomerGroup();
 
 		// reads current customer	
 		$customer = Mage::getSingleton("customer/session")->getCustomer();
 		
-		// writes a new customer
+		// inits a new customer
 		if(null == $customer){
 			$customer = Mage::getModel("customer/customer");
 		}
 
-		$customer->setFirstname($post["p_name"]);
-		$customer->setLastname($post["p_name"]);
+		// sets up customer
+		$customer->setFirstname($post["p_firstname"]);
+		$customer->setLastname($post["p_lastname"]);
 		$customer->setEmail($post["p_email"]);
 		$customer->setGroupId($this->premiumGroupId);	
-
-		// todo: passwords
-		$password = "root";
+		
+		// inits password
+		$password = "hokuspokus";
 		$customer->setPasswordHash(md5($password));
-	
+		// $customer->generatePassword(16);
+
+		// saves a new premium customer	
 		try{
 			$customer->save();
-			// todo: init customer session with diss user
 		}
 		catch(Exception $e){
 			// "Diese Kunden-Mailadresse existiert bereits"
 			// todo: do not load existing user but redirect to the login
 			// todo: set some error message into guest session
-			// $this->getResponse()->setHeader("Location", $loc)->sendHeaders();
-			print_r($e->getMessage());
+			$message  = $e->getMessage();
+			$message .= '<br/>';
+			$message .= '<a href="http://frontend-1722069931.eu-west-1.elb.amazonaws.com/">';
+			$message .= '&gt;&gt;&gt Zum Login';
+			$message .= '</a>';
+			Mage::getSingleton("core/session")->setErrorMessage($message) ;
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+	
+		// inits address
+		$address = array(
+			"customer_id"=>$customer->getId(),
+			"firstname"=>$post["p_firstname"],
+			"lastname"=>$post["p_lastname"],
+			"street"=>array(
+				"0"=>$post["p_street_1"],
+				"1"=>$post["p_street_2"]
+			),
+			"city"=>$post["p_city"],
+			"region_id"=>$post["p_region_id"],
+			"region"=>$post["region"],
+			"postcode"=>$post["p_zip"],
+			"country_id"=>"DE",
+			"telephone"=>$post["p_telephone"],
+			"is_default_billing"=>"0",
+			"is_default_shipping"=>"0"
+		);
+		
+		// fetches address object
+		if($cid = $customer->getDefaultBilling()){
+			$ca = Mage::getModel("customer/address")->load($cid);
+		} 
+		// write new address object
+		else {
+			$ca = Mage::getModel("customer/address");
+		}
+			
+		// sets up address
+		$ca->setData($address)
+			->setCustomerId($customer->getId())
+			->setSaveInAddressBook("1");
+
+		// saves address
+		try{
+			$ca->save();
+		}	
+		catch(Exception $e){
+			Mage::getSingleton("core/session")->setErrorMessage($message) ;
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		
+		// inits ze ozer address
+		$address = array(
+			"customer_id"=>$customer->getId(),
+			"firstname"=>$post["p_firstname"],
+			"lastname"=>$post["p_lastname"],
+			"company"=>$post["c_name"],
+			"street"=>array(
+				"0"=>$post["c_street_1"],
+				"1"=>$post["c_street_2"]
+			),
+			"city"=>$post["c_city"],
+			"region_id"=>$post["c_region_id"],
+			"region"=>$post["c_region"],
+			"postcode"=>$post["c_zip"],
+			"country_id"=>"DE",
+			"telephone"=>$post["c_telephone"],
+			"is_default_billing"=>"1",
+			"is_default_shipping"=>"1"
+		);
+
+		// sets up address
+		$ca->setData($address)
+			->setCustomerId($customer->getId())
+			->setSaveInAddressBook("1");
+
+		// saves address
+		try{
+			$ca->save();
+		}	
+		catch(Exception $e){
+			Mage::getSingleton("core/session")->setErrorMessage($message) ;
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}
 		
@@ -480,29 +519,30 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			Mage::getSingleton("customer/session")->setCustomerAsLoggedIn($customer);
 		}
 		catch(Exception $e){
-			print_r($e->getMessage());
+			Mage::getSingleton("core/session")->setErrorMessage($e->getMessage());
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}
 	
-		// redirects to "set up a new location" page	
-		$loc = Mage::getBaseUrl() . "premium/index/select_package_deal";
+		// redirects to "package deal" page	
+		$loc = Mage::getBaseUrl() . "premium/index/select_package";
 		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 	
 		return true;
 	}
 
 	// three step setup of a new premium location
-	public function select_package_dealAction()
+	public function select_packageAction()
 	{
 		/////////////////////////////////////////////////	
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
 	
 		// renders "set up a new location" form 
-		$blck = Mage::getSingleton("core/layout");
-		$buff = $blck->createBlock("core/template");
-		$buff->setTemplate("premium/package_deal_form.phtml");
-		print $buff->toHtml();
+		print Mage::getSingleton("core/layout")
+			->createBlock("core/template")
+			->setTemplate("premium/package_deal_form.phtml")
+			->toHtml();
 		
 		return true;
 	}
@@ -539,7 +579,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	// redirects without a session
 	protected function redirectWithoutSession()
 	{
-		// checks session (custom user is authed or not)
+		// checks session (customer is authed or not)
 		$customerSession = Mage::getSingleton("customer/session")->isLoggedIn();
 		if(!$customerSession){
 			$loc = Mage::getBaseUrl() . "premium";

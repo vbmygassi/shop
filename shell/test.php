@@ -4,6 +4,30 @@ require_once(mageroot);
 
 Mage::app();
 
+$customer = Mage::getModel("customer/customer")->load("137");
+print_r($customer);
+print $customer->getId();
+exit(1);
+
+
+$coll = Mage::getModel("customer/entity_address_collection")->setCustomerFilter($customer);
+$coll->load();
+
+foreach($coll as $adr){
+	print "------------";
+	print_r($adr);
+	print "<br/>";
+}
+exit(1);
+
+/*
+$customer = Mage::getModel("customer/customer")->load(132);
+print_r($customer);
+$address = Mage::getModel("customer/address")->load(66);
+print_r($address);
+i*/
+
+
 /*
 $product = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
 $product = $product->load($product->getId());

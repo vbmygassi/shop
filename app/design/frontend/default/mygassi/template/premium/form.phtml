@@ -1,7 +1,9 @@
 <?php 
-// reads previously posted values as for to prefill the input fields
-$post = Mage::getSingleton("core/session")->getPostValues();
-$post = json_encode($post);
+// reads previously posted values as for to prefillment* joy of the input fields
+$customerInput = Mage::getSingleton("core/session")->getCustomerInput();
+$errorMessage = Mage::getSingleton("core/session")->getErrorMessage();
+$customerInput = json_encode($customerInput);
+// print_r($customerInput);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -70,11 +72,21 @@ body {
 	height: 200px;
 }
 
-
 #commando {
 	font-size: 18px;
 	margin: 52px;
 	font-weight: bold;
+}
+
+#error {
+	width: 834px;
+	border: 1px dotted red;
+	padding: 32px;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
 }
 
 input[type="text"], input[type="submit"], select {	
@@ -93,7 +105,7 @@ input[type="text"] {
 <script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
 <script type="text/javascript" langauge="javascript">
 
-post = <?php print_r($post); ?>
+post = <?php print_r($customerInput); ?>
 
 jQuery(document).ready(function(){ CP.init(post); });
 
@@ -127,6 +139,7 @@ CP = {
 		CP.post = doc;
 		CP.deb = jQuery("#deb");
 		CP.btnSend = jQuery("#btnSend");
+		CP.cat = jQuery("#cat");
 		
 		jQuery("#inputboxes li input").bind("change", function(e)
 		{
@@ -167,9 +180,11 @@ CP = {
 			if(CP.cur.is(":checked")){
 				CP.copyPersonalDataToCorporateData();
 				CP.corporateDataEqPersonalData = true;
+				// CP.disableCorporateDataInput();
 			}
 			else {
 				CP.corporateDataEqPersonalData = false;
+				// CP.enableCorporateDataInput();
 			}
 		});
 		
@@ -179,10 +194,11 @@ CP = {
 
 	prefillForm: function()
 	{
+		// returns without pos
 		if(null == CP.post){
 			return;
 		}
-		
+		// pre fills input fields
 		jQuery("#inputboxes li input").each(function(index, value){
 			key = jQuery(this).attr("name");
 			if("btnSend" != key){
@@ -194,6 +210,8 @@ CP = {
 				CP.validate();
 			}
 		});
+		// pre selects category
+		CP.cat.val(post["cat"]);
 	},
 
 	copyPersonalDataToCorporateData: function()
@@ -206,6 +224,22 @@ CP = {
 		jQuery("#c_street").change();
 		jQuery("#c_telephone").val(jQuery("#p_telephone").val());
 		jQuery("#c_telephone").change();
+	},
+
+	enableCorporateDataInput: function()
+	{
+		jQuery("#c_street").removeAttr("disabled");
+		jQuery("#c_zip").removeAttr("disabled");
+		jQuery("#c_city").removeAttr("disabled");
+		jQuery("#c_telephone").removeAttr("disabled");
+	},
+
+	disableCorporateDataInput: function()
+	{
+		jQuery("#c_street").attr("disabled", "disabled");
+		jQuery("#c_zip").attr("disabled", "disabled");
+		jQuery("#c_city").attr("disabled", "disabled");
+		jQuery("#c_telephone").attr("disabled", "disabled");
 	},
 
 	setInputColor: function()
@@ -404,6 +438,18 @@ CP = {
 
 <center>
 
+<?php 
+
+if(null != $errorMessage){
+	print <<<EOD
+<div id="error">{$errorMessage}</div>
+
+EOD;
+
+}
+
+?>
+
 <div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
 
 <div id="menu">
@@ -417,9 +463,6 @@ CP = {
 <div id="inputboxes">
 
 	<form id="premium_customer_form" name="premium_customer_form" method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/pcfs" ?>">	
-	<!--	
-	<form id="premium_customer_form" name="premium_customer_form" method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/saveBilling" ?>">	
-	-->
 		
 		<ul id="personal_data_form">
 			<li class="liheader">Pers&ouml;hnliche Daten*</li>
@@ -431,18 +474,9 @@ CP = {
 			<li><input type="text" id="p_street" name="p_street" value="Strasse"></input></li>
 			<li><input type="text" id="p_zip" name="p_zip" value="Postleitzahl"></input></li>
 			<li><input type="text" id="p_city" name="p_city" value="Stadt"></input></li>
+			<input type="hidden" name="p_region_id" value="81"/>
+			<input type="hidden" name="p_region" value="Hamburg"/>
 			<li class="liplhldr">&nbsp;</li>
-			<!--
-			<li><input type="text" id="billing:firstname" name="billing[firstname]" value="Vor- und Nachname"></input></li>
-			<li><input type="text" id="billing:lastname" name="billing[lastname]" value="Vor- und Nachname"></input></li>
-			<li><input type="text" id="billing:email" name="billing[email]" value="E-Mail-Adresse"></input></li>
-			<li><input type="text" id="billing:telephone" name="billing[telephone]" value="Telefonnummer"></input></li>
-			<li><input type="text" id="billing:street1" name="billing[street][]" value="Strasse"></input></li>
-			<li><input type="text" id="billing:street2" name="billing[street][]" value="Strasse"></input></li>
-			<li><input type="text" id="billing:postcode" name="billing[postcode]" value="Postleitzahl"></input></li>
-			<li><input type="text" id="billing:city" name="billing[city]" value="Stadt"></input></li>
-			<li><input type="text" id="billing:country_id" name="billing[country_id]" value="Land"></input></li>
-			-->	
 		</ul>
 	
 		<ul id="corporate_data_form">
@@ -450,7 +484,7 @@ CP = {
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">&nbsp;</li>
 			<li>
-				<select name="cat">
+				<select id="cat" name="cat">
 					<option name="biz_cat_1" value="biz_cat_1">Kategorie 1</option>	
 					<option name="biz_cat_2" value="biz_cat_2">Kategorie 2</option>	
 					<option name="biz_cat_3" value="biz_cat_3">Kategorie 3</option>	
@@ -466,6 +500,8 @@ CP = {
 			<li><input type="text" id="c_city" name="c_city" value="Stadt"></input></li>
 			<li><input id="c_telephone" type="text" name="c_telephone" value="Telefonnummer"></input></li>
 			<li><input type="text" name="c_website" value="Website"></input></li>
+			<input type="hidden" name="c_region_id" value="81"/>
+			<input type="hidden" name="c_region" value="Hamburg"/>
 			<li><input id="btnSend" name="btnSend" type="submit" value="Zahlungsdaten eingeben"></input></li>
 		</ul>
 	</form>

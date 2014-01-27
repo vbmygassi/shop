@@ -1,4 +1,12 @@
-<?php ?>
+<?php 
+// reads previously posted values as for to prefill the input fields
+$customerInput = Mage::getSingleton("core/session")->getCustomerInput();
+$paymentInput = Mage::getSingleton("core/session")->getPaymentInput();
+// print_r($customerInput);
+// print_r($paymentInput);
+$baseURL = Mage::getBaseUrl();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
@@ -118,95 +126,57 @@ CP = {
 
 <?php 
 
-// values from the model
-$p_name = "Max Mustermann";
-$p_email = "max@mustermann.de";
-$p_telephone = "+49 11 22 33 44";
-$p_street = "Musterstra&szlig;e 33";
-$p_zip = "13456";
-$p_city = "Musterhausen";
-
 print <<<EOD
 <div id="personal_data">
 	<span class="headline">Pers&ouml;nliche Daten</span>
 	<br/>
-	<span class="message">{$p_name}</span>
+	<span class="message">{$customerInput["p_name"]}</span>
 	<br/>
-	<span class="message">{$p_email}</span>
+	<span class="message">{$customerInput["p_email"]}</span>
 	<br/>
-	<span class="message">{$p_telephone}</span>
+	<span class="message">{$customerInput["p_telephone"]}</span>
 	<br/>
-	<span class="message">{$p_street}</span>
+	<span class="message">{$customerInput["p_street"]}</span>
 	<br/>
-	<span class="message">{$p_zip}</span>
+	<span class="message">{$customerInput["p_zip"]}</span>
 	<br/>
-	<sppan class="message">{$p_city}</span>
-</div>
+	<sppan class="message">{$customerInput["p_city"]}</span>
+</div><!-- personal_data -->
 
-EOD;
-
-// values from the model
-// jumpyjumpies from the outer space 
-$c_category = "Obertierarzt";
-$c_name = "Max Mustermann";
-$c_email = "max@mustermann.de";
-$c_telephone = "+49 11 22 33 44";
-$c_street = "Musterstra&szlig;e 33";
-$c_zip = "13456";
-$c_city = "Musterhausen";
-
-print <<<EOD
 <div id="corporate_data">
 	<span class="headline">Unternehmensdaten</span>
 	<br/>
-	<span class="message">{$c_category}</span>
+	<span class="message">{$customerInput["c_category"]}</span>
 	<br/>
-	<span class="message">{$c_name}</span>
+	<span class="message">{$customerInput["c_name"]}</span>
 	<br/>
-	<span class="message">{$c_street}</span>
+	<span class="message">{$customerInput["c_street"]}</span>
 	<br/>
-	<span class="message">{$c_zip}</span>
+	<span class="message">{$customerInput["c_zip"]}</span>
 	<br/>
-	<span class="message">{$c_city}</span>
+	<span class="message">{$customerInput["c_city"]}</span>
 	<br/>
-	<span class="message">{$c_email}</span>
-	<br/>
-	<span class="message">{$c_telephone}</span>
-</div>
+	<span class="message">{$customerInput["c_telephone"]}</span>
+</div><!-- corporate_data -->
 
 </div><!-- ouput_1 -->
 
-EOD;
-
-// values from the model
-$selected_package = "Bronze";
-$charge = "€60";
-$selected_payment_method = "Bankeinzug";
-
-print <<<EOD
-
 <div id="output_2">
+
 <div id="payment_method">
 	<span class="headline">Zahlungsdaten</span>	
 	<br/>
-	<span class="message">Gew&auml;hltes Paket: {$selected_package}</span>	
+	<span class="message">Gew&auml;hltes Paket: {$paymentInput["selected_package"]}</span>	
 	<br/>
-	<span class="message">{$charge} pro Jahr</span>	
+	<span class="message">{$paymentInput["selected_charge"]} pro Jahr</span>	
 	<br/>
-	<span class="message">Zahlung via: {$selected_payment_method}</span>
-</div>
+	<span class="message">Zahlung via: {$paymentInput["payment_type"]}</span>
+</div><!-- payment_method -->
+
 </div><!-- output_2 -->
 
-EOD;
-
-$baseURL = Mage::getBaseUrl();
-
-print <<<EOD
 <div id="terms_and_conditions">
 	<form method="POST" action="{$baseURL}premium/index/place_order">
-	<!--
-	<form method="POST" action="{$baseURL}premium/index/saveOrder">
-	-->
 		<input type="checkbox" id="accept" name="accept" value="yes_i_do"></input>
 		<label for="accept">Ich stimme den</label>
 		<a href="http://apple.com/">Nutzungsbedingungen</a>
@@ -214,7 +184,7 @@ print <<<EOD
 		<p/>
 		<input type="submit" id="submit" value="Bestellung absenden"></input>
 	</form>
-</div>
+</div><!-- terms_and_conditions -->
 
 EOD;
 

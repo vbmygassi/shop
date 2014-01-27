@@ -1,3 +1,15 @@
+
+
+Fehlermeldungen zurücksenden
+Premium Produkte schaffen
+	( Müssen die in der Datenbank sein?
+	  Ich denke nicht....
+Philipp anrufern
+	
+
+
+
+
 Mal angenommen: auf Magento aufgesetzt ? Warum eigentlich nicht?
 
 	Ein Modul: Premium Accounts

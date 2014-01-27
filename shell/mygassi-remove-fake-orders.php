@@ -20,10 +20,11 @@ require_once(mageroot);
 Mage::app('admin')->setUseSessionInUrl(false);                                                                                                                 
 
 $sales = Mage::getModel("sales/order")->getCollection()->addAttributeToFilter("status", "holded"); 
+// $sales = Mage::getModel("sales/order")->getCollection(); 
 
 foreach($sales as $sale){
 	try{
-		print "sale: ".$sale->getIncrementId()." is removed".PHP_EOL;
+		print "sale: ". $sale->getIncrementId()." is removed".PHP_EOL;
 		Mage::getModel('sales/order')->loadByIncrementId($sale->getIncrementId())->delete();
 	}
 	catch(Exception $e){

@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+// $customerInput = Mage::getSingleton("core/session")->getCustomerInput();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
@@ -102,55 +104,70 @@ body {
 
 </head>
 
-</body>
+<body>
+
 <center>
-<div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
+
+<?php 
+
+if(null != $errorMessage){
+	print <<<EOD
+<div id="error">{$errorMessage}</div>
+
+EOD;
+
+}
+
+?>
+
+<form method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/ptfs" ?>">
+
+<div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div><!-- header -->
 
 <div id="menu">
 	<span class="">Kontaktdaten</span>
 	<span class="">Zahlungsdaten</span>
 	<span class="">Abschluss</span>
-</div>
+</div><!-- menu -->
 
-<div id="commando_1">W&auml;hlen Sie Ihr gew&uuml;nschtes Premium-Paket aus<sup>*</sup></div>
+<div id="commando_1">W&auml;hlen Sie Ihr gew&uuml;nschtes Premium-Paket aus<sup>*</sup></div><!-- commando_1 -->
 
 <div id="packages">
 
 <div id="package_box_1">
+	<input type="radio" id="bronze" name="selected_package" value="bronze" checked>
+		<label for="bronze"  class="headline">Paket "Bronze" €60 pro Jahr</label>
+	</input>
+	<br/>
+	<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
 	<ul class="package_description">
-		<li>
-			<span class="headline">Paket "Bronze" €60 pro Jahr</span>
-			<br/>
-			<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
-		</li>
 		<li>Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte</li>
 		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
 		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
 	</ul>
-</div>
+</div><!-- package_box_1 -->
 
 <div id="package_box_2">
+	<input type="radio" id="silver" name="selected_package" value="silver">
+		<label for="silver" class="headline">Paket "Silber" €199 pro Jahr</label>
+	</input>
+	<br/>
+	<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
 	<ul class="package_description">
-		<li>
-			<span class="headline">Paket "Silber" €199 pro Jahr</span>
-			<br/>
-			<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
-		</li>
 		<li>Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte</li>
 		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
 		<li>Kommentarbox zur direkten Interaktion/Kommunikation mit den Nutzern der MyGassi App</li>
 		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
 	</ul>
-	
-</div>
+</div><!-- package_box_2 -->
 
 <div id="package_box_3">
+	<input type="radio" id="gold" name="selected_package" value="gold">
+		<label for="gold"  class="headline">Paket "Gold" €299 pro Jahr</label>
+	</input>
+	<br/>
+	<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
 	<ul class="package_description">
-		<li>
-			<span class="headline">Paket "Gold" €299 pro Jahr</span>
-			<br/>
-			<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
-		</li>
 		<li>Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte</li>
 		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
 		<li>Kommentarbox zur direkten Interaktion/Kommunikation mit den Nutzern der MyGassi App</li>
@@ -159,56 +176,37 @@ body {
 		<li>Statistiken und Auswertungen von Klickzahlen und Nutzerverhalten</li>
 		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
 	</ul>	
-</div>
+</div><!-- package_box_3 -->
 
-</div>
+</div><!-- packages -->
 
-<div id="commando_2">W&auml;hlen Sie Ihre gew&uuml;nschte Zahlungsweise bei j&auml;hrlicher Abrechnung aus<sup>*</sup></div>
+<div id="commando_2">W&auml;hlen Sie Ihre gew&uuml;nschte Zahlungsweise bei j&auml;hrlicher Abrechnung aus<sup>*</sup></div><!-- commando_2 -->
 
 <div id="payment_method">
-	
-	<form method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/ptfs" ?>">
-	<!--
-	<form method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/savePayment" ?>">
-	-->
 
-		<input type="radio" id="payone_online_bank_transfer" name="payment_type" value="payone_online_bank_transfer">
-			<label for="payone_online_bank_transfer">Sofort &uuml;berweisung</label>
-		</input>
-		<!--	
-		<input type="radio" id="payment:checkmo" name="payment[method]" value="checkmo">
+		<p/>	
+		<input type="radio" id="payment:checkmo" name="payment_type" value="checkmo">
 			<label for="payment:checkmo">Scheck</label>
 		</input>
-		-->
-		<br/>
 
-		<!--
-		<input type="radio" id="payment:payone_online_bank_transfer" name="payment[method]" value="payone_online_bank_transfer">
-			<label for="payment:checkmo">Sofort&uuml;berweisung</label>
+		<p/>
+		<input type="radio" id="payone_online_bank_transfer" name="payment_type" value="payone_online_bank_transfer">
+			<label for="payone_online_bank_transfer">Sofort&uuml;berweisung</label>
 		</input>
-		-->
-
-		<br/>
-
+		
+		<p/>
 		<input type="radio" id="payone_wallet" name="payment_type" value="payone_wallet" checked>
 			<label for="payone_wallet">PayPal</label>
 		</input>
 
-		<!--
-		<input type="radio" id="payment:payone_wallet" name="payment[method]" value="payone_wallet" checked>
-			<label for="payment:payone_wallet">PayPal</label>
-		</input>
-		-->
-
-		<input type="hidden" name="payone_wallet_type" value="PPE"/>
-		
-		<!-- not sure about diss: -->
-		<input type="hidden" name="payone_config_payment_method_id" value="3"/>
-		
-		<br/>
+		<p/>	
 		<input type="submit" value="Bestellung &uuml;berpr&uuml;fen"></input>
-	</form>
-</div>
+		<input type="hidden" name="payone_wallet_type" value="PPE"/>
+		<input type="hidden" name="payone_config_payment_method_id" value="3"/>
+
+</div><!-- payment_method -->
+
+</form>
 
 </body>
 

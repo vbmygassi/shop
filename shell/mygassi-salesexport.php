@@ -22,7 +22,6 @@ function getSales($state)
 
 function getSale($id)
 {
-	
 	$sales[]= Mage::getModel("sales/order")->load($id, "increment_id"); 
 	return $sales;
 }
@@ -50,8 +49,16 @@ function sendContainer($sales, $deletePDF)
 			continue;
 		}
 
+		// skips "premium" orders
+		$cgid = $customer->getGroupId();
+		$code = Mage::getSingleton("customer/group")->load($cgid)->getCustomerGroupCode();
 
-
+		if("General" != $code){
+			print $code . PHP_EOL;
+			print $cgid . PHP_EOL;
+			continue;
+		}
+		
 		// Gerdt Vladimir @ Karli (and fills)
 		// 
 		$shipaddr       = $sale->getShippingAddress();
