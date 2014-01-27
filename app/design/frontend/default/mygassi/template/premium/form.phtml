@@ -4,6 +4,73 @@ $customerInput = Mage::getSingleton("core/session")->getCustomerInput();
 $errorMessage = Mage::getSingleton("core/session")->getErrorMessage();
 $customerInput = json_encode($customerInput);
 // print_r($customerInput);
+/*
+$service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:3001/poi/premiumcategories";
+$handle = curl_init();
+curl_setopt($handle, CURLOPT_URL, $service);
+curl_setopt($handle, CURLOPT_POST, false); 
+curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+$categories = curl_exec($handle);
+curl_close($handle);
+$categories = trim($categories);
+*/
+$categories = '{
+  "success": true,
+  "data": [
+    {
+      "name": "Tierarzt",
+      "key": "tierarzt",
+      "image_map": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinDoctor.png",
+      "image_map2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinDoctor%402x.png",
+      "image_stream": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceDoctor.png",
+      "image_stream2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceDoctor%402x.png",
+      "image_comment": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIDoctor.png",
+      "image_comment2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIDoctor%402x.png"
+    },
+    {
+      "name": "Pension",
+      "key": "pension",
+      "image_map": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinHotel.png",
+      "image_map2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinHotel%402x.png",
+      "image_stream": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceHotel.png",
+      "image_stream2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceHotel%402x.png",
+      "image_comment": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIHotel.png",
+      "image_comment2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIHotel%402x.png"
+    },
+    {
+      "name": "Hundeschule",
+      "key": "hundeschule",
+      "image_map": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinSchool.png",
+      "image_map2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinSchool%402x.png",
+      "image_stream": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceSchool.png",
+      "image_stream2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceSchool%402x.png",
+      "image_comment": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOISchool.png",
+      "image_comment2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOISchool%402x.png"
+    },
+    {
+      "name": "Tierheilpraktiker",
+      "key": "tierheilpraktiker",
+      "image_map": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinHealth.png",
+      "image_map2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinHealth%402x.png",
+      "image_stream": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceHealth.png",
+      "image_stream2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceHealth%402x.png",
+      "image_comment": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIHealth.png",
+      "image_comment2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIHealth%402x.png"
+    },
+    {
+      "name": "HundezÃ¼chter",
+      "key": "hundezuechter",
+      "image_map": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinZuechterTest.png",
+      "image_map2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinZuechterTest%402x.png",
+      "image_stream": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceZuechterTest.png",
+      "image_stream2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/streamImageHeaderPremiumPlaceZuechterTest%402x.png",
+      "image_comment": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIZuechterTest.png",
+      "image_comment2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIZuechterTest%402x.png"
+    }
+  ],
+  "itemCount": 5
+}
+';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -105,10 +172,13 @@ input[type="text"] {
 <script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
 <script type="text/javascript" langauge="javascript">
 
-post = <?php print_r($customerInput); ?>
+post = <?php print_r($customerInput); ?>;
+
+categories = <?php print_r($categories); ?>;
 
 jQuery(document).ready(function(){ CP.init(post); });
 
+// ComputerProgram -> CP
 CP = {
 	deb: null,
 	cur: null,
@@ -116,6 +186,7 @@ CP = {
 	validFlags: [],
 	isFormValid: false,
 	post: null,
+	cat: null,
 	
 	out: function(message)
 	{
@@ -140,6 +211,8 @@ CP = {
 		CP.deb = jQuery("#deb");
 		CP.btnSend = jQuery("#btnSend");
 		CP.cat = jQuery("#cat");
+		
+		CP.initCategories();
 		
 		jQuery("#inputboxes li input").bind("change", function(e)
 		{
@@ -192,6 +265,21 @@ CP = {
 		CP.prefillForm();
 	},
 
+	initCategories: function()
+	{
+		if(null == CP.cat){ return false; }
+		if(null == categories){ return false; }
+		if(null == categories.data){ return false; }
+		buff = '<option value="default_category">Bitte w&auml;hlen Sie eine Kategorie</option>';
+		for(var idx in categories.data){
+			key = categories.data[idx].key;
+			name = categories.data[idx].name;
+			buff +=	'<option value="'+name+'">'+name+'</option>';
+		}
+		CP.cat.html(buff);
+		CP.cat.val("default_category");
+	},
+	
 	prefillForm: function()
 	{
 		// returns without pos
@@ -485,9 +573,12 @@ EOD;
 			<li class="lisub">&nbsp;</li>
 			<li>
 				<select id="cat" name="cat">
+					<option value="default_category">Bitte w&auml;hlen Sie eine Kategorie</option>	
+					<!--
 					<option name="biz_cat_1" value="biz_cat_1">Kategorie 1</option>	
 					<option name="biz_cat_2" value="biz_cat_2">Kategorie 2</option>	
 					<option name="biz_cat_3" value="biz_cat_3">Kategorie 3</option>	
+					-->	
 				</select>
 			</li>
 			<li><input type="text" name="c_name" value="Unternehmensname"></input></li>
