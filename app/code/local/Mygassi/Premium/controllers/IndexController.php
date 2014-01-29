@@ -99,9 +99,23 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	
 		// todo: add the selected premium product	
 		// fills cart
+		$q = Mage::getSingleton("core/session")->getPaymentInput();
+		$premiumSKU = "99988877755";
+		switch($q["selected_package"]){
+			case "bronze":
+				$premiumSKU = "99988877755"; 
+				break;
+			case "silver":
+				$premiumSKU = "99988877756"; 
+				break;
+			case "gold": 
+				$premiumSKU = "99988877757"; 
+				break;
+		}
+		
 		try{
-			$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "01840");
-			$cart->addProduct($prod, array("product"=>"01840", "qty"=>"2"));
+			$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", $premiumSKU);
+			$cart->addProduct($prod, array("product"=>$premiumSKU, "qty"=>"1"));
 		}
 		catch(Exception $e){
 			Mage::getSingleton("core/session")->setErrorMessage($e->getMessage());

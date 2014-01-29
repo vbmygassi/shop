@@ -4,6 +4,11 @@ require_once(mageroot);
 
 Mage::app();
 
+$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877755");
+$prod->load($prod->getId());
+print_r($prod);
+exit(1);
+
 $customer = Mage::getModel("customer/customer")->load("137");
 print_r($customer);
 print $customer->getId();
