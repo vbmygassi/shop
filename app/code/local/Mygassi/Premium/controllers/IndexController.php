@@ -543,7 +543,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		// redirects to "package deal" page	
 		$loc = Mage::getBaseUrl() . "premium/index/select_package";
 		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
-	
+
 		return true;
 	}
 

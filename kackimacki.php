@@ -13,10 +13,19 @@ class A
 		}
 	}
 
-	public function testMethod()
+	public function testMethod1st()
 	{
-		print "A::testMethod()" . PHP_EOL;
+		print "A::testMethod1st()" . PHP_EOL;
 	}
+
+	public function testMethod2nd()
+	{
+		print "A::testMethod2nd()" . PHP_EOL;
+	}
+}
+
+class B
+{
 }
 
 class FuckApp
@@ -33,8 +42,7 @@ class FuckApp
 			$res = self::$coll[$key];
 		}
 		else{
-			$res = new $key();		
-			self::$coll[$key] = $res;		
+			self::$coll[$key] = $res = new $key;		
 		}
 		return $res;
 	}	
@@ -42,7 +50,11 @@ class FuckApp
 
 function main()
 {
-	FuckApp::get("A")->testMethod();
+	FuckApp::get("A")->testMethod1st();
+	FuckApp::get("A")->testMethod2nd();
+	print 'FuckApp::get("A") === FuckApp::get("A")' . PHP_EOL;
+	print(FuckApp::get("A") === FuckApp::get("A"));
+	print PHP_EOL;
 }
 
 main();

@@ -16,6 +16,7 @@ Mage::app();
 
 $authKey = "magento";
 
+/*
 $service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:3001/poi/premiumcategories";
 $handle = curl_init();
 curl_setopt($handle, CURLOPT_URL, $service);
@@ -27,6 +28,7 @@ curl_close($handle);
 print "response: " . $response . PHP_EOL;
 print "code: " . $code . PHP_EOL;
 exit(1);
+*/
 
 $service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:4000/premium_import_magento";
 $coll = Mage::getModel("customer/customer")->getCollection();
@@ -35,8 +37,8 @@ foreach($coll as $customer){
 	$code = Mage::getSingleton("customer/group")->load($cgid)->getCustomerGroupCode();
 	if("Premium" == $code){
 		$postargs = array(
-			"premium_poi_type"=>"silver",
-			"mail"=>"vberzsin@gmail.com",
+			"premium_poi_type"=>"gold",
+			"mail"=>"vb@mygassi.com",
 			"send_mail"=>"false",
 			"premium_poi_category"=>"no-such-category",
 			"name"=>"totally-awesome-software-inc"	
