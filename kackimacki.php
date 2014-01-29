@@ -1,14 +1,15 @@
 <?php
 /*******
 	So wäre es vielleicht am besten gewesen.
- ***/
+	Der Sinn verweigert sich uns.
+  ***/
 
 
 class Register
 {
 	static public $coll;
 	
-	static public function fuckMyFace($ref)
+	static public function add($ref)
 	{
 		if(null == self::$coll){
 			self::$coll = array();
@@ -16,7 +17,7 @@ class Register
 		self::$coll[$ref::KEY] = $ref;
 	}
 	
-	static public function getReference($key)
+	static public function get($key)
 	{
 		if(array_key_exists($key, self::$coll)){
 			return self::$coll[$key];
@@ -28,8 +29,9 @@ class Register
 
 class SuperClass
 {
-	public function __construct(){
-		Register::fuckMyFace($this);
+	public function __construct()
+	{
+		Register::add($this);
 	}
 }
 
@@ -37,9 +39,9 @@ class A extends SuperClass
 {
 	const KEY = "A";
 
-	public function fuckYourFace()
+	public function testMethod()
 	{
-		print "Fuck your face\n";
+		print "testMethod()\n";
 	}
 }
 
@@ -53,7 +55,7 @@ function main()
 	$a = new A();
 	$b = new B();
 	
-	Register::getReference("A")->fuckYourFace();
+	Register::get("A")->testMethod();
 }
 
 main();
