@@ -4,7 +4,50 @@
 	Der Sinn verweigert sich uns.
   ***/
 
+class A
+{
+	public function __construct()
+	{
+		if(false){
+			throw(new Exception("NO"));
+		}
+	}
 
+	public function testMethod()
+	{
+		print "A::testMethod()" . PHP_EOL;
+	}
+}
+
+class FuckApp
+{
+	static private $coll;
+
+	static public function get($key)
+	{
+		$res = null;
+		if(null == self::$coll){
+			self::$coll = array();
+		}
+		if(array_key_exists($key, self::$coll)){
+			$res = self::$coll[$key];
+		}
+		else{
+			$res = new $key();		
+			self::$coll[$key] = $res;		
+		}
+		return $res;
+	}	
+}
+
+function main()
+{
+	FuckApp::get("A")->testMethod();
+}
+
+main();
+
+/*
 class Register
 {
 	static public $coll;
@@ -57,5 +100,5 @@ function main()
 	
 	Register::get("A")->testMethod();
 }
+*/
 
-main();
