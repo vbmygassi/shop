@@ -1,9 +1,8 @@
 <?php 
 // reads previously posted values as for to prefillment* joy of the input fields
 $customerInput = Mage::getSingleton("core/session")->getCustomerInput();
-$errorMessage = Mage::getSingleton("core/session")->getErrorMessage();
 $customerInput = json_encode($customerInput);
-// print_r($customerInput);
+$errorMessages = Mage::getSingleton("core/session")->getErrorMessage();
 /*
 $service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:3001/poi/premiumcategories";
 $handle = curl_init();
@@ -14,6 +13,8 @@ $categories = curl_exec($handle);
 curl_close($handle);
 $categories = trim($categories);
 */
+$baseURL = Mage::getBaseUrl();
+$skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 $categories = '{
   "success": true,
   "data": [
@@ -58,7 +59,7 @@ $categories = '{
       "image_comment2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/profilePicturePOIHealth%402x.png"
     },
     {
-      "name": "HundezÃ¼chter",
+      "name": "Hundez&uuml;chter",
       "key": "hundezuechter",
       "image_map": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinZuechterTest.png",
       "image_map2x": "https://s3-eu-west-1.amazonaws.com/mygfiles/premium/specialPinZuechterTest%402x.png",
@@ -71,6 +72,7 @@ $categories = '{
   "itemCount": 5
 }
 ';
+$categories = json_decode($categories);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -92,16 +94,47 @@ body {
 }
 
 #menu {
-	width: 834px;
+	width: 1200px;
 	text-align: center;
 	margin: 24px;
 }
 
-#menu span {
+#menu span{
 	font-size: 18px;
 	text-decoration: none;
 	margin: 52px;
+	color: white;
+	font-weight: bold;
 }
+
+<?php
+
+print <<<EOD
+
+#menu .kontaktdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
+	float: left;
+}
+
+#menu .zahlungsdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
+	float: left;
+}
+
+#menu .abschluss{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
+	float: left;
+}
+
+EOD;
+
+?>
 
 #inputboxes {
 	width: 834px;
@@ -143,6 +176,7 @@ body {
 	font-size: 18px;
 	margin: 52px;
 	font-weight: bold;
+	clear: both;
 }
 
 #error {
@@ -169,16 +203,13 @@ input[type="text"] {
 
 </style>
 
-<script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
+<script type="text/javascript" langauge="javascript" src="<?php print $baseURL . "js/jquery/jquery-2.0.0.min.js"?>"></script>
 <script type="text/javascript" langauge="javascript">
 
 post = <?php print_r($customerInput); ?>;
 
-categories = <?php print_r($categories); ?>;
-
 jQuery(document).ready(function(){ CP.init(post); });
 
-// ComputerProgram -> CP
 CP = {
 	deb: null,
 	cur: null,
@@ -211,8 +242,6 @@ CP = {
 		CP.deb = jQuery("#deb");
 		CP.btnSend = jQuery("#btnSend");
 		CP.cat = jQuery("#cat");
-		
-		CP.initCategories();
 		
 		jQuery("#inputboxes li input").bind("change", function(e)
 		{
@@ -253,11 +282,9 @@ CP = {
 			if(CP.cur.is(":checked")){
 				CP.copyPersonalDataToCorporateData();
 				CP.corporateDataEqPersonalData = true;
-				// CP.disableCorporateDataInput();
 			}
 			else {
 				CP.corporateDataEqPersonalData = false;
-				// CP.enableCorporateDataInput();
 			}
 		});
 		
@@ -265,6 +292,7 @@ CP = {
 		CP.prefillForm();
 	},
 
+	/*
 	initCategories: function()
 	{
 		if(null == CP.cat){ return false; }
@@ -272,13 +300,14 @@ CP = {
 		if(null == categories.data){ return false; }
 		buff = '<option value="default_category">Bitte w&auml;hlen Sie eine Kategorie</option>';
 		for(var idx in categories.data){
-			key = categories.data[idx].key;
+			keyy = categories.data[idx].key;
 			name = categories.data[idx].name;
-			buff +=	'<option value="'+name+'">'+name+'</option>';
+			buff +=	'<option value="'+keyy+'">'+name+'</option>';
 		}
 		CP.cat.html(buff);
 		CP.cat.val("default_category");
 	},
+	*/
 	
 	prefillForm: function()
 	{
@@ -298,6 +327,7 @@ CP = {
 				CP.validate();
 			}
 		});
+		
 		// pre selects category
 		CP.cat.val(post["cat"]);
 	},
@@ -528,29 +558,36 @@ CP = {
 
 <?php 
 
-if(null != $errorMessage){
+if(null != $errorMessages){
 	print <<<EOD
-<div id="error">{$errorMessage}</div>
+<div id="error">{$errorMessages}</div>
 
 EOD;
 
 }
 
-?>
+$catOptions = "";
+$sel = "selected";
+foreach($categories->data as $cat){
+	$catOptions .= '<option value="'.$cat->key.'" '.$sel.'>'.$cat->name.'</option>';
+	$sel = "";
+}
+
+print <<<EOD
 
 <div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
 
 <div id="menu">
-	<span class="">Kontaktdaten</span>
-	<span class="">Zahlungsdaten</span>
-	<span class="">Abschluss</span>
+	<div class="kontaktdaten"><span>Kontaktdaten</span></div>
+	<div class="zahlungsdaten"><span>Zahlungsdaten</span></div>
+	<div class="abschluss"><span>Abschluss</span></div>
 </div>
 
 <div id="commando">Bitte eingeben Sie<sup>*</sup></div>
 
 <div id="inputboxes">
 
-	<form id="premium_customer_form" name="premium_customer_form" method="POST" action="<?php print Mage::getBaseUrl() . "premium/index/pcfs" ?>">	
+	<form id="premium_customer_form" name="premium_customer_form" method="POST" action="{$baseURL}premium/index/pcfs">	
 		
 		<ul id="personal_data_form">
 			<li class="liheader">Pers&ouml;hnliche Daten*</li>
@@ -571,20 +608,14 @@ EOD;
 			<li class="liheader">Unternehmensdaten*</li>
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">&nbsp;</li>
-			<li>
-				<select id="cat" name="cat">
-					<option value="default_category">Bitte w&auml;hlen Sie eine Kategorie</option>	
-					<!--
-					<option name="biz_cat_1" value="biz_cat_1">Kategorie 1</option>	
-					<option name="biz_cat_2" value="biz_cat_2">Kategorie 2</option>	
-					<option name="biz_cat_3" value="biz_cat_3">Kategorie 3</option>	
-					-->	
-				</select>
-			</li>
+			<li><select id="cat" name="cat">{$catOptions}</select></li>
 			<li><input type="text" name="c_name" value="Unternehmensname"></input></li>
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">&nbsp;</li>
-			<li class="lisub"><input type="checkbox" id="is_personal_data" name="is_personal_data" value="is_personal_data"></input><label for="is_personal_data">Entspricht den pers&ouml;nlichen Daten</label></li>
+			<li class="lisub">
+				<input type="checkbox" id="is_personal_data" name="is_personal_data" value="is_personal_data"></input>
+				<label for="is_personal_data">Entspricht den pers&ouml;nlichen Daten</label>
+			</li>
 			<li class="lisub">&nbsp;</li>
 			<li><input type="text" id="c_street" name="c_street" value="Strasse"></input></li>
 			<li><input type="text" id="c_zip" name="c_zip" value="Postleitzahl"></input></li>
@@ -603,3 +634,5 @@ EOD;
 </center>
 </body>
 </html>
+
+EOD;

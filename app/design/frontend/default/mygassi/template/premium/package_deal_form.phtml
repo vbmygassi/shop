@@ -1,5 +1,10 @@
 <?php 
-// $customerInput = Mage::getSingleton("core/session")->getCustomerInput();
+/*
+Eingabebogen Premium Produkte 
+$customerInput = Mage::getSingleton("core/session")->getCustomerInput();
+*/
+$paymentInput = Mage::getSingleton("core/session")->getPaymentInput();
+$skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -22,21 +27,61 @@ body {
 	margin: 24px;
 }
 
-#menu, #commando_1, #commando_2 {
+#commando_1, #commando_2 {
 	width: 834px;
+	text-align: center;
+	margin: 24px;
+}
+
+
+#menu {
+	width: 1200px;
 	text-align: center;
 	margin: 24px;
 }
 
 #menu span {
 	font-size: 18px;
+	text-decoration: none;
 	margin: 52px;
+	color: white;
+	font-weight: bold;
 }
+
+<?php
+
+print <<<EOD
+
+#menu .kontaktdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
+	float: left;
+}
+
+#menu .zahlungsdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
+	float: left;
+}
+
+#menu .abschluss{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
+	float: left;
+}
+
+EOD;
+
+?>
 
 #commando_1, #commando_2 {
 	font-size: 18px;
 	margin: 52px;
 	font-weight: bold;
+	clear: both;
 }
 
 #package_box_1 {
@@ -102,6 +147,34 @@ body {
 
 </style>
 
+
+<script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
+<script type="text/javascript" langauge="javascript">
+
+jQuery(document).ready(function(){
+	CP.init();
+	CP.prefill();
+});
+
+CP = {
+	paymentInput: <?php print json_encode($paymentInput); ?>,
+
+	init: function(){		
+	},
+
+	prefill: function(){
+		if(null == CP.paymentInput){ return; }
+		sel = CP.paymentInput["payment_type"];
+		rad = jQuery("input:radio[name=payment_type]");
+		rad.filter("[value="+sel+"]").prop("checked", true);	
+		sel = CP.paymentInput["selected_package"];
+		rad = jQuery("input:radio[name=selected_package]");
+		rad.filter("[value="+sel+"]").prop("checked", true);	
+	}
+}
+
+</script>
+
 </head>
 
 <body>
@@ -125,10 +198,10 @@ EOD;
 <div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div><!-- header -->
 
 <div id="menu">
-	<span class="">Kontaktdaten</span>
-	<span class="">Zahlungsdaten</span>
-	<span class="">Abschluss</span>
-</div><!-- menu -->
+	<div class="kontaktdaten"><span>Kontaktdaten</span></div>
+	<div class="zahlungsdaten"><span>Zahlungsdaten</span></div>
+	<div class="abschluss"><span>Abschluss</span></div>
+</div>
 
 <div id="commando_1">W&auml;hlen Sie Ihr gew&uuml;nschtes Premium-Paket aus<sup>*</sup></div><!-- commando_1 -->
 
@@ -185,8 +258,8 @@ EOD;
 <div id="payment_method">
 
 		<p/>	
-		<input type="radio" id="payment:checkmo" name="payment_type" value="checkmo">
-			<label for="payment:checkmo">Scheck</label>
+		<input type="radio" id="checkmo" name="payment_type" value="checkmo">
+			<label for="checkmo">Scheck</label>
 		</input>
 
 		<p/>

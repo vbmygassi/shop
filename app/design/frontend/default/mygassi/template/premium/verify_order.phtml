@@ -5,6 +5,7 @@ $paymentInput = Mage::getSingleton("core/session")->getPaymentInput();
 // print_r($customerInput);
 // print_r($paymentInput);
 $baseURL = Mage::getBaseUrl();
+$skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -30,8 +31,9 @@ a {
 	margin: 24px;
 }
 
+
 #menu {
-	width: 834px;
+	width: 1200px;
 	text-align: center;
 	margin: 24px;
 }
@@ -40,12 +42,44 @@ a {
 	font-size: 18px;
 	text-decoration: none;
 	margin: 52px;
+	color: white;
+	font-weight: bold;
 }
+
+<?php
+
+print <<<EOD
+
+#menu .kontaktdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
+	float: left;
+}
+
+#menu .zahlungsdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
+	float: left;
+}
+
+#menu .abschluss{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
+	float: left;
+}
+
+EOD;
+
+?>
 
 #commando {
 	font-size: 18px;
 	margin: 52px;
 	font-weight: bold;
+	clear: both;
 }
 
 #output_1, #output_2 {
@@ -88,6 +122,7 @@ jQuery(document).ready(function(){ CP.init(); });
 CP = {
 	btnSend: null,
 	btnAccept: null,
+
 	init: function(){
 		CP.btnSend = jQuery("#submit");
 		if(null != CP.btnSend){
@@ -104,6 +139,21 @@ CP = {
 				}
 			});
 		}
+	},
+
+	editPD: function()
+	{
+		self.location.href = "<?php print $baseURL ?>premium";
+	},
+
+	editCD: function()
+	{
+		self.location.href = "<?php print $baseURL ?>premium";
+	},
+
+	editPM: function()
+	{
+		self.location.href = "<?php print $baseURL ?>premium/index/select_package";
 	}
 }
 
@@ -114,10 +164,11 @@ CP = {
 <body>
 <center>
 <div id="header">Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</div>
+
 <div id="menu">
-	<span class="">Kontaktdaten</span>
-	<span class="">Zahlungsdaten</span>
-	<span class="">Abschluss</span>
+	<div class="kontaktdaten"><span>Kontaktdaten</span></div>
+	<div class="zahlungsdaten"><span>Zahlungsdaten</span></div>
+	<div class="abschluss"><span>Abschluss</span></div>
 </div>
 
 <div id="commando">Bitte &uuml;berpr&uuml;fen Sie Ihre eingegebenen Daten<sup>*</sup></div>
@@ -129,6 +180,7 @@ CP = {
 print <<<EOD
 <div id="personal_data">
 	<span class="headline">Pers&ouml;nliche Daten</span>
+	<span class="editlink"><a href="javascript:CP.editPD();">&Auml;ndern</a></span>
 	<br/>
 	<span class="message">{$customerInput["p_name"]}</span>
 	<br/>
@@ -145,6 +197,7 @@ print <<<EOD
 
 <div id="corporate_data">
 	<span class="headline">Unternehmensdaten</span>
+	<span class="editlink"><a href="javascript:CP.editCD();">&Auml;ndern</a></span>
 	<br/>
 	<span class="message">{$customerInput["c_category"]}</span>
 	<br/>
@@ -165,6 +218,7 @@ print <<<EOD
 
 <div id="payment_method">
 	<span class="headline">Zahlungsdaten</span>	
+	<span class="editlink"><a href="javascript:CP.editPM();">&Auml;ndern</a></span>
 	<br/>
 	<span class="message">Gew&auml;hltes Paket: {$paymentInput["selected_package"]}</span>	
 	<br/>

@@ -2,6 +2,7 @@
 // reads previously posted values as for to prefill the input fields
 // $post = Mage::getSingleton("core/session")->getPostValues();
 // $post = json_encode($post);
+$skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -22,8 +23,9 @@ body {
 	margin: 24px;
 }
 
+
 #menu {
-	width: 834px;
+	width: 1200px;
 	text-align: center;
 	margin: 24px;
 }
@@ -32,12 +34,44 @@ body {
 	font-size: 18px;
 	text-decoration: none;
 	margin: 52px;
+	color: white;
+	font-weight: bold;
 }
+
+<?php
+
+print <<<EOD
+
+#menu .kontaktdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
+	float: left;
+}
+
+#menu .zahlungsdaten{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
+	float: left;
+}
+
+#menu .abschluss{
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
+	float: left;
+}
+
+EOD;
+
+?>
 
 #commando {
 	font-size: 18px;
 	margin: 52px;
 	font-weight: bold;
+	clear: both;
 }
 
 </style>

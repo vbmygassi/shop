@@ -58,6 +58,8 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 
 	public function indexAction()
 	{
+		// Mage::getModel("premium/pmodel")->test();
+
 		print Mage::getSingleton("core/layout")
 			->createBlock("core/template")
 			->setTemplate("premium/form.phtml")
