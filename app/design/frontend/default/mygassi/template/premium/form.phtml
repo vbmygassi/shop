@@ -13,8 +13,11 @@ $categories = curl_exec($handle);
 curl_close($handle);
 $categories = trim($categories);
 */
+// // // // 
 $baseURL = Mage::getBaseUrl();
 $skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+$respPostURL = Mage::getBaseUrl() . "premium/index/pcfs_responsive";
+// // // // 
 $categories = '{
   "success": true,
   "data": [
@@ -116,6 +119,8 @@ print <<<EOD
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
 	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
 }
 
 #menu .zahlungsdaten{
@@ -123,6 +128,8 @@ print <<<EOD
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
 	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
 }
 
 #menu .abschluss{
@@ -130,6 +137,8 @@ print <<<EOD
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
 	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
 }
 
 EOD;
@@ -206,9 +215,8 @@ input[type="text"] {
 <script type="text/javascript" langauge="javascript" src="<?php print $baseURL . "js/jquery/jquery-2.0.0.min.js"?>"></script>
 <script type="text/javascript" langauge="javascript">
 
-post = <?php print_r($customerInput); ?>;
 
-jQuery(document).ready(function(){ CP.init(post); });
+jQuery(document).ready(function(){ CP.init(); });
 
 CP = {
 	deb: null,
@@ -216,12 +224,21 @@ CP = {
 	corporateDataEqPersonalData: false,
 	validFlags: [],
 	isFormValid: false,
-	post: null,
 	cat: null,
+	post: <?php print_r($customerInput); ?>,
+	form: null,
+
+	submitResponsive: function()
+	{	
+		jQuery.post("<?php print $respPostURL ?>", CP.form.serialize())
+			.done(function(data){
+				alert(data);
+			});
+	},
 	
 	out: function(message)
 	{
-		// CP.deb.val(message +" " +new Date().getTime());
+		
 	},
 
 	setValidFlag: function(key)
@@ -236,23 +253,33 @@ CP = {
 		CP.validFlags[key] = false;
 	},
 	
-	init: function(doc)
+	init: function()
 	{
-		CP.post = doc;
 		CP.deb = jQuery("#deb");
-		CP.btnSend = jQuery("#btnSend");
 		CP.cat = jQuery("#cat");
-		
+		CP.form = jQuery("#premium_customer_form");	
+		CP.btnSend = jQuery("#btnSend");
+
+		jQuery("#inputboxes li input").bind("focus", function(e)
+		{
+			CP.putExistingInput();
+			CP.validate();
+		});
+
 		jQuery("#inputboxes li input").bind("change", function(e)
 		{
 			CP.cur = jQuery(this);
+			CP.cur.ghost = true;
 			CP.setInputColor();
 			CP.validate();
 		});
 		
 		jQuery("#inputboxes li input").bind("click", function(e)
 		{
+			CP.putExistingInput();
 			CP.cur = jQuery(this);
+			CP.cur.ghost = false;
+			CP.cutExistingInput();
 			CP.setInputColor();
 			CP.validate();
 		});
@@ -309,16 +336,41 @@ CP = {
 	},
 	*/
 	
+	cutExistingInput: function()
+	{
+		if(null == CP.cur){ 
+			return; 
+		}
+		if("btnSend" == CP.cur.attr("id")){ 
+			return; 
+		}
+		CP.cur.old = CP.cur.val();
+		CP.cur.val("");
+	},
+
+	putExistingInput: function()
+	{
+		if(null == CP.cur){ 
+			return; 
+		} 
+		if("btnSend" == CP.cur.attr("id")){ 
+			return; 
+		}
+		if(false == CP.cur.ghost){
+			CP.cur.val(CP.cur.old);
+		}
+	},
+	
 	prefillForm: function()
 	{
-		// returns without pos
+		// returns without post
 		if(null == CP.post){
 			return;
 		}
-		// pre fills input fields
+		// prefills input fields from previous post values
 		jQuery("#inputboxes li input").each(function(index, value){
 			key = jQuery(this).attr("name");
-			if("btnSend" != key){
+			if(undefined != key){
 				val = jQuery(this).val();
 				fil = CP.post[key] == "" ? val : CP.post[key];
 				target = jQuery(this);
@@ -329,11 +381,13 @@ CP = {
 		});
 		
 		// pre selects category
-		CP.cat.val(post["cat"]);
+		CP.cat.val(CP.post["cat"]);
 	},
 
 	copyPersonalDataToCorporateData: function()
 	{
+		// jQuery("#c_name").val(jQuery("#p_name").val());
+		// jQuery("#c_name").change();
 		jQuery("#c_zip").val(jQuery("#p_zip").val());
 		jQuery("#c_zip").change();
 		jQuery("#c_city").val(jQuery("#p_city").val());
@@ -377,6 +431,9 @@ CP = {
 
 	validate: function()
 	{
+		if(null == CP.cur){
+			return;
+		}
 		key = CP.cur.attr("name");
 		val = CP.cur.val();
 		switch(key){
@@ -609,7 +666,7 @@ print <<<EOD
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">&nbsp;</li>
 			<li><select id="cat" name="cat">{$catOptions}</select></li>
-			<li><input type="text" name="c_name" value="Unternehmensname"></input></li>
+			<li><input type="text" id="c_name" name="c_name" value="Unternehmensname"></input></li>
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">
@@ -624,7 +681,7 @@ print <<<EOD
 			<li><input type="text" name="c_website" value="Website"></input></li>
 			<input type="hidden" name="c_region_id" value="81"/>
 			<input type="hidden" name="c_region" value="Hamburg"/>
-			<li><input id="btnSend" name="btnSend" type="submit" value="Zahlungsdaten eingeben"></input></li>
+			<li><input id="btnSend" type="submit" value="Zahlungsdaten eingeben"></input></li>
 		</ul>
 	</form>
 </div>

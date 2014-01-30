@@ -10,4 +10,10 @@ class Mygassi_Premium_Model_Pmodel extends Mage_Core_Model_Abstract
 	{
 		print "Mygassi_Premium_Model_Pmodel::test()";
 	}
+
+	public function getBronzeProduct()
+	{
+	
+	}	
 }
+

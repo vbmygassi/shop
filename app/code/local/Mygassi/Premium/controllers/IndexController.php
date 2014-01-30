@@ -255,9 +255,17 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		return true;
 	} 
 
+	// that is the entry point for the "responsive" client
+	// ( formerly called fancyUI
+	public function pcfs_responsiveAction()
+	{
+		$this->pcfsAction(true);
+		return true;
+	}
+	
 	// that is where the initial [ entry ] premium form gets submitted to
 	// premium customer form submit
-	public function pcfsAction()
+	public function pcfsAction($responsive=false)
 	{
 		// resets error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
@@ -332,7 +340,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		}
 		
 		// p_street
-		if(8 > strlen($post["p_street"])){
+		if(6 > strlen($post["p_street"])){
 			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Adresse");
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
@@ -360,7 +368,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 
 		// ************* ::::::::::::::: ---------------------- *************** 
 		// c_street
-		if(8 > strlen($post["c_street"])){
+		if(6 > strlen($post["c_street"])){
 			Mage::getSingleton("core/session")->setErrorMessage("Bitte &uuml;berpr&uuml;fen Sie die Adresse");
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
@@ -540,9 +548,14 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			exit(1);
 		}
 	
-		// redirects to "package deal" page	
-		$loc = Mage::getBaseUrl() . "premium/index/select_package";
-		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+		// redirects to "package deal" page
+		if($responsive){
+			print "done";	
+		}
+		else{	
+			$loc = Mage::getBaseUrl() . "premium/index/select_package";
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+		}
 
 		return true;
 	}

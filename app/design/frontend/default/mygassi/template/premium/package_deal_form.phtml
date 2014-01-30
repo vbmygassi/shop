@@ -48,6 +48,12 @@ body {
 	font-weight: bold;
 }
 
+#product_description td{
+	padding-top: 12px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
 <?php
 
 print <<<EOD
@@ -57,6 +63,8 @@ print <<<EOD
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
 	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
 }
 
 #menu .zahlungsdaten{
@@ -64,6 +72,8 @@ print <<<EOD
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
 	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
 }
 
 #menu .abschluss{
@@ -71,6 +81,8 @@ print <<<EOD
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
 	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
 }
 
 EOD;
@@ -208,9 +220,9 @@ EOD;
 <div id="packages">
 
 <div id="package_box_1">
-	<input type="radio" id="bronze" name="selected_package" value="bronze" checked>
-		<label for="bronze"  class="headline">Paket "Bronze" €60 pro Jahr</label>
-	</input>
+	<!--
+	<input style="margin: 12px;" type="radio" id="bronze" name="selected_package" value="bronze" checked></input>
+	<label for="bronze" class="headline">Paket "Bronze" €60 pro Jahr</label>
 	<br/>
 	<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
 	<ul class="package_description">
@@ -218,9 +230,45 @@ EOD;
 		<li>M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen</li>
 		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
 	</ul>
+	-->
+	<table id="product_description">
+		<tr>
+			<td>
+				<input type="radio" id="bronze" name="selected_package" value="bronze" checked></input>
+			</td>
+			<td>
+				<label for="bronze" class="headline">Paket "Bronze" €60 pro Jahr</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten
+			</td>
+		</tr>
+	</table>
 </div><!-- package_box_1 -->
 
 <div id="package_box_2">
+	<!--
 	<input type="radio" id="silver" name="selected_package" value="silver">
 		<label for="silver" class="headline">Paket "Silber" €199 pro Jahr</label>
 	</input>
@@ -232,9 +280,51 @@ EOD;
 		<li>Kommentarbox zur direkten Interaktion/Kommunikation mit den Nutzern der MyGassi App</li>
 		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
 	</ul>
+	-->
+	<table id="product_description">
+		<tr>
+			<td>
+				<input type="radio" id="silver" name="selected_package" value="silver"></input>
+			</td>
+			<td>
+				<label for="silver" class="headline">Paket "Silber" €199 pro Jahr</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Kommentarbox zur direkten Interaktion/Kommunikation mit den Nutzern der MyGassi App
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten
+			</td>
+		</tr>
+	</table>
 </div><!-- package_box_2 -->
 
 <div id="package_box_3">
+	<!--
 	<input type="radio" id="gold" name="selected_package" value="gold">
 		<label for="gold"  class="headline">Paket "Gold" €299 pro Jahr</label>
 	</input>
@@ -248,7 +338,60 @@ EOD;
 		<li>Anlegen von News, Tipps und Informationen sowie Aktionen und Gutschein mit Apple Passbookintegration</li>
 		<li>Statistiken und Auswertungen von Klickzahlen und Nutzerverhalten</li>
 		<li>Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten</li>
-	</ul>	
+	</ul>
+	-->
+	<table id="product_description">
+		<tr>
+			<td>
+				<input type="radio" id="gold" name="selected_package" value="gold"></input>
+			</td>
+			<td>
+				<label for="gold"  class="headline">Paket "Gold" €299 pro Jahr</label>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<span class="sub"><sup>*</sup>zzgl. 19% MwSt.</span>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Ihr Unternehmen als f&uuml;r alle sichtbarer Pin auf der Karte
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				M&ouml;glichkeiten zur direkten Kontaktaufnahme via E-Mail oder Telefon zu Ihrem Unternehmen
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Anlegen von Ihren &Ouml;ffnungszeiten
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Anlegen von News, Tipps und Informationen sowie Aktionen und Gutschein mit Apple Passbookintegration
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Statistiken und Auswertungen von Klickzahlen und Nutzerverhalten
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten
+			</td>
+		</tr>
+	</table>
 </div><!-- package_box_3 -->
 
 </div><!-- packages -->

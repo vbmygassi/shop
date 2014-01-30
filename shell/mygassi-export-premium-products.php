@@ -4,15 +4,22 @@ require_once(mageroot);
 
 Mage::app();
 
-// bronze
+// BRONZE 
+$path = Mage::getBaseDir() . "/media/premium/bronze.obj.php";
 $prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877755");
-print_r($prod);
+file_put_contents($path, serialize($prod));
+print $path . PHP_EOL;
 
-// silver 
+// SILVER
+$path = Mage::getBaseDir() . "/media/premium/silver.obj.php";
 $prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877756");
-print_r($prod);
+file_put_contents($path, serialize($prod));
+print $path . PHP_EOL;
 
-// gold 
+// GOLD
+$path = Mage::getBaseDir() . "/media/premium/gold.obj.php";
 $prod = Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877757");
-print_r($prod);
+file_put_contents($path, serialize($prod));
+print $path . PHP_EOL;
 
+exit(1);
