@@ -1,9 +1,7 @@
 <?php
 /*******
-	So wäre es vielleicht am besten gewesen.
-	Weiterhin verbirgt sich uns der Sinn.
-	Keep it real; a handjob and a hot meal.
-  ***/
+  Hach, wer will das noch lesen
+	***/
 
 class A
 {
@@ -29,7 +27,7 @@ class B
 {
 }
 
-class FuckApp
+class App
 {
 	static private $coll;
 
@@ -42,7 +40,7 @@ class FuckApp
 		if(array_key_exists($key, self::$coll)){
 			$res = self::$coll[$key];
 		}
-		else {
+		else{
 			self::$coll[$key] = $res = new $key();		
 		}
 		return $res;
@@ -51,10 +49,10 @@ class FuckApp
 
 function main()
 {
-	FuckApp::get("A")->testMethod1st();
-	FuckApp::get("A")->testMethod2nd();
-	print 'FuckApp::get("A") === FuckApp::get("A")' . PHP_EOL;
-	print (FuckApp::get("A") === FuckApp::get("A")) . PHP_EOL;
+	App::get("A")->testMethod1st();
+	App::get("A")->testMethod2nd();
+	print 'App::get("A") === App::get("A")' . PHP_EOL;
+	print (App::get("A") === App::get("A")) . PHP_EOL;
 }
 
 main();
