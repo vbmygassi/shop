@@ -1,3 +1,10 @@
+Rechnung; 
+....Rechnung; 
+......
+
+
+Rechnung gesandt;
+
 
 Bei der Eingabe : :: Klickmich ::: 
 

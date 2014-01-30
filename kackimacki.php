@@ -44,7 +44,7 @@ class App
 			self::$coll[$key] = $res = new $key();		
 		}
 		return $res;
-	}	
+	}
 }
 
 function main()
@@ -56,4 +56,3 @@ function main()
 }
 
 main();
-

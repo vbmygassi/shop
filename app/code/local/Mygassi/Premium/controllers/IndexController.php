@@ -147,9 +147,19 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		
 		// sets up payment method and cocolores	
 		$d = array();
+		
 		$d["method"] = $q["payment_type"];
+		
+		// payone_payone_wallet
 		$d["payone_wallet_type"] = "PPE";
 		$d["payone_config_payment_method_id"] = "3";
+		
+		// payone_online_bank_transfer
+		$d["payone_online_bank_transfer_obt_type_select"] = "7_PNT";
+		$d["payone_account_number"] = "2599100003";
+		$d["payone_bank_code"] = "12345678";	
+		
+		// 
 		$this->checkout->savePayment($d, false);
 	
 		/*
@@ -162,8 +172,16 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	
 		// save diss order baby
 		// do not save now : still testing
-		$res = $this->checkout->saveOrder();
-		
+		try {
+			$res = $this->checkout->saveOrder();
+		}
+		catch(Exception $e){
+			Mage::getSingleton("core/session")->setErrorMessage("Exception while saving order");
+			$loc = Mage::getBaseUrl() . "premium/index/verify";
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}		
+
 		// evaluates redirect url
 		// that is the url the gateway (dep. configuration) is about to return
 		// sandbox.paypal?with_an_id	

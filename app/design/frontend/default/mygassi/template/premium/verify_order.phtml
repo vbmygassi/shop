@@ -6,8 +6,8 @@ $paymentInput = Mage::getSingleton("core/session")->getPaymentInput();
 // print_r($paymentInput);
 $baseURL = Mage::getBaseUrl();
 $skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+$errorMessages = Mage::getSingleton("core/session")->getErrorMessage();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
@@ -44,6 +44,12 @@ a {
 	margin: 52px;
 	color: white;
 	font-weight: bold;
+}
+
+#error {
+	width: 834px;
+	border: 1px dotted red;
+	padding: 32px;
 }
 
 <?php
@@ -116,8 +122,12 @@ EOD;
 .headline {
 	font-size: 24px;
 	font-weight: bold;
+	width: 250px;
+	float: left;
 }
 
+.editlink {
+}
 </style>
 
 <script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
@@ -169,6 +179,19 @@ CP = {
 
 <body>
 <center>
+
+<?php
+
+if(null != $errorMessages){
+	print <<<EOD
+<div id="error">{$errorMessages}</div>
+
+EOD;
+
+}
+
+?>
+
 <div id="header">Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</div>
 
 <div id="menu">
@@ -185,7 +208,7 @@ CP = {
 
 print <<<EOD
 <div id="personal_data">
-	<span class="headline">Pers&ouml;nliche Daten</span>
+	<div class="headline">Pers&ouml;nliche Daten</div>
 	<span class="editlink"><a href="javascript:CP.editPD();">&Auml;ndern</a></span>
 	<br/>
 	<span class="message">{$customerInput["p_name"]}</span>
@@ -202,7 +225,7 @@ print <<<EOD
 </div><!-- personal_data -->
 
 <div id="corporate_data">
-	<span class="headline">Unternehmensdaten</span>
+	<div class="headline">Unternehmensdaten</div>
 	<span class="editlink"><a href="javascript:CP.editCD();">&Auml;ndern</a></span>
 	<br/>
 	<span class="message">{$customerInput["c_category"]}</span>
@@ -223,7 +246,7 @@ print <<<EOD
 <div id="output_2">
 
 <div id="payment_method">
-	<span class="headline">Zahlungsdaten</span>	
+	<div class="headline">Zahlungsdaten</div>	
 	<span class="editlink"><a href="javascript:CP.editPM();">&Auml;ndern</a></span>
 	<br/>
 	<span class="message">Gew&auml;hltes Paket: {$paymentInput["selected_package"]}</span>	

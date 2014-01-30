@@ -48,17 +48,16 @@ body {
 	font-weight: bold;
 }
 
-#product_description td{
+#product_description td {
 	padding-top: 12px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-right: 32px;
 }
 
 <?php
 
 print <<<EOD
 
-#menu .kontaktdaten{
+#menu .kontaktdaten {
 	width: 370px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
@@ -67,7 +66,7 @@ print <<<EOD
 	background-repeat: no-repeat;
 }
 
-#menu .zahlungsdaten{
+#menu .zahlungsdaten {
 	width: 370px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
@@ -76,7 +75,7 @@ print <<<EOD
 	background-repeat: no-repeat;
 }
 
-#menu .abschluss{
+#menu .abschluss {
 	width: 370px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
@@ -129,7 +128,7 @@ EOD;
 }
 
 #packages {
-	width: 834px;
+	width: 1000px;
 }
 
 #commando_2 {
@@ -260,7 +259,7 @@ EOD;
 		</tr>
 		<tr>
 			<td></td>
-			<td>
+			<td style="padding-bottom: 32px;">
 				Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten
 			</td>
 		</tr>
@@ -316,7 +315,7 @@ EOD;
 		</tr>
 		<tr>
 			<td></td>
-			<td>
+			<td style="padding-bottom: 32px;">
 				Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten
 			</td>
 		</tr>
@@ -387,7 +386,7 @@ EOD;
 		</tr>
 		<tr>
 			<td></td>
-			<td>
+			<td style="padding-bottom: 32px;">
 				Zugang zum MyGassi Adminportal zur selbst&auml;ndigen Pflege Ihrer Daten
 			</td>
 		</tr>
@@ -401,8 +400,8 @@ EOD;
 <div id="payment_method">
 
 		<p/>	
-		<input type="radio" id="checkmo" name="payment_type" value="checkmo">
-			<label for="checkmo">Scheck</label>
+		<input type="radio" id="checkmo" name="payment_type" value="checkmo" checked>
+			<label for="checkmo">Rechnung &Uuml;berwisung</label>
 		</input>
 
 		<p/>
@@ -411,7 +410,7 @@ EOD;
 		</input>
 		
 		<p/>
-		<input type="radio" id="payone_wallet" name="payment_type" value="payone_wallet" checked>
+		<input type="radio" id="payone_wallet" name="payment_type" value="payone_wallet">
 			<label for="payone_wallet">PayPal</label>
 		</input>
 
