@@ -1,7 +1,8 @@
 <?php
 /*******
 	So wäre es vielleicht am besten gewesen.
-	Der Sinn verweigert sich uns.
+	Weiterhin verbirgt sich uns der Sinn.
+	Keep it real; a handjob and a hot meal.
   ***/
 
 class A
