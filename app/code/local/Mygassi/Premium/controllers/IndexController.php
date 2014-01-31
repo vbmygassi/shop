@@ -102,12 +102,15 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$q = Mage::getSingleton("core/session")->getPaymentInput();
 		$premiumSKU = "99988877755";
 		switch($q["selected_package"]){
+			
 			case "bronze":
 				$premiumSKU = "99988877755"; 
 				break;
+			
 			case "silver":
 				$premiumSKU = "99988877756"; 
 				break;
+			
 			case "gold": 
 				$premiumSKU = "99988877757"; 
 				break;
@@ -147,19 +150,29 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		
 		// sets up payment method and cocolores	
 		$d = array();
-		
+
+// -->test values	
+		// test values
 		$d["method"] = $q["payment_type"];
 		
-		// payone_payone_wallet
-		$d["payone_wallet_type"] = "PPE";
-		$d["payone_config_payment_method_id"] = "3";
-		
-		// payone_online_bank_transfer
-		$d["payone_online_bank_transfer_obt_type_select"] = "7_PNT";
-		$d["payone_account_number"] = "2599100003";
-		$d["payone_bank_code"] = "12345678";	
-		
+		switch($q["payment_type"]){
+			case "payone_online_bank_transfer":
+				$d["payone_online_bank_transfer_obt_type_select"] = "7_PNT";
+				$d["payone_account_number"] = "2599100003";
+				$d["payone_bank_code"] = "12345678";
+				$d["payone_config_payment_method_id"] = "7";
+				$d["payone_onlinebanktransfer_type"] = "PNT";
+				break;
+			case "payone_wallet":
+				$d["payone_wallet_type"] = "PPE";
+				$d["payone_config_payment_method_id"] = "3";
+				break;
+			case "checkmo":
+				break;
+		}		
 		// 
+// -->
+
 		$this->checkout->savePayment($d, false);
 	
 		/*
@@ -172,23 +185,67 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	
 		// save diss order baby
 		// do not save now : still testing
+		$res = $this->checkout->saveOrder();
+		
+		/*
 		try {
 			$res = $this->checkout->saveOrder();
 		}
 		catch(Exception $e){
 			Mage::getSingleton("core/session")->setErrorMessage("Exception while saving order");
 			$loc = Mage::getBaseUrl() . "premium/index/verify";
-			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			// $this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
-		}		
+		}
+		*/		
 
 		// evaluates redirect url
 		// that is the url the gateway (dep. configuration) is about to return
 		// sandbox.paypal?with_an_id	
             	$redirectUrl = $this->checkout->getCheckout()->getRedirectUrl(); 
+	
+// --> checkmo shortcut : without payone	
+		// checkmo (Rechnung | Scheck) redirects konkrät
+		// sends data to couchdb
+		// marks payment as "payed"; who cares about whether or not it is payed
+		// who cares about which email address is given
+		// creates an invoice DOES NOT FOR THERE IS NO LEGAL ..ehh, ISSUES
 		if("checkmo" == $q["payment_type"]){
+			
+			// sets redirect url
 			$redirectUrl = Mage::getBaseUrl() . "premium/index/thanks";
-		}		
+			
+			// markes sale as payed
+			$sale = Mage::getModel("sales/order")->load(Mage::getSingleton("checkout/session")->getLastOrderId());
+			$sale->setStatus("payed");
+			$sale->save();
+			
+			// send the customer to the CouchBase instance
+			$authKey = "magento";
+			$service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:4000/premium_import_magento";
+			$postargs = array(
+				"premium_poi_type"=>$q["selected_package"],
+				"mail"=>$p["p_email"],
+				"send_mail"=>"false",
+				"premium_poi_category"=>$p["cat"],
+				"name"=>$p["c_name"]
+			);
+			$handle = curl_init();
+			curl_setopt($handle, CURLOPT_URL, $service);
+			curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($handle, CURLOPT_POST, true); 
+			curl_setopt($handle, CURLOPT_POSTFIELDS, $postargs);
+			curl_setopt($handle, CURLOPT_HTTPHEADER, array("Authorization: " . $authKey, "User-Agent: " . $authKey));
+			$response = curl_exec($handle);
+			$code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+			curl_close($handle);
+
+		}
+// cron job might scoop premium users to the Couch Backend with a sendmail "true";
+// shell/mygassi-export-premium-customers.php
+// -->
 
 		// redirects withour redirect url	
 		switch($redirectUrl){
@@ -197,8 +254,8 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 				Mage::getSingleton("core/session")->setErrorMessage("Gateway nicht erreicht");
 				$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 				exit(1);
-		}	
-		
+		}
+
 		// redirect babäh; don't stop until the fat lady sings
 		// payone -> redirects to the payment
 		// do not redirect for now
@@ -333,7 +390,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			}
 			else {
 				$post["p_firstname"] = trim($post["p_name"]);
-				$post["p_lastname"] = "";
+				$post["p_lastname"] = trim($post["p_name"]);
 			} 
 		}	
 	
@@ -617,7 +674,8 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			$this->premiumGroupId = Mage::getModel("customer/group")
 				->setCode("Premium")
 				->setTaxClassId($taxClassId)
-				->save()->getCustomerGroupId();
+				->save()
+				->getCustomerGroupId();
 		}
 		
 		return true;

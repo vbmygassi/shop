@@ -17,6 +17,12 @@ $errorMessages = Mage::getSingleton("core/session")->getErrorMessage();
 
 body {
 	font-family: Arial, Helvetica;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+#logo {
+	margin-left: 32px;
 }
 
 a {
@@ -33,7 +39,7 @@ a {
 
 
 #menu {
-	width: 1200px;
+	width: 834px;
 	text-align: center;
 	margin: 24px;
 }
@@ -57,7 +63,7 @@ a {
 print <<<EOD
 
 #menu .kontaktdaten{
-	width: 370px;
+	width: 278px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
 	float: left;
@@ -66,7 +72,7 @@ print <<<EOD
 }
 
 #menu .zahlungsdaten{
-	width: 370px;
+	width: 278px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
 	float: left;
@@ -75,7 +81,7 @@ print <<<EOD
 }
 
 #menu .abschluss{
-	width: 370px;
+	width: 278px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
 	float: left;
@@ -95,7 +101,7 @@ EOD;
 }
 
 #output_1, #output_2 {
-	width: 834px;
+	width: 780px;
 	text-align: left;
 	margin-bottom: 32px;
 }
@@ -178,6 +184,15 @@ CP = {
 </head>
 
 <body>
+
+<?php
+
+print <<<EOD
+<div id="logo"><img width="200" src="{$skinURL}/frontend/default/mygassi/images/mygassi_logo.png"/></div>
+EOD;
+
+?>
+
 <center>
 
 <?php

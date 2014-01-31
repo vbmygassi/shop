@@ -86,6 +86,12 @@ $categories = json_decode($categories);
 
 body {
 	font-family: Arial, Helvetica;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+#logo {
+	margin-left: 32px;
 }
 
 #header {
@@ -97,7 +103,7 @@ body {
 }
 
 #menu {
-	width: 1200px;
+	width: 834px;
 	text-align: center;
 	margin: 24px;
 }
@@ -115,7 +121,7 @@ body {
 print <<<EOD
 
 #menu .kontaktdaten{
-	width: 370px;
+	width: 278px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
 	float: left;
@@ -124,7 +130,7 @@ print <<<EOD
 }
 
 #menu .zahlungsdaten{
-	width: 370px;
+	width: 278px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
 	float: left;
@@ -133,7 +139,7 @@ print <<<EOD
 }
 
 #menu .abschluss{
-	width: 370px;
+	width: 278px;
 	height: 46px;
 	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
 	float: left;
@@ -611,6 +617,14 @@ CP = {
 
 <body>
 
+<?php
+
+print <<<EOD
+<div id="logo"><img width="200" src="{$skinURL}/frontend/default/mygassi/images/mygassi_logo.png"/></div>
+EOD;
+
+?>
+
 <center>
 
 <?php 
@@ -667,13 +681,11 @@ print <<<EOD
 			<li class="lisub">&nbsp;</li>
 			<li><select id="cat" name="cat">{$catOptions}</select></li>
 			<li><input type="text" id="c_name" name="c_name" value="Unternehmensname"></input></li>
-			<li class="lisub">&nbsp;</li>
-			<li class="lisub">&nbsp;</li>
+			<li class="lisub">
 			<li class="lisub">
 				<input type="checkbox" id="is_personal_data" name="is_personal_data" value="is_personal_data"></input>
 				<label for="is_personal_data">Entspricht den pers&ouml;nlichen Daten</label>
 			</li>
-			<li class="lisub">&nbsp;</li>
 			<li><input type="text" id="c_street" name="c_street" value="Strasse"></input></li>
 			<li><input type="text" id="c_zip" name="c_zip" value="Postleitzahl"></input></li>
 			<li><input type="text" id="c_city" name="c_city" value="Stadt"></input></li>

@@ -13,6 +13,12 @@ $skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 
 body {
 	font-family: Arial, Helvetica;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+#logo {
+	margin-left: 32px;
 }
 
 #header {
@@ -64,7 +70,7 @@ print <<<EOD
 }
 
 #message {
-	width: 834px;
+	width: 500px;
 	text-align: left;
 }
 EOD;
@@ -84,15 +90,25 @@ EOD;
 
 <body>
 
+<?php
+
+print <<<EOD
+<div id="logo"><img width="200" src="{$skinURL}/frontend/default/mygassi/images/mygassi_logo.png"/></div>
+EOD;
+
+?>
+
 <center>
 
 <div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
 
+<!--
 <div id="menu">
 	<span class="">Kontaktdaten</span>
 	<span class="">Zahlungsdaten</span>
 	<span class="">Abschluss</span>
 </div>
+-->
 
 <div id="commando">Vielen Dank. Ihre Bestellung ist bei uns eingegangen!<sup>*</sup></div>
 
