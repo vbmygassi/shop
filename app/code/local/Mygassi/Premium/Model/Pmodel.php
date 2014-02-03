@@ -6,14 +6,13 @@ class Mygassi_Premium_Model_Pmodel extends Mage_Core_Model_Abstract
 		$this->_init("premium/pmodel");
 	}
 
-	public function test()
+	public function loadPremiumProducts()
 	{
-		print "Mygassi_Premium_Model_Pmodel::test()";
-	}
-
-	public function getBronzeProduct()
-	{
-	
+		$res = array();
+		$res[]= Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877755");
+		$res[]= Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877756");
+		$res[]= Mage::getModel("catalog/product")->loadByAttribute("sku", "99988877757");
+		return $res;
 	}	
 }
 

@@ -58,7 +58,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 
 	public function indexAction()
 	{
-		// Mage::getModel("premium/pmodel")->test();
+		// Mage::getModel("premium/pmodel")->loadPremiumProducts();
 
 		print Mage::getSingleton("core/layout")
 			->createBlock("core/template")
@@ -102,15 +102,12 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$q = Mage::getSingleton("core/session")->getPaymentInput();
 		$premiumSKU = "99988877755";
 		switch($q["selected_package"]){
-			
 			case "bronze":
 				$premiumSKU = "99988877755"; 
 				break;
-			
 			case "silver":
 				$premiumSKU = "99988877756"; 
 				break;
-			
 			case "gold": 
 				$premiumSKU = "99988877757"; 
 				break;
@@ -207,7 +204,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 // --> checkmo shortcut : without payone	
 		// checkmo (Rechnung | Scheck) redirects konkrät
 		// sends data to couchdb
-		// marks payment as "payed"; who cares about whether or not it is payed
+		// marks payment as "paid"; who cares about whether or not it is paid 
 		// who cares about which email address is given
 		// creates an invoice DOES NOT FOR THERE IS NO LEGAL ..ehh, ISSUES
 		if("checkmo" == $q["payment_type"]){
@@ -217,16 +214,31 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			
 			// markes sale as payed
 			$sale = Mage::getModel("sales/order")->load(Mage::getSingleton("checkout/session")->getLastOrderId());
-			$sale->setStatus("payed");
+			$sale->setStatus("paid");
 			$sale->save();
 			
-			// send the customer to the CouchBase instance
+			// creates an invoice and sends it via email [ -> admin settings ]
+			if($sale->canInvoice()){
+				$iid = Mage::getModel("sales/order_invoice_api")->create($sale->getIncrementId());	
+			}
+
+			// sends the invoice
+			// sends a generated invoice to the given email address (Dear Mr. dabbelju@whitehouse.gov; please pay the 400 Dollars within 14 days)
+			foreach($sale->getInvoiceCollection() as $invoice){
+				try{
+					$invoice->sendEmail();
+				}
+				catch(Exception $e){
+				}
+			}
+
+			// sends the customer to the CouchBase instance
 			$authKey = "magento";
 			$service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:4000/premium_import_magento";
 			$postargs = array(
 				"premium_poi_type"=>$q["selected_package"],
 				"mail"=>$p["p_email"],
-				"send_mail"=>"false",
+				"send_mail"=>"true",
 				"premium_poi_category"=>$p["cat"],
 				"name"=>$p["c_name"]
 			);
@@ -241,8 +253,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			$response = curl_exec($handle);
 			$code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 			curl_close($handle);
-
 		}
+
+
 // cron job might scoop premium users to the Couch Backend with a sendmail "true";
 // shell/mygassi-export-premium-customers.php
 // -->
@@ -300,7 +313,35 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
 			exit(1);
 		}	
+
+		// loads the selected product for the "total" html field
+
+		switch($post["selected_package"]){
+			case "bronze":
+				$premiumSKU = "99988877755"; 
+				break;
+			case "silver":
+				$premiumSKU = "99988877756"; 
+				break;
+			case "gold": 
+				$premiumSKU = "99988877757"; 
+				break;
+		}
 		
+		try{
+			$prod = Mage::getModel("catalog/product")->loadByAttribute("sku", $premiumSKU);
+		}
+		catch(Exception $e){
+			Mage::getSingleton("core/session")->setErrorMessage($e->getMessage());
+			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
+			exit(1);
+		}
+		
+		// writes price into "model"
+		$price = Mage::helper("core")->currency($prod->getPrice());
+		$post["total"] = $price;
+
+		// writes "model" [session]	
 		Mage::getSingleton("core/session")->setPaymentInput($post);
 		
 		// copies savement type to the session vars
@@ -510,9 +551,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$customer->setGroupId($this->premiumGroupId);	
 		
 		// inits password
-		$password = "hokuspokus";
+		// $password = "hokuspokus";
+		$password = $customer->generatePassword(32);
 		$customer->setPasswordHash(md5($password));
-		// $customer->generatePassword(16);
 
 		// saves a new premium customer	
 		try{
@@ -523,9 +564,12 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			// todo: do not load existing user but redirect to the login
 			// todo: set some error message into guest session
 			$message  = $e->getMessage();
+			$message .= ".";
 			$message .= '<br/>';
 			$message .= '<a href="http://frontend-1722069931.eu-west-1.elb.amazonaws.com/">';
-			$message .= '&gt;&gt;&gt Zum Login';
+			$message .= '<img width="120" src="';
+			$message .= Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+			$message .= '/frontend/default/mygassi/images/zum_login.png"/>';
 			$message .= '</a>';
 			Mage::getSingleton("core/session")->setErrorMessage($message) ;
 			$this->getResponse()->setHeader("Location", $loc)->sendHeaders();

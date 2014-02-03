@@ -81,7 +81,9 @@ $categories = json_decode($categories);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-<title></title>
+<title>MyGassi Premium Packages</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
 <style type="text/css">
 
 body {
@@ -216,9 +218,22 @@ input[type="text"] {
 	color: #666666;
 }
 
+.ui-tooltip {
+	padding: 4px;
+	position: absolute;
+	z-index: 9999;
+	max-width: 300px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+	font-size: 10px;
+	border-width: 2px;
+}
+
 </style>
 
+
 <script type="text/javascript" langauge="javascript" src="<?php print $baseURL . "js/jquery/jquery-2.0.0.min.js"?>"></script>
+<script type="text/javascript" langauge="javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" langauge="javascript">
 
 
@@ -265,6 +280,8 @@ CP = {
 		CP.cat = jQuery("#cat");
 		CP.form = jQuery("#premium_customer_form");	
 		CP.btnSend = jQuery("#btnSend");
+		
+		jQuery(document).tooltip();
 
 		jQuery("#inputboxes li input").bind("focus", function(e)
 		{
@@ -664,12 +681,12 @@ print <<<EOD
 			<li class="liheader">Pers&ouml;hnliche Daten*</li>
 			<li class="lisub">(werden in der App nicht angezeigt)</li>
 			<li class="lisub">&nbsp;</li>
-			<li><input type="text" id="p_name" name="p_name" value="Vor- und Nachname"></input></li>
-			<li><input type="text" name="p_email" value="E-Mail-Adresse"></input></li>
-			<li><input type="text" id="p_telephone" name="p_telephone" value="Telefonnummer"></input></li>
-			<li><input type="text" id="p_street" name="p_street" value="Strasse"></input></li>
-			<li><input type="text" id="p_zip" name="p_zip" value="Postleitzahl"></input></li>
-			<li><input type="text" id="p_city" name="p_city" value="Stadt"></input></li>
+			<li><input type="text" id="p_name" name="p_name" value="Vor- und Nachname" title="Vor- und Nachname"></input></li>
+			<li><input type="text" name="p_email" value="E-Mail-Adresse" title="E-Mail-Adresse"></input></li>
+			<li><input type="text" id="p_telephone" name="p_telephone" value="Telefonnummer" title="Telefonnummer"></input></li>
+			<li><input type="text" id="p_street" name="p_street" value="Strasse" title="Strasse"></input></li>
+			<li><input type="text" id="p_zip" name="p_zip" value="Postleitzahl" title="Postleitzahl"></input></li>
+			<li><input type="text" id="p_city" name="p_city" value="Stadt" title="Stadt"></input></li>
 			<input type="hidden" name="p_region_id" value="81"/>
 			<input type="hidden" name="p_region" value="Hamburg"/>
 			<li class="liplhldr">&nbsp;</li>
@@ -680,17 +697,17 @@ print <<<EOD
 			<li class="lisub">&nbsp;</li>
 			<li class="lisub">&nbsp;</li>
 			<li><select id="cat" name="cat">{$catOptions}</select></li>
-			<li><input type="text" id="c_name" name="c_name" value="Unternehmensname"></input></li>
+			<li><input type="text" id="c_name" name="c_name" value="Unternehmensname" title="Unternehmensname"></input></li>
 			<li class="lisub">
 			<li class="lisub">
 				<input type="checkbox" id="is_personal_data" name="is_personal_data" value="is_personal_data"></input>
 				<label for="is_personal_data">Entspricht den pers&ouml;nlichen Daten</label>
 			</li>
-			<li><input type="text" id="c_street" name="c_street" value="Strasse"></input></li>
-			<li><input type="text" id="c_zip" name="c_zip" value="Postleitzahl"></input></li>
-			<li><input type="text" id="c_city" name="c_city" value="Stadt"></input></li>
-			<li><input id="c_telephone" type="text" name="c_telephone" value="Telefonnummer"></input></li>
-			<li><input type="text" name="c_website" value="Website"></input></li>
+			<li><input type="text" id="c_street" name="c_street" value="Strasse" title="Strasse"></input></li>
+			<li><input type="text" id="c_zip" name="c_zip" value="Postleitzahl" title="Postleitzahl"></input></li>
+			<li><input type="text" id="c_city" name="c_city" value="Stadt" title="Stadt"></input></li>
+			<li><input id="c_telephone" type="text" name="c_telephone" value="Telefonnummer" title="Telefonnummer"></input></li>
+			<li><input type="text" name="c_website" value="Website" title="Website"></input></li>
 			<input type="hidden" name="c_region_id" value="81"/>
 			<input type="hidden" name="c_region" value="Hamburg"/>
 			<li><input id="btnSend" type="submit" value="Zahlungsdaten eingeben"></input></li>

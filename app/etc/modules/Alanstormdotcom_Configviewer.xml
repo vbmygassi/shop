@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Alanstormdotcom_Configviewer>
-			<active>true</active>
+			<active>false</active>
 			<codePool>local</codePool>
 		</Alanstormdotcom_Configviewer>
 	</modules>

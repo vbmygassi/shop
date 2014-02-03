@@ -1,3 +1,38 @@
+
+
+Bestellbestätigung NEIN!
+Nur die Rechnung versenden!
+
+
+
+
+app/code/local/Mage/Sales/:q
+Model/Order/Pdf/Invoice.php
+
+last: 
+*************************************************************
+Freitag 855 31 Jan 2014
+
+Anpassung Design: PDF PRoudkte
+
+verify: "!!!!! Texte und PDF
+
+Ich sende eine Rechnung
+
+Statt Bestellbestätigung ::: die Rechnung als Email PDF (beides)
+Bitte überweisen Sie den Betrag
+
+:wq
+
+2 unterschiedliche Rechnungen 
+
+https://mygassi.atlassian.net/browse/MYG-857
+
+*************************************************************
+
+
+
+
 Rechnung; 
 ....Rechnung; 
 ......
@@ -7,6 +42,7 @@ Rechnung gesandt;
 
 
 Bei der Eingabe : :: Klickmich ::: 
+
 
 
 

@@ -1,0 +1,44 @@
+<config>
+	<modules>
+		<Mygassi_Mini>
+			<version>0.1.0</version>
+		</Mygassi_Mini>
+	</modules>
+
+	<frontend>
+		<routers>
+			<mini>
+				<use>standard</use>
+				<args>
+					<module>Mygassi_Mini</module>
+					<frontName>mini</frontName>
+				</args>
+			</mini>
+		</routers>
+	</frontend>
+
+	<global>
+<!--
+		<page>
+			<layouts>
+				<mini>
+					<label>mini</label>
+					<template>mini</template>
+					<layout_handle>mini</layout_handle>
+				</mini>
+			</layouts>
+		</page>
+-->
+		<models>
+			<mini>
+				<class>Mygassi_Mini_Model</class>
+				<resourceModel>mini_resource</resourceModel>
+			</mini>
+			<mini_resource>
+				<class>Mygassi_Mini_Model_Resource</class>
+			</mini_resource>
+		</models>
+
+	</global>
+	
+</config>

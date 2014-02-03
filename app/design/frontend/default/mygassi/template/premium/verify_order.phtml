@@ -7,6 +7,31 @@ $paymentInput = Mage::getSingleton("core/session")->getPaymentInput();
 $baseURL = Mage::getBaseUrl();
 $skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 $errorMessages = Mage::getSingleton("core/session")->getErrorMessage();
+
+switch($paymentInput["selected_package"]){
+	case "bronze":
+		$selectedPackage = 'Paket "Bronze"';
+		break;
+	case "silver": 
+		$selectedPackage = 'Paket "Silber"';
+		break;
+	case "gold": 
+		$selectedPackage = 'Paket "Gold"';
+		break;
+}
+
+switch($paymentInput["payment_type"]){
+	case "checkmo":
+		$selectedPaymentType = 'Rechnung / &Uuml;berweisung';
+		break;
+	case "payone_wallet":
+		$selectedPaymentType = 'PayPal';
+		break;
+	case "payone_online_bank_transfer": 
+		$selectedPaymentType = 'Sofort&uuml;berweisung';
+		break;
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -264,11 +289,11 @@ print <<<EOD
 	<div class="headline">Zahlungsdaten</div>	
 	<span class="editlink"><a href="javascript:CP.editPM();">&Auml;ndern</a></span>
 	<br/>
-	<span class="message">Gew&auml;hltes Paket: {$paymentInput["selected_package"]}</span>	
+	<span class="message">Gew&auml;hltes Paket: {$selectedPackage}</span>	
 	<br/>
-	<span class="message">{$paymentInput["selected_charge"]} pro Jahr</span>	
+	<span class="message">Summe: {$paymentInput["total"]}</span>	
 	<br/>
-	<span class="message">Zahlung via: {$paymentInput["payment_type"]}</span>
+	<span class="message">Zahlung via: {$selectedPaymentType}</span>
 </div><!-- payment_method -->
 
 </div><!-- output_2 -->

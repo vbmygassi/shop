@@ -1318,8 +1318,14 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
                 'payment_html' => $paymentBlockHtml
             )
         );
+/*
+print "email";
+print_r($email);
+print_r($emailInfo);
+print_r($mailer->getSender());
+exit(1);
+*/
         $mailer->send();
-
         $this->setEmailSent(true);
         $this->_getResource()->saveAttribute($this, 'email_sent');
 
