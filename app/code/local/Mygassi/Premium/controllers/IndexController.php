@@ -58,8 +58,8 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 
 	public function indexAction()
 	{
-		// Mage::getModel("premium/pmodel")->loadPremiumProducts();
-
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		
 		print Mage::getSingleton("core/layout")
 			->createBlock("core/template")
 			->setTemplate("premium/form.phtml")
@@ -71,6 +71,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	// http://192.168.178.27/magento/premium/index/login
 	public function loginAction()
 	{
+		// just be the focken store you are
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		
 		// welcome to the amazon: the amazon loves you
 		$loc = "http://frontend-1722069931.eu-west-1.elb.amazonaws.com/";
 		$this->getResponse()->setHeader("Location", $loc)->sendHeaders();
@@ -84,6 +87,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
+	
+		// sets store id to german	
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		Mage::getSingleton("core/session")->setErrorMessage("");
 		$loc = Mage::getBaseUrl() . "premium";
@@ -216,7 +222,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			$sale = Mage::getModel("sales/order")->load(Mage::getSingleton("checkout/session")->getLastOrderId());
 			$sale->setStatus("paid");
 			$sale->save();
-			
+		
+
+	
 			// creates an invoice and sends it via email [ -> admin settings ]
 			if($sale->canInvoice()){
 				$iid = Mage::getModel("sales/order_invoice_api")->create($sale->getIncrementId());	
@@ -282,6 +290,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
+	
+		// sets store id to german	
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// resets fck error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
@@ -300,6 +311,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
+		
+		// 
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// resets fck error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
@@ -359,6 +373,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
 		
+		// sets store id 
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		
 		// resets fck error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
 		
@@ -385,6 +402,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	{
 		// resets error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
+		
+		// sets store id
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// sets redirect url	
 		$loc = Mage::getBaseUrl() . "premium";
@@ -686,6 +706,9 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		$this->redirectWithoutSession();	
 		/////////////////////////////////////////////////	
 	
+		// sets store id
+		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		
 		// renders "set up a new location" form 
 		print Mage::getSingleton("core/layout")
 			->createBlock("core/template")
@@ -747,6 +770,23 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		
 		return true;
 	}
+
+	// evalutates a store id by its code
+	protected function getStoreId($index="default")
+	{
+		$res = 0;
+		foreach (Mage::app()->getStores() as $key=>$val) {
+			$id = Mage::app()->getStore($key)->getId();
+			$code = Mage::app()->getStore($key)->getCode();
+			if($code === $index){ 
+				$res = $id; 
+			}
+			// print "code: " . $code . " id: " . $id . PHP_EOL;
+		}
+		// print "res: " . $res . PHP_EOL;
+		return $res;
+	}
+
 }
 
 ?>

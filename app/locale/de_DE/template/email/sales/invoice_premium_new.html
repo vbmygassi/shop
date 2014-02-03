@@ -17,27 +17,14 @@
 @-->
 <!--@styles
 body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+table,tr,td { padding: 0px; margin: 0px; border: 0px; vertical-align:top; horizontal-align: left; }
 @-->
 
-<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<body>
+
+Die Email in deutscher Sprache.
+
 <center>
-
-
-
-
-<style type="text/css">
-
-table, tr, td { padding: 0px; margin: 0px; border: 0px; }
-.border  { border-left:  1px #dbdbdb solid; border-right:  1px #dbdbdb solid; border-bottom: 1px #dbdbdb solid; }
-.borderl { border-right: 1px #dbdbdb solid; border-bottom: 1px #dbdbdb solid; }
-
-</style>
-
-
-
-
-
-
 
 <div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0px; padding:0;">
 
@@ -55,32 +42,32 @@ table, tr, td { padding: 0px; margin: 0px; border: 0px; }
 		</td>
 	</tr>
 
-	<!-- //-->
+	<!-- Kopfzeile //-->
 	<tr>
 		<td>
 		<table cellpadding="0" cellspacing="0">
 		
 		<!-- Ihre Rechnung //-->
 		<tr>
-			<td style="font-size:16px; font-weight:bold;" colspan="2">Rechnung Nr. 123</td>
+			<td style="font-size:16px; font-weight:bold;" colspan="2">Rechnung Nr. {{var invoice.increment_id}}</td>
 		</tr>
 		
 		<!-- Bestellnummer //-->
 		<tr>
-			<td style="font-size:12px; font-weight:bold; padding-right:16px;">Bestellnummer:</td>
-			<td style="font-size:12px; font-weight:bold;">1233445567</td>
+			<td style="font-size:12px; font-weight:bold; padding-right:12px;">Bestellnummer:</td>
+			<td style="font-size:12px; font-weight:bold;">{{var order.increment_id}}</td>
 		</tr>
 		
 		<!-- Bestelldatum //-->
 		<tr>
-			<td style="font-size:12px; font-weight:bold; padding-right:16px;">Bestelldatum:</td>
-			<td style="font-size:12px; font-weight:bold;">1233445567</td>
+			<td style="font-size:12px; font-weight:bold; padding-right:12px;">Bestelldatum:</td>
+			<td style="font-size:12px; font-weight:bold;">{{var order.getBestelldatumForEmailTemplate()}}</td>
 		</tr>
 		
 		<!-- Rechnungsdatum //-->
 		<tr>
-			<td style="font-size:12px; font-weight:bold; padding-right:16px;">Rechnungsdatum:</td>
-			<td style="font-size:12px; font-weight:bold;">1233445567</td>
+			<td style="font-size:12px; font-weight:bold; padding-right:12px;">Rechnungsdatum:</td>
+			<td style="font-size:12px; font-weight:bold;">{{var invoice.getCreatedAtForEmailTemplate()}}</td>
 		</tr>
 	
 		</table>
@@ -88,42 +75,43 @@ table, tr, td { padding: 0px; margin: 0px; border: 0px; }
 
 	</tr>
         
-	<!-- [ ::: the wrionxolmizzzr starts here] -->
+	<!-- Nachricht //-->
 	<tr>
 		<td valign="top">
-			<h1 style="font-size:14px; font-weight:normal; line-height:22px; margin:0 0 11px 0; margin-top:16px">Guten Tag {{htmlescape var=$order.getCustomerName()}},</h1>
+			<h1 style="font-size:14px; font-weight:bold; line-height:22px; margin:0 0 11px 0; margin-top:16px">Guten Tag {{htmlescape var=$order.getCustomerName()}},</h1>
+			<!-- Danke //-->
 			<p style="font-size:12px; line-height:16px; margin:0; padding-top:8px">
 				vielen Dank für Ihre Bestellung bei {{var store.getFrontendName()}}.
 				Im Anhang finden Sie Ihre Rechnung Nr. {{var invoice.increment_id}} für Ihre Bestellung Nr. {{var order.increment_id}}
 				Falls Sie Fragen oder Anregungen haben, kontaktieren Sie uns bitte per E-Mail an: 
 					<a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a>
 			</p>
+			<!-- Vertrauen //-->
 			<p style="font-size:12px; line-height:16px; margin:0; padding-top:16px">
                			Vielen Dank für Ihr Vertrauen! <a href="http://www.mygassi.com/">www.mygassi.com</a>
 			</p>
+			<!-- Couponcode //-->
 			<p style="font-size:12px; line-height:16px; margin:0; padding-top:16px">
-				Ihr Rabattcode für den nächsten Einkauf lautet: 
-				<br/>
-				{{htmlescape var=$client.getCouponCode()}}
+			{{var invoice.getNextCouponCodeForEmailTemplate()}}
 			</p>
 		</td>
 	</tr>
 		
-	<!-- srixll.mizzzer //-->
+	<!-- Adresszeile //-->
 	<tr>
 		<td style="padding-top: 12px;">
 		<table cellpadding="0" cellspacing="0" style="width:100%;">
 		<tr>
 		<td style="align:top; vertical-align:top">
-		<table cellpadding="0" cellspacing="0" style="width:300px; height:160px; padding-bottom: 12px" class="border">
+		<table cellpadding="0" cellspacing="0" style="width:300px; height:200px; padding-bottom: 12px; border-left: 1px #dbdbdb solid; border-right: 1px #dbdbdb solid; border-bottom: 1px #dbdbdb solid;">
 			<tr><td style="width:50%; padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:16px;">Empfänger</td></tr>
-			<tr><td style="width:50%; padding-left: 12px; padding-top: 12px; color:#000000; font-size:12px; align:top; vertical-align:top">{{var order.billing_address.format('html')}}</td></tr>
+			<tr><td style="width:50%; padding-left: 12px; padding-top: 12px; color:#000000; font-size:12px; align:top; vertical-align:top">{{var order.getBillingAddressForEmailTemplate()}}</td></tr>
 		</table>	
 		</td>
 		<td style="align:top; vertical-align:top">
-		<table cellpadding="0" cellspacing="0" style="width:350px; height:160px; padding-bottom:12px" class="borderl">
+		<table cellpadding="0" cellspacing="0" style="width:350px; height:200px; padding-bottom:12px; border-right: 1px #dbdbdb solid; border-bottom: 1px #dbdbdb solid;">
 			<tr><td style="padding: 12px; height: 50px; background-color:#666666; color:#ffffff; font-size:16px;">Lieferadresse</td></tr>
-			<tr><td style="padding-left: 12px; padding-top: 12px; color:#000000; font-size:12px; valign:top; vertical-align:top">{{var order.shipping_address.format('html')}}</td></tr>
+			<tr><td style="padding-left: 12px; padding-top: 12px; color:#000000; font-size:12px; valign:top; vertical-align:top">{{var order.getShippingAddressForEmailTemplate()}}</td></tr>
 		</table>	
 		</td>
 		</tr>
@@ -131,46 +119,62 @@ table, tr, td { padding: 0px; margin: 0px; border: 0px; }
 		</td>
 	</tr>
 		
-	<!-- ::::::::::::: //-->
+	<!-- Produktliste //-->
 	<tr>
 		<td style="padding-top: 12px; padding-bottom: 12px">
 		<table cellpadding="0" cellspacing="0" style="width:100%">
 			<tr>
-				<td style="padding-left:12px; background-color:#666666; color:#ffffff; font-size:12px;">Anzahl</td>
-				<td style="padding-left:12px; background-color:#666666; color:#ffffff; font-size:12px;"></td>
-				<td style="padding-left:12px; background-color:#666666; color:#ffffff; font-size:12px;">Artikelbezeichnung</td>
-				<td style="padding-left:12px; background-color:#666666; color:#ffffff; font-size:12px;">Stückpreis</td>
-				<td style="padding-left:12px; background-color:#666666; color:#ffffff; font-size:12px;">Gesamt</td>
+				<td style="padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:12px;">Anzahl</td>
+				<td style="padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:12px;"></td>
+				<td style="padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:12px;">Artikelbezeichnung</td>
+				<td style="padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:12px;">Stückpreis</td>
+				<td style="padding: 12px; height:50px; background-color:#666666; color:#ffffff; font-size:12px;">Gesamt</td>
 			</tr>
-
-			<!-- repesterrrr //-->
-			<tr>
-				<td style="font-size:12px; padding-left:12px; padding-top:12px">{{var items}}</td>
-			</tr>	
+			{{var order.getProductListForEmailTemplate()}}
 		</table>	
 		</td>
 	</tr>
 	
+	<!-- Rechnung //-->	
 	<tr>
 		<td style="padding-bottom: 36px">
 		<table cellpadding="0" cellspacing="0" style="width:100%">
 			<tr>
 				<td style="align:left; valign:top; vertical-align:top; width:300px">
-					<table cellpadding="0" cellspacing="0" class="border">
-						<tr><td style="width:50%; padding: 12px; background-color:#666666; color:#ffffff; font-size:16px;">Zahlart</td></tr>
-						<tr><td style="width:50%; padding: 12px; color:#00000; font-size:12px;">{{var order.payment.format("html")}}</td></tr>
-						<tr><td style="width:50%; padding: 12px; background-color:#666666; color:#ffffff; font-size:16px;">Versandart</td></tr>
-						<tr><td style="width:50%; padding: 12px; color:#00000; font-size:12px;">{{var order.shipping.format("html")}}</td></tr>
-					</table>
+					Bitte &uuml;berweisen Sie die Summe binnen des Zahlungsziels auf das folgende Konto:
 				</td>
+			</tr>
+			<tr>
+				<td style="font-size:9px; padding-right: 36px">
+					MyGassi GmbH<br/>
+					Nymphenburgerstr. 86<br/>
+					D-80636 M&uuml;nchen<br/>
+					support@mygassi.com<br/>
+					www.mygassi.com<br/>
+				</td>
+				<td style="font-size:9px; padding-right: 36px">
+					Sitz der Gesellschaft ist M&uuml;nchen<br/>
+					HRB 204049<br/>
+					Ust-IdNr: DE288496229<br/>
+					IBAN: DE60 700202700 15233881<br/>
+					SWIFT (BIC): HYVEDEMMXXX<br/>
+				</td>
+				<td style="font-size:9px; vertical-align:top">
+					Gesch&auml;ftsf&uuml;hrung: Sven Claar, Alexander Holzreiter<br/>
+					Bankverbindung: Hypovereinsbank M&uuml;nchen<br/>
+					KTO: 1523881<br/>
+					BLZ: 70020270<br/>
+				</td>
+
+			</tr>
+			<tr>
+				<!-- Betrag //-->
 				<td style="align:left; valign:top; vertical-align:top; width:350px">
-					<table cellpadding="0" cellspacing="0">
+					<table cellpadding="0" cellspacing="0" style="width:100%">
 						<tr>
-							<td style="width:50%; padding: 12px; background-color:#58a300; color:#ffffff; font-size:16px;">Betrag</td>
+							<td colspan="2" style="width:50%; padding: 12px; background-color:#58a300; color:#ffffff; font-size:16px;">Betrag</td>
 						</tr>
-						<tr>
-							<td style="width:50%; padding: 12px; color:#000000; font-size:12px;">{{var order.billing_address.format('html')}}</td>
-						</tr>
+						{{var order.getTotalForEmailTemplate();}}
 					</table>
 				</td>
 			</tr>
@@ -178,6 +182,7 @@ table, tr, td { padding: 0px; margin: 0px; border: 0px; }
 		</td>
 	</tr>
 	
+	<!-- Adresszeile //-->
 	<tr>
 		<td>
 		<table cellpadding="0" cellspacing="0">
@@ -192,9 +197,9 @@ table, tr, td { padding: 0px; margin: 0px; border: 0px; }
 				<td style="font-size:9px; padding-right: 36px">
 					Sitz der Gesellschaft ist M&uuml;nchen<br/>
 					HRB 204049<br/>
-					Ust-IdNr: DE288486229<br/>
+					Ust-IdNr: DE288496229<br/>
 					IBAN: DE60 700202700 15233881<br/>
-					SWIFT (BIC): HYVEDEMEMXXX<br/>
+					SWIFT (BIC): HYVEDEMMXXX<br/>
 				</td>
 				<td style="font-size:9px; vertical-align:top">
 					Gesch&auml;ftsf&uuml;hrung: Sven Claar, Alexander Holzreiter<br/>

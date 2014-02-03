@@ -2253,9 +2253,26 @@ exit(1);
 
 
 
+	// vberzsin@gmail.com
+	public function isPremium()
+	{
+		$res = false;
+		
+		$customer = Mage::getModel("customer/customer")->load($this->getCustomerId());
+		print_r($customer);
+		$cgid = $customer->getGroupId();
+		print_r($cgid);
+		$code = Mage::getSingleton("customer/group")->load($cgid)->getCustomerGroupCode();
 
+		if("Premium" === $code){
+			$res = true;
+		}
+
+		return $res;
+	}
 
 	// Emai: utility methods
+	// vberzsin@gmail.com
 	public function getStatusForEmailTemplate()
 	{
 		$state = $this->getState();

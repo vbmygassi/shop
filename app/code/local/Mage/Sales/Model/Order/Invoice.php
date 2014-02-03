@@ -799,11 +799,31 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
             $customerName = $order->getCustomerName();
         }
 
-        $mailer = Mage::getModel('core/email_template_mailer');
+
+
+	$mailer = Mage::getModel('core/email_template_mailer');
         if ($notifyCustomer) {
             $emailInfo = Mage::getModel('core/email_info');
-            $emailInfo->addTo($order->getCustomerEmail(), $customerName);
-            if ($copyTo && $copyMethod == 'bcc') {
+
+
+		
+		// vberzsin@gmail.com
+		// redirects all kinda emails to the localhost
+		$emailInfo->addTo("vico@localhost", $customerName);
+		$emailInfo->addTo($order->getCustomerEmail(), $customerName);
+		// ------------------------------- 
+		
+		// selects a different email template for the premium user 
+		// vberzsin@gmail.com
+		$customer = Mage::getModel("customer/customer")->load($order->getCustomerId());
+		$cgid = $customer->getGroupId();
+		$code = Mage::getSingleton("customer/group")->load($cgid)->getCustomerGroupCode();
+		if("Premium" === $code){
+			$templateId = "sales_email_premium_invoice_template";
+		}
+		// ------------------------------- 
+		
+		if ($copyTo && $copyMethod == 'bcc') {
                 // Add bcc to customer email
                 foreach ($copyTo as $email) {
                     $emailInfo->addBcc($email);
