@@ -1,0 +1,38 @@
+<?php
+$coll = Mage::getModel("catalog/product")
+	->getCollection()
+	->addAttributeToFilter("appears_on_the_internez", true)
+	->load();
+
+foreach($coll as $prod){
+	$prod = $prod->load($prod->getId());
+	// print_r($prod->debug());
+	$name = $prod->getName();
+	$description = $prod->getDescription();
+	$price = Mage::helper("core")->currency($prod->getPrice());
+	$src = "";
+	foreach($prod->getMediaGalleryImages() as $image){
+		$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
+		if("the1st" === $image->getLabel()){ 
+			$src = (string)$path;
+		}
+	} 
+	$prodURL = $prod->getUrlPath();
+	$cartURL = Mage::helper("checkout/cart")->getAddUrl($prod);
+
+	print <<<EOD
+<div class="featured_product">
+	<div class="featured_product_name"><a href="{$prodURL}">{$name}</a></div>
+	<br/>
+	<img class="featured_product_image" src="{$src}"/>
+	<br/>
+	<div class="featured_product_description">{$description}</div>
+	<br/>
+	<div class="featured_product_price">{$price}</div>
+	<br/>
+	<div class="featured_product_add_to_cart"><a href="{$cartURL}">In den Warenkorb</a></div>
+</div>
+EOD;
+
+}
+?>

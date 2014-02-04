@@ -51,7 +51,7 @@ class Mygassi_Jsonexport_Model_Catalog extends Mage_Core_Model_Abstract
 			$imageURL1st = "";
 			foreach($prod->getMediaGalleryImages() as $image){
 				$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
-				if("the1stImage" === $image->getLabel()){ 
+				if("the1st" === $image->getLabel()){ 
 					$imageURL1st = (string)$path; 
 				} 
 			}	
