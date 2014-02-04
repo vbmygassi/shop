@@ -1,6 +1,5 @@
 @font-face {
 	font-family: "Droid Sans";
-	src: url("");
 }
 
 body 
@@ -8,8 +7,19 @@ body
 	font-family: "Droid Sans", Helvetica, Verdana, Tahoma;
 	font-size: 12px;
 	background-color: #f3f3f3;
+	line-height: 1.8em;
 }
 
+a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#checkoutSteps,
+.page-title,
+.col-right,
+.product-view,
 .featured_bounds 
 {
 	max-width: 834px;
@@ -25,12 +35,6 @@ body
 {
 	font-size: 16px;
 	font-weight: bold;
-}
-
-.featured_product_name a
-{
-	text-decoration: none;
-	color: black;
 }
 
 .featured_product_description 
@@ -76,11 +80,6 @@ body
 {
 }
 
-.featured_product_add_to_cart a
-{
-	text-decoration: none;
-}
-
 .featured_product,
 .featured_product_title,
 .product-essential,
@@ -91,6 +90,7 @@ body
 	margin: 32px;
 }
 
+#checkoutSteps,
 .block-content,
 .actions,
 .col2-set,
@@ -120,4 +120,5 @@ ul, li
 {
 	margin-left: 0px;
 	padding-left: 0px;
+	list-style: none;
 }
