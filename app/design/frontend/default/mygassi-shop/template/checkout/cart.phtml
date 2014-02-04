@@ -31,6 +31,8 @@
  * @see Mage_Checkout_Block_Cart
  */
 ?>
+<div class="cart_bounds">
+
 <div class="cart">
     <div class="page-title title-buttons">
         <h1><?php echo $this->__('Shopping Cart') ?></h1>
@@ -53,7 +55,7 @@
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
         <fieldset>
             <table id="shopping-cart-table" class="data-table cart-table">
-                <col width="1" />
+                <col width="1"/>
                 <col />
                 <col width="1" />
             <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
@@ -181,3 +183,6 @@
         </div>
     </div>
 </div>
+
+</div><!-- cart_bounds -->
+

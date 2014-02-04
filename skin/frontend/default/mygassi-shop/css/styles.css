@@ -7,7 +7,6 @@ body
 	font-family: "Droid Sans", Helvetica, Verdana, Tahoma;
 	font-size: 12px;
 	background-color: #f3f3f3;
-	line-height: 1.8em;
 }
 
 a
@@ -20,7 +19,8 @@ a
 .page-title,
 .col-right,
 .product-view,
-.featured_bounds 
+.featured_bounds,
+.cart_bounds 
 {
 	max-width: 834px;
 	margin: auto;
@@ -31,7 +31,8 @@ a
 	font-size: 24px;
 }
 
-.featured_product_name 
+.featured_product_name,
+.product-name
 {
 	font-size: 16px;
 	font-weight: bold;
@@ -121,4 +122,9 @@ ul, li
 	margin-left: 0px;
 	padding-left: 0px;
 	list-style: none;
+}
+
+fieldset
+{
+	border: none;
 }
