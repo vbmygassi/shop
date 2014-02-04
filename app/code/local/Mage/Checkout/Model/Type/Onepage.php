@@ -800,22 +800,18 @@ class Mage_Checkout_Model_Type_Onepage
              */
             if (!$redirectUrl && $order->getCanSendNewEmailFlag()) {
                 try {
-
-
-
-			$order->sendNewOrderEmail();
+			// $order->sendNewOrderEmail();
+			
 			// vberzsin@gmail.com 
 			// do not send email to premium customers
+			//	with a checkmo payment
 			// 3rd party (philipp @ nodes.dk) will send the email
 			$customer = Mage::getModel("customer/customer")->load($order->getCustomerId());
 			$cgid = $customer->getGroupId();
 			$code = Mage::getSingleton("customer/group")->load($cgid)->getCustomerGroupCode();
-			if("General" == $code){
+			if("checkmo" !== $order->getPayment()->getMethodInstance()->getCode()){
 				$order->sendNewOrderEmail();
 			}
-			else {
-			}
-
 
                 	
 		} catch (Exception $e) {

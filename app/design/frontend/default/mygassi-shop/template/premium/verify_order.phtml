@@ -1,0 +1,319 @@
+<?php 
+// reads previously posted values as for to prefill the input fields
+$customerInput = Mage::getSingleton("core/session")->getCustomerInput();
+$paymentInput = Mage::getSingleton("core/session")->getPaymentInput();
+// print_r($customerInput);
+// print_r($paymentInput);
+$baseURL = Mage::getBaseUrl();
+$skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+$errorMessages = Mage::getSingleton("core/session")->getErrorMessage();
+
+switch($paymentInput["selected_package"]){
+	case "bronze":
+		$selectedPackage = 'Paket "Bronze"';
+		break;
+	case "silver": 
+		$selectedPackage = 'Paket "Silber"';
+		break;
+	case "gold": 
+		$selectedPackage = 'Paket "Gold"';
+		break;
+}
+
+switch($paymentInput["payment_type"]){
+	case "checkmo":
+		$selectedPaymentType = 'Rechnung / &Uuml;berweisung';
+		break;
+	case "payone_wallet":
+		$selectedPaymentType = 'PayPal';
+		break;
+	case "payone_online_bank_transfer": 
+		$selectedPaymentType = 'Sofort&uuml;berweisung';
+		break;
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style type="text/css">
+
+body {
+	font-family: Arial, Helvetica;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+#logo {
+	margin-left: 32px;
+}
+
+a {
+	text-decoration: none;
+}
+
+#header {
+	width: 834px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 24px;
+}
+
+
+#menu {
+	width: 834px;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu span {
+	font-size: 18px;
+	text-decoration: none;
+	margin: 52px;
+	color: white;
+	font-weight: bold;
+}
+
+#error {
+	width: 834px;
+	border: 1px dotted red;
+	padding: 32px;
+}
+
+<?php
+
+print <<<EOD
+
+#menu .kontaktdaten{
+	width: 278px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
+	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
+}
+
+#menu .zahlungsdaten{
+	width: 278px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
+	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
+}
+
+#menu .abschluss{
+	width: 278px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
+	float: left;
+	padding-top: 10px;
+	background-repeat: no-repeat;
+}
+
+EOD;
+
+?>
+
+#commando {
+	font-size: 18px;
+	margin: 52px;
+	font-weight: bold;
+	clear: both;
+}
+
+#output_1, #output_2 {
+	width: 780px;
+	text-align: left;
+	margin-bottom: 32px;
+}
+
+#personal_data {
+	text-align: left;
+	float: left;
+	height: 250px;
+	width: 50%;
+}
+
+#corporate_data {
+	height: 250px;
+}
+
+#personal_data span, #corporate_data span, #payment_method span {
+	line-height: 32px;
+}
+
+#terms_and_conditions {
+	width: 834px;
+}
+
+.headline {
+	font-size: 24px;
+	font-weight: bold;
+	width: 250px;
+	float: left;
+}
+
+.editlink {
+}
+</style>
+
+<script type="text/javascript" langauge="javascript" src="<?php print Mage::getBaseUrl() . "js/jquery/jquery-2.0.0.min.js"?>"></script>
+<script type="text/javascript" language="javascript">
+
+jQuery(document).ready(function(){ CP.init(); });
+
+CP = {
+	btnSend: null,
+	btnAccept: null,
+
+	init: function(){
+		CP.btnSend = jQuery("#submit");
+		if(null != CP.btnSend){
+			CP.btnSend.attr("disabled", "disabled");
+		}
+		CP.btnAccept = jQuery("#accept");
+		if(null != CP.btnAccept){
+			CP.btnAccept.bind("click", function(){
+				if(CP.btnAccept.is(":checked")){
+					CP.btnSend.removeAttr("disabled");
+				}
+				else {
+					CP.btnSend.attr("disabled", "disabled");
+				}
+			});
+		}
+	},
+
+	editPD: function()
+	{
+		self.location.href = "<?php print $baseURL ?>premium";
+	},
+
+	editCD: function()
+	{
+		self.location.href = "<?php print $baseURL ?>premium";
+	},
+
+	editPM: function()
+	{
+		self.location.href = "<?php print $baseURL ?>premium/index/select_package";
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<?php
+
+print <<<EOD
+<div id="logo"><img width="200" src="{$skinURL}/frontend/default/mygassi/images/mygassi_logo.png"/></div>
+EOD;
+
+?>
+
+<center>
+
+<?php
+
+if(null != $errorMessages){
+	print <<<EOD
+<div id="error">{$errorMessages}</div>
+
+EOD;
+
+}
+
+?>
+
+<div id="header">Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</div>
+
+<div id="menu">
+	<div class="kontaktdaten"><span>Kontaktdaten</span></div>
+	<div class="zahlungsdaten"><span>Zahlungsdaten</span></div>
+	<div class="abschluss"><span>Abschluss</span></div>
+</div>
+
+<div id="commando">Bitte &uuml;berpr&uuml;fen Sie Ihre eingegebenen Daten<sup>*</sup></div>
+
+<div id="output_1">
+
+<?php 
+
+print <<<EOD
+<div id="personal_data">
+	<div class="headline">Pers&ouml;nliche Daten</div>
+	<span class="editlink"><a href="javascript:CP.editPD();">&Auml;ndern</a></span>
+	<br/>
+	<span class="message">{$customerInput["p_name"]}</span>
+	<br/>
+	<span class="message">{$customerInput["p_email"]}</span>
+	<br/>
+	<span class="message">{$customerInput["p_telephone"]}</span>
+	<br/>
+	<span class="message">{$customerInput["p_street"]}</span>
+	<br/>
+	<span class="message">{$customerInput["p_zip"]}</span>
+	<br/>
+	<sppan class="message">{$customerInput["p_city"]}</span>
+</div><!-- personal_data -->
+
+<div id="corporate_data">
+	<div class="headline">Unternehmensdaten</div>
+	<span class="editlink"><a href="javascript:CP.editCD();">&Auml;ndern</a></span>
+	<br/>
+	<span class="message">{$customerInput["c_category"]}</span>
+	<br/>
+	<span class="message">{$customerInput["c_name"]}</span>
+	<br/>
+	<span class="message">{$customerInput["c_street"]}</span>
+	<br/>
+	<span class="message">{$customerInput["c_zip"]}</span>
+	<br/>
+	<span class="message">{$customerInput["c_city"]}</span>
+	<br/>
+	<span class="message">{$customerInput["c_telephone"]}</span>
+</div><!-- corporate_data -->
+
+</div><!-- ouput_1 -->
+
+<div id="output_2">
+
+<div id="payment_method">
+	<div class="headline">Zahlungsdaten</div>	
+	<span class="editlink"><a href="javascript:CP.editPM();">&Auml;ndern</a></span>
+	<br/>
+	<span class="message">Gew&auml;hltes Paket: {$selectedPackage}</span>	
+	<br/>
+	<span class="message">Summe: {$paymentInput["total"]}</span>	
+	<br/>
+	<span class="message">Zahlung via: {$selectedPaymentType}</span>
+</div><!-- payment_method -->
+
+</div><!-- output_2 -->
+
+<div id="terms_and_conditions">
+	<form method="POST" action="{$baseURL}premium/index/place_order">
+		<input type="checkbox" id="accept" name="accept" value="yes_i_do"></input>
+		<label for="accept">Ich stimme den</label>
+		<a href="http://apple.com/">Nutzungsbedingungen</a>
+		der MyGassi GmbH f&uuml;r den Verkauf von Premiumorten zu.
+		<p/>
+		<input type="submit" id="submit" value="Bestellung absenden"></input>
+	</form>
+</div><!-- terms_and_conditions -->
+
+EOD;
+
+?>
+
+</center>
+</html>
+</body>
+

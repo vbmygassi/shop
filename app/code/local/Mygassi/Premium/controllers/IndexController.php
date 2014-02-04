@@ -58,7 +58,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 
 	public function indexAction()
 	{
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		print Mage::getSingleton("core/layout")
 			->createBlock("core/template")
@@ -72,7 +72,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 	public function loginAction()
 	{
 		// just be the focken store you are
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// welcome to the amazon: the amazon loves you
 		$loc = "http://frontend-1722069931.eu-west-1.elb.amazonaws.com/";
@@ -89,7 +89,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 	
 		// sets store id to german	
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		Mage::getSingleton("core/session")->setErrorMessage("");
 		$loc = Mage::getBaseUrl() . "premium";
@@ -225,7 +225,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		
 
 	
-			// creates an invoice and sends it via email [ -> admin settings ]
+			// creates an invoice and sends it via email [ x -> admin settings ]
 			if($sale->canInvoice()){
 				$iid = Mage::getModel("sales/order_invoice_api")->create($sale->getIncrementId());	
 			}
@@ -240,7 +240,8 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 				}
 			}
 
-			// sends the customer to the CouchBase instance
+			// sends customer creds to the couchbase instance
+			// there is a cron job for that too
 			$authKey = "magento";
 			$service = "http://ec2-54-246-38-175.eu-west-1.compute.amazonaws.com:4000/premium_import_magento";
 			$postargs = array(
@@ -262,11 +263,6 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 			$code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 			curl_close($handle);
 		}
-
-
-// cron job might scoop premium users to the Couch Backend with a sendmail "true";
-// shell/mygassi-export-premium-customers.php
-// -->
 
 		// redirects withour redirect url	
 		switch($redirectUrl){
@@ -292,7 +288,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 	
 		// sets store id to german	
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// resets fck error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
@@ -313,7 +309,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 		
 		// 
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// resets fck error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
@@ -374,7 +370,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 		
 		// sets store id 
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// resets fck error message
 		Mage::getSingleton("core/session")->setErrorMessage("");
@@ -404,7 +400,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		Mage::getSingleton("core/session")->setErrorMessage("");
 		
 		// sets store id
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// sets redirect url	
 		$loc = Mage::getBaseUrl() . "premium";
@@ -707,7 +703,7 @@ class Mygassi_Premium_IndexController extends Mage_Checkout_Controller_Action
 		/////////////////////////////////////////////////	
 	
 		// sets store id
-		Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
+		// Mage::app()->getStore()->setStoreId($this->getStoreId("default"));
 		
 		// renders "set up a new location" form 
 		print Mage::getSingleton("core/layout")

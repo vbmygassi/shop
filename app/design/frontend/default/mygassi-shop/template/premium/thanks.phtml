@@ -1,0 +1,133 @@
+<?php 
+$skinURL = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<title></title>
+<style type="text/css">
+
+body {
+	font-family: Arial, Helvetica;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+#logo {
+	margin-left: 32px;
+}
+
+#header {
+	width: 834px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 24px;
+}
+
+
+#menu {
+	width: 1200px;
+	text-align: center;
+	margin: 24px;
+}
+
+#menu span {
+	font-size: 18px;
+	text-decoration: none;
+	margin: 52px;
+	color: white;
+	font-weight: bold;
+}
+
+<?php
+
+print <<<EOD
+
+#menu .kontaktdaten {
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_green.png);
+	float: left;
+}
+
+#menu .zahlungsdaten {
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_yellow.png);
+	float: left;
+}
+
+#menu .abschluss {
+	width: 370px;
+	height: 46px;
+	background-image: url({$skinURL}/frontend/default/mygassi/images/arrow_grey.png);
+	float: left;
+}
+
+EOD;
+
+?>
+
+#message {
+	width: 500px;
+	text-align: left;
+}
+
+
+#commando {
+	font-size: 18px;
+	margin: 52px;
+	font-weight: bold;
+	clear: both;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<?php
+
+print <<<EOD
+<div id="logo"><img width="200" src="{$skinURL}/frontend/default/mygassi/images/mygassi_logo.png"/></div>
+
+EOD;
+
+?>
+
+<center>
+
+<div id="header"><span>Erstellen Sie in nur 3 Schritten Ihren MyGassi-Premiumort</span></div>
+
+<div id="commando">Vielen Dank. Ihre Bestellung ist bei uns eingegangen!<sup>*</sup></div>
+
+<div id="message">
+	<p/>In Kürze erhalten Sie Ihre Rechnung und Ihren Pin zum erstmaligen Einloggen in unsere Verwaltung für Premiumorte an Ihre angegebene E-Mail Adresse.
+	<p/>Dort können Sie Ihre Daten bearbeiten, mit Nutzern Kontakt aufnehmen und Angebote einstellen*.
+	<p/>Bei Fragen erreichen Sie uns unter der Telefonnummer 0800/6942774 oder mit einer E-Mail an <a href="mailto:support@mygassi.com">support@mygassi.com</a>
+</div>
+
+<?php 
+
+print <<<EOD
+<div id="zum_login">
+	<p/>
+	<a href="http://frontend-1722069931.eu-west-1.elb.amazonaws.com/">
+		<img src="{$skinURL}frontend/default/mygassi/images/zum_login.png">
+	</a>
+</div>
+
+<div id="">
+	<img src="{$skinURL}frontend/default/mygassi/images/dog.png"/>
+</div>
+
+EOD;
+
+?>
+
+</center>
+</body>
+</html>
