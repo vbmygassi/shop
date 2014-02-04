@@ -77,7 +77,8 @@
                 <col width="1" />
 
             <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
-                <thead>
+                <?php /**
+		<thead>
                     <tr>
                         <th rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
                         <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product Name') ?></span></th>
@@ -99,6 +100,7 @@
                     </tr>
                     <?php endif; ?>
                 </thead>
+		**/ ?>
                 <tfoot>
                     <tr>
                         <td colspan="50" class="a-right">

@@ -31,6 +31,12 @@ a
 	font-size: 24px;
 }
 
+.box-description
+{
+	font-size: 16px;
+	line-height: 24px;
+}
+
 .featured_product_name,
 .product-name
 {
@@ -127,4 +133,32 @@ ul, li
 fieldset
 {
 	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.cart-table
+{
+	padding: 0px;
+	border-spacing: 0px;
+}
+
+.cart-table tr td
+{
+	padding: 12px;
+}
+
+.odd
+{
+	background-color: #ebebeb;
+}
+
+.even
+{
+	background-color: white;
+}
+
+.col-2
+{
+	font-size: 16px;
 }
