@@ -1,12 +1,24 @@
-body 
-{
-	font-family: Helvetica, Arial;
-	font-size: 12px;
+@font-face {
+	font-family: "Droid Sans";
+	src: url("");
 }
 
-.featured_product 
+body 
 {
-	margin-bottom: 64px;
+	font-family: "Droid Sans", Helvetica, Verdana, Tahoma;
+	font-size: 12px;
+	background-color: #f3f3f3;
+}
+
+.featured_bounds 
+{
+	max-width: 834px;
+	margin: auto;
+}
+
+.featured_product_title
+{
+	font-size: 24px;
 }
 
 .featured_product_name 
@@ -18,6 +30,7 @@ body
 .featured_product_name a
 {
 	text-decoration: none;
+	color: black;
 }
 
 .featured_product_description 
@@ -25,9 +38,33 @@ body
 	font-size: 12px;
 }
 
+.featured_product_additional table
+{
+	width: 100%;
+	background-color: white;	
+}
+
+.featured_product_additional table tr td
+{
+	text-align: center;
+	border: solid 1px #ebebeb;
+	border-top: none; 
+	width: 50%;
+	padding: 12px;
+	font-size: 16px;
+}
+
 .featured_product_image
 {
-	width: 250px;
+	background-color: white;
+	text-align: center;
+	border: solid 1px #ebebeb;
+	padding: 12px;
+}
+
+.featured_product_image img
+{
+	max-width: 640px;
 }
 
 .featured_product_thumb_image
@@ -44,8 +81,8 @@ body
 	text-decoration: none;
 }
 
-.col-main,
 .featured_product,
+.featured_product_title,
 .product-essential,
 .product-collateral,
 .block-cart,
@@ -68,7 +105,7 @@ body
 	margin-bottom: 16px;
 }
 
-.messages, 
+.messages,
 .success-msg
 {
 	list-style: none;

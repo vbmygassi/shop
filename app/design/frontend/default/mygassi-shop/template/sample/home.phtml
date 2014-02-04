@@ -1,3 +1,6 @@
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css"/>
+<div class="featured_bounds">
+<div class="featured_product_title">MyGassi Top-Produkte</div>
 <?php
 $coll = Mage::getModel("catalog/product")
 	->getCollection()
@@ -22,17 +25,38 @@ foreach($coll as $prod){
 
 	print <<<EOD
 <div class="featured_product">
+	
+
 	<div class="featured_product_name"><a href="{$prodURL}">{$name}</a></div>
-	<br/>
-	<img class="featured_product_image" src="{$src}"/>
+	<div class="featured_product_image"><img src="{$src}"/></div>
+	
+	<!--
 	<br/>
 	<div class="featured_product_description">{$description}</div>
-	<br/>
-	<div class="featured_product_price">{$price}</div>
-	<br/>
+	-->
+
+	<div class="featured_product_additional">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<font style="font-size: 10px; text-decoration: line-through">{$price}</font>
+				<font style="font-size: 18px;">{$price}</font>
+			</td>
+			<td style="border-left: none">Versandkostenfrei</td>
+		</tr>
+	</table>
+	</div>
+	<br/>	
+	<!--
 	<div class="featured_product_add_to_cart"><a href="{$cartURL}">In den Warenkorb</a></div>
+	-->
 </div>
 EOD;
 
 }
 ?>
+</div><!-- featured_bounds -->
+<?php /**
+<iframe width="100%" src="http://192.168.178.27/magento/checkout/cart/"></iframe>
+<iframe width="100%" src="http://192.168.178.27/magento/checkout/onepage/"></iframe>
+** ?>
