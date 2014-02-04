@@ -1,3 +1,17 @@
+<script type="text/javascript">
+jQuery(document).ready(function(e){
+	jQuery(window).resize(function(e){
+		resizeIMG();
+	});	
+	resizeIMG();
+});
+resizeIMG = function()
+{
+	w = jQuery(window).width();
+	w -= 64 +64;
+	jQuery(".featured_product_image_view").attr("width", w);
+}
+</script>
 <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css"/>
 <div class="featured_bounds">
 <div class="featured_product_title">MyGassi Top-Produkte</div>
@@ -13,6 +27,7 @@ foreach($coll as $prod){
 	$name = $prod->getName();
 	$description = $prod->getDescription();
 	$price = Mage::helper("core")->currency($prod->getPrice());
+	$uvp = Mage::helper("core")->currency($prod->getOldPrice());
 	$src = "";
 	foreach($prod->getMediaGalleryImages() as $image){
 		$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
@@ -23,33 +38,31 @@ foreach($coll as $prod){
 	$prodURL = $prod->getUrlPath();
 	$cartURL = Mage::helper("checkout/cart")->getAddUrl($prod);
 
+	$pricesHTML = "";
+
+	if(false == strpos($uvp, "0,00")){
+		$pricesHTML .= '<font style="font-size: 10px; text-decoration: line-through">'.$uvp.'</font>';
+		$pricesHTML .= '&nbsp;';
+		$pricesHTML .= '&nbsp;';
+		$pricesHTML .= '<font style="font-size: 18px;">'.$price.'</font>';
+	}
+	else{
+		$pricesHTML .= '<font style="font-size: 18px;">'.$price.'</font>';
+	}
+
 	print <<<EOD
 <div class="featured_product">
-	
-
 	<div class="featured_product_name"><a href="{$prodURL}">{$name}</a></div>
-	<div class="featured_product_image"><img src="{$src}"/></div>
-	
-	<!--
-	<br/>
-	<div class="featured_product_description">{$description}</div>
-	-->
-
+	<div class="featured_product_image"><img class="featured_product_image_view" src="{$src}"/></div>
 	<div class="featured_product_additional">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
-			<td>
-				<font style="font-size: 10px; text-decoration: line-through">{$price}</font>
-				<font style="font-size: 18px;">{$price}</font>
-			</td>
+			<td>{$pricesHTML}</td>
 			<td style="border-left: none">Versandkostenfrei</td>
 		</tr>
 	</table>
 	</div>
 	<br/>	
-	<!--
-	<div class="featured_product_add_to_cart"><a href="{$cartURL}">In den Warenkorb</a></div>
-	-->
 </div>
 EOD;
 
@@ -59,4 +72,4 @@ EOD;
 <?php /**
 <iframe width="100%" src="http://192.168.178.27/magento/checkout/cart/"></iframe>
 <iframe width="100%" src="http://192.168.178.27/magento/checkout/onepage/"></iframe>
-** ?>
+**/ ?>
