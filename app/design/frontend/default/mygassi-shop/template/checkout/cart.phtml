@@ -53,7 +53,7 @@
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
-        <fieldset>
+	<fieldset>
             <table id="shopping-cart-table" class="data-table cart-table">
                 <col width="1"/>
                 <col />
@@ -77,7 +77,9 @@
                 <col width="1" />
 
             <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
-                <?php /**
+		
+
+<?php /**
 		<thead>
                     <tr>
                         <th rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
@@ -100,7 +102,10 @@
                     </tr>
                     <?php endif; ?>
                 </thead>
-		**/ ?>
+**/ ?>
+
+<?php /**
+
                 <tfoot>
                     <tr>
                         <td colspan="50" class="a-right">
@@ -134,12 +139,22 @@
                         </td>
                     </tr>
                 </tfoot>
+**/ ?>
+ 
                 <tbody>
                 <?php foreach($this->getItems() as $_item): ?>
                     <?php echo $this->getItemHtml($_item) ?>
                 <?php endforeach ?>
                 </tbody>
             </table>
+
+
+	
+
+	<button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+	<button type="submit" name="update_cart_action" value="empty_cart" title="<?php echo $this->__('Clear Shopping Cart'); ?>" class="button btn-empty" id="empty_cart_button"><span><span><?php echo $this->__('Clear Shopping Cart'); ?></span></span></button>
+
+
             <script type="text/javascript">decorateTable('shopping-cart-table')</script>
         </fieldset>
     </form>
