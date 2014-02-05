@@ -313,3 +313,18 @@ form
 {
 	text-align: left;
 }
+
+.featured_product_soical_buttons
+{
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+
+.social_facebook,
+.social_twitter,
+.social_email 
+{
+	float: left;
+	margin-right: 16px;
+}
+
