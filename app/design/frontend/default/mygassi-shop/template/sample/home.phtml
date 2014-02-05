@@ -12,7 +12,6 @@ foreach($coll as $prod){
 	$name = $prod->getName();
 	$description = $prod->getDescription();
 	$price = Mage::helper("core")->currency($prod->getPrice());
-	$uvp = Mage::helper("core")->currency($prod->getOldPrice());
 	$src = "";
 	foreach($prod->getMediaGalleryImages() as $image){
 		$path = Mage::helper("catalog/image")->init($prod, "thumbnail", $image->getFile())->keepFrame(false)->resize(640);
@@ -25,6 +24,7 @@ foreach($coll as $prod){
 
 	$pricesHTML = "";
 
+	$uvp = Mage::helper("core")->currency($prod->getOldPrice());
 	if(false == strpos($uvp, "0,00")){
 		$pricesHTML .= '<font style="font-size: 10px; text-decoration: line-through">'.$uvp.'</font>';
 		$pricesHTML .= '&nbsp;';

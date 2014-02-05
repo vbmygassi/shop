@@ -159,6 +159,18 @@ h1,
 	margin: 32px;
 }
 
+.product-collateral
+{
+}
+
+.box-description
+{
+	line-height: 32px;
+	border: 1px solid #ebebeb;
+	padding: 32px;
+	background-color: white;
+}
+
 #checkoutSteps,
 .block-content,
 .actions,

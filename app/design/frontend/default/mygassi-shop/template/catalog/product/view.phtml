@@ -132,10 +132,22 @@
 	$prodURL = $prod->getUrlPath();
 	$cartURL = Mage::helper("checkout/cart")->getAddUrl($prod);
 
+	$price = Mage::helper("core")->currency($prod->getPrice());
+	$uvp = Mage::helper("core")->currency($prod->getOldPrice());
+	if(false == strpos($uvp, "0,00")){
+		$pricesHTML .= '<font style="font-size: 10px; text-decoration: line-through">'.$uvp.'</font>';
+		$pricesHTML .= '&nbsp;';
+		$pricesHTML .= '&nbsp;';
+		$pricesHTML .= '<font style="font-size: 18px;">'.$price.'</font>';
+	}
+	else{
+		$pricesHTML .= '<font style="font-size: 18px;">'.$price.'</font>';
+	}
+
 	print <<<EOD
-<div class="featured_product_image">
-	<img class="featured_product_image_view" src="{$src}"/>	
-</div>
+<div class="featured_product_image"><div class="featured_product_border_a"><img class="featured_product_image_view" src="{$src}"/></div></div>
+<div class="featured_product_price"><div class="featured_product_border_b">{$pricesHTML}</div></div>
+<div class="featured_product_shipping"><div class="featured_product_border_c">Versandkostenfrei!</a></div></div>
 
 EOD;
 
