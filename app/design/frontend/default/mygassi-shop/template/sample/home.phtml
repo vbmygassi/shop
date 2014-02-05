@@ -38,16 +38,10 @@ foreach($coll as $prod){
 	print <<<EOD
 <div class="featured_product">
 	<div class="featured_product_name"><a href="{$prodURL}">{$name}</a></div>
-	<div class="featured_product_image"><img class="featured_product_image_view" src="{$src}"/></div>
-	<div class="featured_product_additional">
-	<table cellpadding="0" cellspacing="0">
-		<tr>
-			<td>{$pricesHTML}</td>
-			<td style="border-left: none">Versandkostenfrei!</td>
-		</tr>
-	</table>
-	</div>
-	<br/>	
+	<div class="featured_product_image"><div class="featured_product_border_a"><img class="featured_product_image_view" src="{$src}"/></div></div>
+	<div class="featured_product_price"><div class="featured_product_border_b">{$pricesHTML}</div></div>
+	<div class="featured_product_shipping"><div class="featured_product_border_c">Versandkostenfrei!</a></div></div>
+	<div class="featured_product_closer"></div>
 </div>
 EOD;
 

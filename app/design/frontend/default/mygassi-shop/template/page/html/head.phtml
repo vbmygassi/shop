@@ -45,19 +45,29 @@
 <?php echo $this->getIncludes() ?>
 
 <script type="text/javascript">
+// 
 jQuery(document).ready(function(e){
-	if(null == jQuery(".featured_product_image_view")){
-		return false;
-	}
 	jQuery(window).resize(function(e){
-		resizeIMG();
+		resize();
 	});	
-	resizeIMG();
+	resize();
 });
-resizeIMG = function()
+resize = function()
 {
-	w = jQuery(window).width();
-	w -= 64 +64;
-	jQuery(".featured_product_image_view").attr("width", w);
+	fpiw = 0;
+	if(null != (target = jQuery(".featured_product_image"))){
+		fpiw = parseInt(target.width());
+	}
+	if(null != (target = jQuery(".featured_product_image_view"))){
+		target.attr("width", fpiw);
+	}
+	/*
+	if(null != (target = jQuery(".featured_product_price"))){
+		target.css("width", (fpiw /2) +"px");
+	}	
+	if(null != (target = jQuery(".featured_product_shipping"))){
+		target.css("width", (fpiw /2) +"px");
+	}
+	*/
 }
 </script>

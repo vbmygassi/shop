@@ -84,28 +84,55 @@ h1,
 	font-size: 12px;
 }
 
-.featured_product_additional table
+.featured_product_price
 {
-	width: 100%;
-	background-color: white;	
+	width: 50%;
+	background-color: white;
+	float: left;
+	text-align: center;
+	height: 64px;
 }
 
-.featured_product_additional table tr td
+.featured_product_shipping
 {
-	text-align: center;
-	border: solid 1px #ebebeb;
-	border-top: none; 
 	width: 50%;
-	padding: 12px;
+	text-align: center;
+	background-color: white;
+	float: left;
+	height: 64px;
 	font-size: 16px;
+}
+
+.featured_product_closer
+{
+	margin-bottom: 32px;
+	clear: both;
+}
+
+.featured_product_border_a
+{
+	border: solid 1px #ebebeb;
+}
+
+.featured_product_border_b
+{
+	border-left: solid 1px #ebebeb;
+	border-bottom: solid 1px #ebebeb;
+	height: 64px;
+}
+
+.featured_product_border_c
+{
+	border-left: solid 1px #ebebeb;
+	border-bottom: solid 1px #ebebeb;
+	border-right: solid 1px #ebebeb;
+	height: 64px;
 }
 
 .featured_product_image
 {
 	background-color: white;
 	text-align: center;
-	border: solid 1px #ebebeb;
-	padding: 12px;
 }
 
 .featured_product_image img
@@ -275,8 +302,8 @@ select,
 .validate-select,
 .input-text
 {
+	width: 90%;
 	font-size: 14px;
-	width: 100%;
 	padding: 12px;
 }
 
