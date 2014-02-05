@@ -54,20 +54,12 @@ jQuery(document).ready(function(e){
 });
 resize = function()
 {
-	fpiw = 0;
+	w = 640;
 	if(null != (target = jQuery(".featured_product_image"))){
-		fpiw = parseInt(target.width());
+		w = parseInt(target.width()) -8;
 	}
 	if(null != (target = jQuery(".featured_product_image_view"))){
-		target.attr("width", fpiw);
+		target.attr("width", w);
 	}
-	/*
-	if(null != (target = jQuery(".featured_product_price"))){
-		target.css("width", (fpiw /2) +"px");
-	}	
-	if(null != (target = jQuery(".featured_product_shipping"))){
-		target.css("width", (fpiw /2) +"px");
-	}
-	*/
 }
 </script>
