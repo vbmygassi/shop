@@ -51,7 +51,8 @@ a
 .onepage_bounds,
 .forgotten_password_bounds,
 .thanks_bounds,
-.cart_bounds 
+.cart_bounds, 
+.cart_empty_bounds 
 {
 	max-width: 834px;
 	margin: auto;
@@ -117,10 +118,6 @@ h1,
 	width: 100px;
 }
 
-.featured_product_add_to_cart
-{
-}
-
 .onepage,
 .featured_product,
 .featured_product_title,
@@ -129,7 +126,8 @@ h1,
 .block-cart,
 .forgotten_password_input,
 .thanks,
-.cart
+.cart,
+.cart_empty
 {
 	margin: 32px;
 }
@@ -146,7 +144,7 @@ h1,
 
 .std
 {
-	margin-bottom: 16px;
+	margin-bottom: 32px;
 }
 
 ul, ol, li 
@@ -163,6 +161,7 @@ fieldset
 	padding: 0px;
 }
 
+#shopping-cart-table,
 .cart-table
 {
 	padding: 0px;
@@ -199,6 +198,7 @@ h4,
 .col-1 h3,
 #shopping-cart-totals-table
 {
+	margin-top: 32px;
 	font-size: 16px;
 	line-height: 24px;
 }
@@ -210,6 +210,7 @@ h4,
 	width: 100px;
 }
 
+.f-left,
 #checkout-review-table .first,
 .buttons-set .required,
 .required em,
@@ -279,4 +280,36 @@ select,
 	padding: 12px;
 }
 
+input[type="button"],
+input[type="submit"],
+button
+{
+	background: #55a500;
+	width: 100%;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+	height: 56px;
+	font-size: 16px;
+	color: white;
+	font-family: "Rock Salt"; 
+}
 
+.btn-empty,
+.btn-update,
+.btn-continue
+{
+	width: 200px;
+	font-size: 10px;
+}
+
+form 
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.additional-information
+{
+	text-align: left;
+}
