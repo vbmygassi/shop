@@ -16,19 +16,23 @@ a
 }
 
 #checkoutSteps,
-.page-title,
 .col-right,
 .product-view,
 .featured_bounds,
+.onepage_bounds,
+.forgotten_password_bounds,
+.thanks_bounds,
 .cart_bounds 
 {
 	max-width: 834px;
 	margin: auto;
 }
 
+h1,
 .featured_product_title
 {
 	font-size: 24px;
+	font-weight: bold;
 }
 
 .box-description
@@ -42,6 +46,7 @@ a
 {
 	font-size: 16px;
 	font-weight: bold;
+	margin-bottom: 16px;
 }
 
 .featured_product_description 
@@ -87,11 +92,14 @@ a
 {
 }
 
+.onepage,
 .featured_product,
 .featured_product_title,
 .product-essential,
 .product-collateral,
 .block-cart,
+.forgotten_password_input,
+.thanks,
 .cart
 {
 	margin: 32px;
@@ -112,18 +120,7 @@ a
 	margin-bottom: 16px;
 }
 
-.messages,
-.success-msg
-{
-	list-style: none;
-}
-
-.success-msg ul li 
-{
-	list-style: none;
-}
-
-ul, li 
+ul, ol, li 
 {
 	margin-left: 0px;
 	padding-left: 0px;
@@ -158,7 +155,99 @@ fieldset
 	background-color: white;
 }
 
-.col-2
+.discount-form .input-box 
+{
+	margin-bottom: 16px;
+}
+
+.thanks p,
+.sp-methods,
+h2,
+h3,
+h4,
+.col-1,
+.col-2,
+.col-1 h3,
+#shopping-cart-totals-table
 {
 	font-size: 16px;
+	line-height: 24px;
 }
+
+.a-right .price 
+{
+	text-align: right;
+	display: inline-block;
+	width: 100px;
+}
+
+#checkout-review-table .first,
+.buttons-set .required,
+.required em,
+.col-2 h3,
+.col-1 .ul,
+.col-1 p,
+.col-1 h4,
+.number,
+.step-title a, 
+.step-title h2,
+.block-progress
+{
+	display: none;
+}
+
+.form-list label,
+.sp-methods label,
+.control label
+{
+	font-size: 16px;
+	margin-left: 12px;
+}
+
+.col2-set
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+label
+{
+	font-size: 10px;
+}
+
+.forgotten_password
+{
+	font-size: 12px;
+	margin-top: 16px;
+	margin-bottom: 32px;
+}
+
+.form-list li ul li,
+.form-list li
+{
+	margin-bottom: 8px;
+}
+
+.form-list
+{
+	margin-bottom: 12px;
+}
+
+.error-msg ul li span,
+.validation-advice
+{
+	color: red;
+	margin-top: 4px;
+	font-size: 12px;
+}
+
+select,
+.validate-select,
+.input-text
+{
+	font-size: 14px;
+	width: 100%;
+	padding: 12px;
+}
+
+
