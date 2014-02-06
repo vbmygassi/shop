@@ -43,7 +43,9 @@ a
 .forgotten_password_bounds,
 .thanks_bounds,
 .cart_bounds, 
-.cart_empty_bounds 
+.cart_empty_bounds, 
+.print_bounds,
+.order_bounds
 {
 	max-width: 834px;
 	margin: auto;
@@ -60,8 +62,8 @@ h1,
 .product-name
 {
 	font-size: 16px;
-	font-weight: bold;
 	margin-bottom: 16px;
+	font-weight: bold;
 }
 
 .featured_product_description 
@@ -137,7 +139,9 @@ h1,
 .forgotten_password_input,
 .thanks,
 .cart,
-.cart_empty
+.cart_empty,
+.print,
+.order
 {
 	margin: 32px;
 }
@@ -184,6 +188,7 @@ fieldset
 	padding: 0px;
 }
 
+#checkout-review-table,
 #shopping-cart-table
 {
 	padding: 0px;
@@ -211,6 +216,12 @@ fieldset
 	margin-bottom: 16px;
 }
 
+.allow
+{
+	font-size: 16px;
+	line-height: 24px;
+}
+
 .thanks p,
 .sp-methods,
 h2,
@@ -233,8 +244,8 @@ h4,
 	width: 100px;
 }
 
-.f-left,
 #checkout-review-table .first,
+#payment_form_payone_wallet,
 .buttons-set .required,
 .required em,
 .col-2 h3,
@@ -244,7 +255,8 @@ h4,
 .number,
 .step-title a, 
 .step-title h2,
-.block-progress
+.block-progress,
+.f-left,
 {
 	display: none;
 }
@@ -298,7 +310,7 @@ select,
 .validate-select,
 .input-text
 {
-	width: 100%;
+	width: 90%;
 	font-size: 14px;
 	padding: 12px;
 }
@@ -322,7 +334,7 @@ button
 .btn-update,
 .btn-continue
 {
-	width: 200px;
+	width: 33%;
 	font-size: 10px;
 }
 
@@ -361,3 +373,24 @@ form
 	width: 12px;
 	font-size: 12px;
 }
+
+#checkoutSteps,
+.cart-collaterals,
+.thanks
+{
+	background-color: white;
+	padding: 32px;
+}
+
+#checkout-review-submit
+{
+	margin-top: 32px;
+}
+
+.cart fieldset
+{
+	padding: 32px;
+	background-color: white;
+}
+
+

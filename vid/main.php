@@ -1,10 +1,9 @@
 <?php
 /*
-
  Supidupi Funkidub Very Important Access Control List Based Class Implementation
- <abstract> everything *can have a descent policy : current *user has a role and such.
+ <abstract> everything *can have a descent policy 
+	: current *user has a role and such.
  The Very Important Delegate (VID) delegates.
-
  */
 
 include("iacl.php");
