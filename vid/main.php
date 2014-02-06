@@ -7,13 +7,13 @@
 
  */
 
-include("iaclfuck.php");
+include("iacl.php");
 include("policy.php");
 include("acl.php");
 include("roles.php");
 include("delegateaggregator.php");
 
-class VampaPoodoh implements IACLFuck
+class VampaPoodoh implements IACL
 {
 	private $policy; 
 	private $acl; 
@@ -30,8 +30,8 @@ class VampaPoodoh implements IACLFuck
 	
 		//
 		$task = new DelegateAggregator();
-		$task->addDMethod("fuck1st", Roles::MONKEY);
-		$task->addDMethod("fuck2nd", Roles::KAKAMAN);
+		$task->addDMethod("test1st", Roles::MONKEY);
+		$task->addDMethod("test2nd", Roles::KAKAMAN);
 		
 		// 
 		$d = $task->getMethodIndex($this->getRole());
@@ -61,13 +61,13 @@ class VampaPoodoh implements IACLFuck
 		return $this->acl->currentRole;
 	}
 
-	public function fuck1st()
+	public function test1st()
 	{
 		// enabledisable "save" button
 		print "Yuhee, method for the monkeyman." . PHP_EOL;
 	}
 
-	public function fuck2nd()
+	public function test2nd()
 	{
 		// toggledisable "save" button
 		print "Yuhhe, method for the kakaman!" . PHP_EOL;

@@ -1,6 +1,6 @@
 <?php
 
-interface IACLFuck
+interface IACL
 {
 	public function adaptPolicy($policy);
 	public function setACL($acl);
