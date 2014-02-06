@@ -52,14 +52,8 @@ a
 h1,
 .featured_product_title
 {
-	font-size: 24px;
-	font-weight: bold;
-}
-
-.box-description
-{
 	font-size: 16px;
-	line-height: 24px;
+	font-weight: bold;
 }
 
 .featured_product_name,
@@ -154,10 +148,11 @@ h1,
 
 .box-description
 {
-	line-height: 32px;
+	line-height: 24px;
 	border: 1px solid #ebebeb;
 	padding: 32px;
 	background-color: white;
+	font-size: 16px;
 }
 
 #checkoutSteps,
@@ -189,11 +184,11 @@ fieldset
 	padding: 0px;
 }
 
-#shopping-cart-table,
-.cart-table
+#shopping-cart-table
 {
 	padding: 0px;
 	border-spacing: 0px;
+	width: 100%;
 }
 
 .cart-table tr td
@@ -303,7 +298,7 @@ select,
 .validate-select,
 .input-text
 {
-	width: 90%;
+	width: 100%;
 	font-size: 14px;
 	padding: 12px;
 }
@@ -356,3 +351,13 @@ form
 	margin-right: 16px;
 }
 
+.featured_product_add_to_cart
+{
+	margin-top: 32px;
+}
+
+.a-center .qty
+{
+	width: 12px;
+	font-size: 12px;
+}

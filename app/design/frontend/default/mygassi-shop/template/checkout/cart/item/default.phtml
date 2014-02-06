@@ -54,13 +54,13 @@ EOD;
 
 <?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
     <td>
-        <h2 class="product-name">
+        <span class="product-name">
         <?php if ($this->hasProductUrl()):?>
             <a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->htmlEscape($this->getProductName()) ?></a>
         <?php else: ?>
             <?php echo $this->htmlEscape($this->getProductName()) ?>
         <?php endif; ?>
-        </h2>
+        </span>
         <?php if ($_options = $this->getOptionList()):?>
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
@@ -89,15 +89,15 @@ EOD;
             <?php echo $addInfoBlock->setItem($_item)->toHtml() ?>
         <?php endif;?>
     </td>
-    
-<?php /**
+   
+<?php /** 
 	<td class="a-center">
 		<?php if ($isVisibleProduct): ?>
 			<a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><?php echo $this->__('Edit') ?></a>
+			<a href="<?php echo $this->getConfigureUrl() ?>" title="[e]">[e]</a>
 		<?php endif ?>
 	</td>
 **/ ?>
-
 
     <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
     <td class="a-center">
@@ -205,12 +205,13 @@ EOD;
         </td>
         <?php endif; ?>
     <?php endif; ?>
+
+
     
-<?php /**
 	<td class="a-center">
 		<input name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" title="<?php echo $this->__('Qty') ?>" class="input-text qty" maxlength="12" />
 	</td>
-**/ ?>
+
 
     <?php if (($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()) && !$_item->getNoSubtotal()): ?>
     <td class="a-right">
@@ -309,3 +310,4 @@ EOD;
     <td class="a-center"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a></td>
 **>/ ?>
 /tr>
+
