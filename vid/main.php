@@ -13,7 +13,7 @@ include("acl.php");
 include("roles.php");
 include("delegateaggregator.php");
 
-class Scheisse implements IACLFuck
+class VampaPoodoh implements IACLFuck
 {
 	private $policy; 
 	private $acl; 
@@ -74,10 +74,8 @@ class Scheisse implements IACLFuck
 	}
 }
 
-class Kack extends Scheisse
+class SiteClassAdapterFilterImpl extends VampaPoodoh
 {
 }
 
-function main(){ 
-	new Kack(); 
-} main();
+function main(){ new SiteClassAdapterFilterImpl(); } main();
