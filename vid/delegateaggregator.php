@@ -9,12 +9,12 @@ class DelegateAggregator
 		$this->ary = array();	
 	}
 		
-	public function addDelegate($method, $role)
+	public function addDMethod($method, $role)
 	{
 		$this->ary[$role] = $method;
 	}
 
-	public function delegate($role)
+	public function getMethodIndex($role)
 	{
 		if(array_key_exists($role, $this->ary)){
 			return $this->ary[$role];

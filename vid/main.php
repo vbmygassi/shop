@@ -24,17 +24,17 @@ class Scheisse implements IACLFuck
 		$this->adaptPolicy(new Policy(Roles::KAKAMAN));
 		
 		// diss class has a user like diss:
-		$this->setACL(new ACL(Roles::KAKAMAN));
-		// $this->setACL(new ACL(Roles::MONKEY));
+		// $this->setACL(new ACL(Roles::KAKAMAN));
+		$this->setACL(new ACL(Roles::MONKEY));
 		// $this->setACL(new ACL(Roles::MONKEYMONKEY));
 	
 		//
 		$task = new DelegateAggregator();
-		$task->addDelegate("fuck1st", Roles::MONKEY);
-		$task->addDelegate("fuck2nd", Roles::KAKAMAN);
+		$task->addDMethod("fuck1st", Roles::MONKEY);
+		$task->addDMethod("fuck2nd", Roles::KAKAMAN);
 		
 		// 
-		$d = $task->delegate($this->getRole());
+		$d = $task->getMethodIndex($this->getRole());
 		if(in_array($d, get_class_methods($this))){
 			$this->$d(); 
 		}
