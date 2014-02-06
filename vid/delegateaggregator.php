@@ -1,6 +1,6 @@
 <?php
 
-class DelegateAggregator
+class DelegateAggregatorSiteClassAdpaterFactoryImpl
 {
 	public $ary;
 	

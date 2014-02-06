@@ -20,23 +20,38 @@ class VampaPoodoh implements IACL
 	public function __construct()
 	{
 		// diss class has a policy like diss:
-		$this->adaptPolicy(new Policy(Roles::KAKAMAN));
-		
+		$this->adaptPolicy(new Policy(Roles::MONKEY));
+		// 	
 		// diss class has a user like diss:
 		// $this->setACL(new ACL(Roles::KAKAMAN));
 		$this->setACL(new ACL(Roles::MONKEY));
 		// $this->setACL(new ACL(Roles::MONKEYMONKEY));
-	
 		//
-		$task = new DelegateAggregator();
+		$this->test();
+		return true;
+	}
+
+	protected function test()
+	{		 
+		$task = new DelegateAggregatorSiteClassAdpaterFactoryImpl();
 		$task->addDMethod("test1st", Roles::MONKEY);
 		$task->addDMethod("test2nd", Roles::KAKAMAN);
 		
-		// 
+		// checks against policy of runtime
+		if($this->policy->role > $this->acl->currentRole){
+			print "not allowed: tdschäck the policy" . PHP_EOL;
+			return false;
+		}
+		
+		// fetches very important delegate method	
 		$d = $task->getMethodIndex($this->getRole());
 		if(in_array($d, get_class_methods($this))){
 			$this->$d(); 
 		}
+		else {
+			print "no delegate for: " . $this->getRole() . PHP_EOL;
+		}
+		return true;
 	}
 
 	// interface method impl
@@ -63,18 +78,18 @@ class VampaPoodoh implements IACL
 	public function test1st()
 	{
 		// enabledisable "save" button
-		print "Yuhee, method for the monkeyman." . PHP_EOL;
+		print "Yuhee, task for the monkeyman." . PHP_EOL;
 	}
 
 	public function test2nd()
 	{
 		// toggledisable "save" button
-		print "Yuhhe, method for the kakaman!" . PHP_EOL;
+		print "Yuhhe, task for the kakaman!" . PHP_EOL;
 	}
 }
 
-class SiteClassAdapterFilterImpl extends VampaPoodoh
-{
-}
+class SiteClassAdapterFilterImpl extends VampaPoodoh{ }
+
+
 
 function main(){ new SiteClassAdapterFilterImpl(); } main();
